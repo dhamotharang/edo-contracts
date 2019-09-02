@@ -9,22 +9,22 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct Agreement
     {
         [JsonConstructor]
-        public Agreement(Guid id, string tariffCode, string currencyCode, string mealPlan, string roomPlan,
+        public Agreement(Guid id, string tariffCode, string currencyCode, string boardBasis, string mealPlan,
             DateTime deadlineDate, int contractTypeId, bool isAvailableImmediately, bool isDynamic, bool isSpecial, AgreementPrice price,
             List<RoomPrice> roomPrices, List<RoomDetails> rooms, string contractType, Dictionary<string, string> remarks)
         {
             Id = id;
-            TariffCode = tariffCode;
-            MealPlan = mealPlan;
-            BoardBasis = roomPlan;
+            BoardBasis = boardBasis;
             CurrencyCode = currencyCode;
-            DeadlineDate = deadlineDate;
             ContractType = contractType;
             ContractTypeId = contractTypeId;
+            DeadlineDate = deadlineDate;
             IsAvailableImmediately = isAvailableImmediately;
             IsDynamic = isDynamic;
             IsSpecial = isSpecial;
+            MealPlan = mealPlan;
             Price = price;
+            TariffCode = tariffCode;
 
             Remarks = remarks ?? new Dictionary<string, string>(0);
             RoomPrices = roomPrices ?? new List<RoomPrice>(0);

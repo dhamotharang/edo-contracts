@@ -29,22 +29,6 @@ namespace HappyTravel.EdoContracts.Accommodations
             RoomDetails = roomDetails ?? new List<RoomDetails>(0);
         }
 
-
-        public AvailabilityRequest(in AvailabilityRequest request, in Location location)
-        {
-            CheckInDate = request.CheckInDate;
-            CheckOutDate = request.CheckOutDate;
-            Filters = request.Filters;
-            AccommodationIds = request.AccommodationIds;
-            Nationality = request.Nationality;
-            PropertyTypes = request.PropertyTypes;
-            Ratings = request.Ratings;
-            Residency = request.Residency;
-            RoomDetails = request.RoomDetails;
-
-            Location = location;
-        }
-
         
         [Required]
         public List<string> AccommodationIds { get; }

@@ -9,12 +9,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct RoomPrice
     {
         [JsonConstructor]
-        public RoomPrice(DateTime fromDate, DateTime toDate, decimal gross, decimal nett, PriceTypes type)
+        public RoomPrice(DateTime fromDate, DateTime toDate, decimal gross, decimal net, PriceTypes type)
         {
             FromDate = fromDate;
             ToDate = toDate;
             Gross = gross;
-            Nett = nett;
+            Net = net;
             Type = type;
         }
 
@@ -22,7 +22,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public DateTime FromDate { get; }
         public DateTime ToDate { get; }
         public decimal Gross { get; }
-        public decimal Nett { get; }
+        public decimal Net { get; }
         public PriceTypes Type { get; }
     }
 }

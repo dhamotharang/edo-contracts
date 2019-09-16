@@ -6,6 +6,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
     [JsonConverter(typeof(StringEnumConverter))]
     public enum DirectionTypes
     {
+        PointOfInterest = 0,
         Airport = 1,
         Bus = 2,
         Center = 3,

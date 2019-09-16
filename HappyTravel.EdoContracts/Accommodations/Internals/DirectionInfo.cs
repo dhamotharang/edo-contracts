@@ -8,9 +8,10 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct DirectionInfo
     {
         [JsonConstructor]
-        public DirectionInfo(string name, double distance, double time, DirectionTypes type)
+        public DirectionInfo(string name, double distance, double time, DirectionTypes type, string description = null)
         {
             Name = name;
+            Description = description ?? string.Empty;
             Distance = distance;
             Time = time;
             Type = type;
@@ -19,8 +20,10 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
         public string Name { get; }
 
+        public string Description { get; }
+
         public double Distance { get; }
-        
+
         public double Time { get; }
 
         public DirectionTypes Type { get; }

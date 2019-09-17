@@ -7,17 +7,19 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct ScheduleInfo
     {
         [JsonConstructor]
-        public ScheduleInfo(string checkInTime, string portersStartTime, string portersEndTime, string roomServiceStartTime, string roomServiceEndTime)
+        public ScheduleInfo(string checkInTime,string checkOutTime, string portersStartTime, string portersEndTime, string roomServiceStartTime, string roomServiceEndTime)
         {
             CheckInTime = checkInTime;
             PortersStartTime = portersStartTime;
             PortersEndTime = portersEndTime;
             RoomServiceStartTime = roomServiceStartTime;
             RoomServiceEndTime = roomServiceEndTime;
+            CheckOutTime = checkOutTime;
         }
 
 
         public string CheckInTime { get; }
+        public string CheckOutTime { get; }
 
         public string PortersStartTime { get; }
 

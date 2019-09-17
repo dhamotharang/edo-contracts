@@ -15,6 +15,13 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
         OpenCountry = 6,
         Mountains = 7,
         Peripherals = 8,
-        CloseToCityCentre = 9
+        CloseToCityCentre = 9,
+        City = 10,
+        Island = 11,
+        Ranch = 12,
+        Boutique = 13,
+        WaterFront = 14,
+        OceanFront = 15,
+        Desert = 16,
     }
 }

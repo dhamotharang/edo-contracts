@@ -7,7 +7,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct ContactInfo
     {
         [JsonConstructor]
-        public ContactInfo(string email, string fax, string telephone,string website)
+        public ContactInfo(string email, string telephone, string website, string fax = null)
         {
             Email = email;
             Fax = fax;

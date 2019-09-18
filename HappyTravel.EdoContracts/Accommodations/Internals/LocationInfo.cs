@@ -10,8 +10,8 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct LocationInfo
     {
         [JsonConstructor]
-        public LocationInfo(string country, string locality, string localityZone, in GeoPoint coordinates, string address, bool isHistoricalBuilding,
-            LocationDescriptionCodes locationDescriptionCode, List<DirectionInfo> directions)
+        public LocationInfo(string country, string locality, string localityZone, in GeoPoint coordinates, string address,
+            LocationDescriptionCodes locationDescriptionCode, List<DirectionInfo> directions, bool? isHistoricalBuilding = null)
         {
             Address = address;
             Coordinates = coordinates;
@@ -28,7 +28,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public string Address { get; }
         public GeoPoint Coordinates { get; }
         public string Country { get; }
-        public bool IsHistoricalBuilding { get; }
+        public bool? IsHistoricalBuilding { get; }
         public string Locality { get; }
         public string LocalityZone { get; }
         public LocationDescriptionCodes LocationDescriptionCode { get; }

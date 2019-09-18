@@ -10,9 +10,9 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct AccommodationDetails
     {
         [JsonConstructor]
-        public AccommodationDetails(string id, string name, List<string> accommodationAmenities, Dictionary<string, string> additionalInfo,
-            string category, in ContactInfo contacts, string description, in LocationInfo location, List<Picture> pictures, AccommodationRatings rating,
-            List<string> roomAmenities, in ScheduleInfo schedule, List<TextualDescription> textualDescriptions)
+        public AccommodationDetails(string id, string name, List<string> accommodationAmenities, string category, in ContactInfo contacts,
+                 in LocationInfo location, List<Picture> pictures, AccommodationRatings rating, List<string> roomAmenities,
+                 in ScheduleInfo schedule, List<TextualDescription> textualDescriptions, Dictionary<string, string> additionalInfo = null, string description = null)
         {
             Id = id;
             AccommodationAmenities = accommodationAmenities ?? new List<string>(0);

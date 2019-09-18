@@ -6,9 +6,9 @@ using HappyTravel.EdoContracts.Accommodations.Internals;
 namespace HappyTravel.EdoContracts.Accommodations
 {
     [StructLayout(LayoutKind.Auto)]
-    public readonly struct DeadlineInfo
+    public readonly struct DeadlineDetails
     {
-        public DeadlineInfo(int availabilityId, string tariffCode, DateTime date, List<CancellationPolicy> policies, List<string> remarks)
+        public DeadlineDetails(int availabilityId, string tariffCode, DateTime date, List<CancellationPolicy> policies, List<string> remarks)
         {
             AvailabilityId = availabilityId;
             Date = date;

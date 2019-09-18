@@ -10,8 +10,8 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     {
         [JsonConstructor]
         public SlimAccommodationDetails(string id, Dictionary<string, bool> accommodationAmenities, Dictionary<string, string> additionalInfo,
-            List<FeatureInfo> features, SlimLocationInfo location, string name, Picture picture,
-            AccommodationRatings rating, Dictionary<string, bool> roomAmenities, TextualDescription generalTextualDescription)
+            List<FeatureInfo> features, SlimLocationInfo location, string name, Picture picture, AccommodationRatings rating, 
+            Dictionary<string, bool> roomAmenities, TextualDescription generalTextualDescription, PropertyTypes type)
         {
             Id = id;
             AccommodationAmenities = accommodationAmenities ?? new Dictionary<string, bool>(0);
@@ -23,6 +23,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             Picture = picture;
             Rating = rating;
             RoomAmenities = roomAmenities ?? new Dictionary<string, bool>(0);
+            Type = type;
         }
 
 
@@ -32,6 +33,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public string Name { get; }
         public Picture Picture { get; }
         public AccommodationRatings Rating { get; }
+        public PropertyTypes Type { get; }
         public Dictionary<string, bool> AccommodationAmenities { get; }
         public Dictionary<string, string> AdditionalInfo { get; }
         public List<FeatureInfo> Features { get; }

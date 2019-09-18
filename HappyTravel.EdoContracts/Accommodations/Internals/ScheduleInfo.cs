@@ -11,15 +11,16 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
                  string roomServiceStartTime = null, string roomServiceEndTime = null)
         {
             CheckInTime = checkInTime;
-            PortersStartTime = portersStartTime;
-            PortersEndTime = portersEndTime;
-            RoomServiceStartTime = roomServiceStartTime;
-            RoomServiceEndTime = roomServiceEndTime;
             CheckOutTime = checkOutTime;
+            PortersStartTime = portersStartTime ?? string.Empty;
+            PortersEndTime = portersEndTime ?? string.Empty;
+            RoomServiceStartTime = roomServiceStartTime ?? string.Empty;
+            RoomServiceEndTime = roomServiceEndTime ?? string.Empty;
         }
 
 
         public string CheckInTime { get; }
+
         public string CheckOutTime { get; }
 
         public string PortersStartTime { get; }

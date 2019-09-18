@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using HappyTravel.EdoContracts.Accommodations.Enums;
 using HappyTravel.EdoContracts.Accommodations.Internals;
+using HappyTravel.EdoContracts.General.Enums;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations
@@ -11,7 +11,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct BookingRequest
     {
         [JsonConstructor]
-        public BookingRequest(string accommodationId, string availabilityId, in DateTime checkInDate, in DateTime checkOutDate, string nationality,
+        public BookingRequest(string accommodationId, long availabilityId, in DateTime checkInDate, in DateTime checkOutDate, string nationality,
             PaymentMethods paymentMethod, string referenceCode, string residency, string tariffCode, List<BookingRoomDetails> roomDetails,
             List<Feature> features, bool rejectIfUnavailable = true)
         {
@@ -33,7 +33,7 @@ namespace HappyTravel.EdoContracts.Accommodations
 
         public string AccommodationId { get; }
 
-        public string AvailabilityId { get; }
+        public long AvailabilityId { get; }
 
         public DateTime CheckInDate { get; }
 

@@ -11,33 +11,33 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct BookingDetails
     {
         [JsonConstructor]
-        public BookingDetails(string referenceCode, BookingStatusCodes status,
-            DateTime checkInDate, DateTime checkOutDate, string city,
-            string accommodationId, string tariffCode, int contractTypeId, DateTime deadline, 
-            List<BookingRoomDetailsWithPrice> roomDetails)
+        public BookingDetails(string referenceCode, BookingStatusCodes status, string accommodationId, string bookingCode, DateTime checkInDate, 
+            DateTime checkOutDate, string contractDescription, DateTime deadline, string locality, string tariffCode, List<BookingRoomDetailsWithPrice> roomDetails)
         {
-            ReferenceCode = referenceCode;
-            Status = status;
+            AccommodationId = accommodationId;
+            BookingCode = bookingCode;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
-            City = city;
-            AccommodationId = accommodationId;
-            TariffCode = tariffCode;
-            ContractTypeId = contractTypeId;
+            ContractDescription = contractDescription;
             Deadline = deadline;
+            Locality = locality;
+            ReferenceCode = referenceCode;
             RoomDetails = roomDetails ?? new List<BookingRoomDetailsWithPrice>(0);
+            Status = status;
+            TariffCode = tariffCode;
         }
 
-		
-        public string ReferenceCode { get; }
-        public BookingStatusCodes Status { get; }
+
+        public string AccommodationId { get; }
+        public string BookingCode { get; }
         public DateTime CheckInDate { get; }
         public DateTime CheckOutDate { get; }
-        public string City { get; }
-        public string AccommodationId { get; }
-        public string TariffCode { get; }
-        public int ContractTypeId { get; }
+        public string ContractDescription { get; }
         public DateTime Deadline { get; }
+        public string Locality { get; }
+        public string ReferenceCode { get; }
         public List<BookingRoomDetailsWithPrice> RoomDetails { get; }
+        public BookingStatusCodes Status { get; }
+        public string TariffCode { get; }
     }
 }

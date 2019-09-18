@@ -7,7 +7,8 @@
     <Company>HappyTravel</Company>
     <Authors>Vadim Mingazhev, Kirill Taran</Authors>
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-    <Version>1.0.5</Version>
+    <Version>1.0.8</Version>
+    <PackageReleaseNotes>Added fixes and properties to booking details</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

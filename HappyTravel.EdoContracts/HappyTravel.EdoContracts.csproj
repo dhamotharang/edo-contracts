@@ -7,8 +7,8 @@
     <Company>HappyTravel</Company>
     <Authors>Hasmik Harutyunyan, Vadim Mingazhev, Kirill Taran</Authors>
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-    <Version>1.0.13</Version>
-    <PackageReleaseNotes>Ameneties type have been changed from Dictionsry&lt;string, bool&gt; to List&lt;string&gt;</PackageReleaseNotes>
+    <Version>1.0.14</Version>
+    <PackageReleaseNotes>Accommodation.Description renamed to TypeDescription</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

@@ -11,15 +11,14 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public AccommodationDetails(string id, string name, List<string> accommodationAmenities, Dictionary<string, string> additionalInfo,
-            string category, in ContactInfo contacts, string description, in LocationInfo location, List<Picture> pictures, AccommodationRatings rating,
-            List<string> roomAmenities, in ScheduleInfo schedule, List<TextualDescription> textualDescriptions, PropertyTypes type)
+            string category, in ContactInfo contacts, in LocationInfo location, List<Picture> pictures, AccommodationRatings rating,
+            List<string> roomAmenities, in ScheduleInfo schedule, List<TextualDescription> textualDescriptions, PropertyTypes type, string typeDescription)
         {
             Id = id;
             AccommodationAmenities = accommodationAmenities ?? new List<string>(0);
             AdditionalInfo = additionalInfo ?? new Dictionary<string, string>(0);
             Category = category;
             Contacts = contacts;
-            Description = description;
             Rating = rating;
             Location = location;
             Name = name;
@@ -28,6 +27,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             Schedule = schedule;
             TextualDescriptions = textualDescriptions ?? new List<TextualDescription>(0);
             Type = type;
+            TypeDescription = typeDescription;
         }
 
 
@@ -50,11 +50,6 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     Contact info
         /// </summary>
         public ContactInfo Contacts { get; }
-
-        /// <summary>
-        ///     Description of an accommodation style
-        /// </summary>
-        public string Description { get; }
 
         /// <summary>
         ///     Location info
@@ -85,6 +80,11 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The type of a property
         /// </summary>
         public PropertyTypes Type { get; }
+
+        /// <summary>
+        ///     Description of a property type
+        /// </summary>
+        public string TypeDescription { get; }
 
         /// <summary>
         ///     Dictionary of amenities available in an accommodation

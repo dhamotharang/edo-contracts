@@ -7,7 +7,7 @@
     <Company>HappyTravel</Company>
     <Authors>Vadim Mingazhev, Kirill Taran</Authors>
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-    <Version>1.0.10</Version>
+    <Version>1.0.11</Version>
     <PackageReleaseNotes>DeadlineInfo have been renamed to DeadlineDetails</PackageReleaseNotes>
   </PropertyGroup>
 

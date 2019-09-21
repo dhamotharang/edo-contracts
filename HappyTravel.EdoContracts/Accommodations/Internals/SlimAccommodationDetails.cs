@@ -9,12 +9,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimAccommodationDetails
     {
         [JsonConstructor]
-        public SlimAccommodationDetails(string id, Dictionary<string, bool> accommodationAmenities, Dictionary<string, string> additionalInfo,
+        public SlimAccommodationDetails(string id, List<string> accommodationAmenities, Dictionary<string, string> additionalInfo,
             List<FeatureInfo> features, SlimLocationInfo location, string name, Picture picture, AccommodationRatings rating, 
-            Dictionary<string, bool> roomAmenities, TextualDescription generalTextualDescription, PropertyTypes type)
+            List<string> roomAmenities, TextualDescription generalTextualDescription, PropertyTypes type)
         {
             Id = id;
-            AccommodationAmenities = accommodationAmenities ?? new Dictionary<string, bool>(0);
+            AccommodationAmenities = accommodationAmenities ?? new List<string>(0);
             AdditionalInfo = additionalInfo ?? new Dictionary<string, string>(0);
             Features = features ?? new List<FeatureInfo>(0);
             GeneralTextualDescription = generalTextualDescription;
@@ -22,7 +22,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             Name = name;
             Picture = picture;
             Rating = rating;
-            RoomAmenities = roomAmenities ?? new Dictionary<string, bool>(0);
+            RoomAmenities = roomAmenities ?? new List<string>(0);
             Type = type;
         }
 
@@ -34,9 +34,9 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public Picture Picture { get; }
         public AccommodationRatings Rating { get; }
         public PropertyTypes Type { get; }
-        public Dictionary<string, bool> AccommodationAmenities { get; }
+        public List<string> AccommodationAmenities { get; }
         public Dictionary<string, string> AdditionalInfo { get; }
         public List<FeatureInfo> Features { get; }
-        public Dictionary<string, bool> RoomAmenities { get; }
+        public List<string> RoomAmenities { get; }
     }
 }

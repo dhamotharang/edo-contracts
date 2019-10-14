@@ -7,7 +7,6 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
     public enum PriceTypes
     {
         Room = 1,
-        ExtraBed = 2,
-        Cot = 3
+        Supplement = 2
     }
 }

@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace HappyTravel.EdoContracts.Accommodations.Enums
+namespace HappyTravel.EdoContracts.General.Enums
 {
     [JsonConverter(typeof(StringEnumConverter))]
     public enum PriceTypes
     {
         Room = 1,
-        Supplement = 2
+        Supplement = 2,
+        Agreement = 3
     }
 }

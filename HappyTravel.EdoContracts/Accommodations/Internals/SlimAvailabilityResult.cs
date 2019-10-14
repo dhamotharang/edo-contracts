@@ -8,16 +8,14 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimAvailabilityResult
     {
         [JsonConstructor]
-        public SlimAvailabilityResult(SlimAccommodationDetails accommodationDetails, List<Agreement> agreements, bool isPromo)
+        public SlimAvailabilityResult(SlimAccommodationDetails accommodationDetails, List<Agreement> agreements)
         {
             AccommodationDetails = accommodationDetails;
             Agreements = agreements ?? new List<Agreement>(0);
-            IsPromo = isPromo;
         }
 
 
         public SlimAccommodationDetails AccommodationDetails { get; }
         public List<Agreement> Agreements { get; }
-        public bool IsPromo { get; }
     }
 }

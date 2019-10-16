@@ -35,7 +35,7 @@ namespace HappyTravel.EdoContracts.GeoData
         public LocationTypes Type { get; }
 
 
-        public override bool Equals(object obj) => obj is Location other && Equals(other);
+        public override bool Equals(object? obj) => obj is Location other && Equals(other);
 
 
         public bool Equals(Location other)

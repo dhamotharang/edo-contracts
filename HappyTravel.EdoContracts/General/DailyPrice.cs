@@ -7,7 +7,7 @@ namespace HappyTravel.EdoContracts.General
     public readonly struct DailyPrice
     {
         [JsonConstructor]
-        public DailyPrice(DateTime fromDate, DateTime toDate, string currencyCode, decimal netTotal, decimal gross, PriceTypes type = PriceTypes.Room, string description = null)
+        public DailyPrice(DateTime fromDate, DateTime toDate, string currencyCode, decimal netTotal, decimal gross, PriceTypes type = PriceTypes.Room, string? description = null)
         {
             CurrencyCode = currencyCode;
             Description = description ?? string.Empty;

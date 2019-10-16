@@ -10,7 +10,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct RoomDetails
     {
         [JsonConstructor]
-        public RoomDetails(int adultsNumber, int childrenNumber = 0, List<int> childrenAges = null, RoomTypes type = RoomTypes.NotSpecified, 
+        public RoomDetails(int adultsNumber, int childrenNumber = 0, List<int>? childrenAges = null, RoomTypes type = RoomTypes.NotSpecified, 
             bool isExtraBedNeeded = false, bool isCotNeeded = false)
         {
             AdultsNumber = adultsNumber;

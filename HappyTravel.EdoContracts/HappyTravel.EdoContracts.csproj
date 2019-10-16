@@ -2,13 +2,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.0;netcoreapp2.2</TargetFrameworks>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company>HappyTravel</Company>
     <Authors>Hasmik Harutyunyan, Vadim Mingazhev, Kirill Taran</Authors>
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
     <Version>1.0.18</Version>
-    <PackageReleaseNotes>Pax's initials removed</PackageReleaseNotes>
+    <PackageReleaseNotes>Pax's initials removed.
+Enabled nullable reference types</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

@@ -27,7 +27,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public List<SlimAvailabilityResult> Results { get; }
         
 
-        public override bool Equals(object obj) => obj is AvailabilityDetails other && Equals(other);
+        public override bool Equals(object? obj) => obj is AvailabilityDetails other && Equals(other);
 
         public bool Equals(AvailabilityDetails other)
         {

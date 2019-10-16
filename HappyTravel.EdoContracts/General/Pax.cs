@@ -8,13 +8,13 @@ namespace HappyTravel.EdoContracts.General
     public readonly struct Pax
     {
         [JsonConstructor]
-        public Pax(PassengerTitles title, string lastName, bool isLeader = false, string firstName = null, int? age = null)
+        public Pax(PassengerTitles title, string lastName, string firstName, bool isLeader = false, int? age = null)
         {
-            Title = title;
-            LastName = lastName;
+            Age = age;
             FirstName = firstName;
             IsLeader = isLeader;
-            Age = age;
+            LastName = lastName;
+            Title = title;
         }
 
 		

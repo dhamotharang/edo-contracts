@@ -7,9 +7,8 @@
     <Company>HappyTravel</Company>
     <Authors>Hasmik Harutyunyan, Vadim Mingazhev, Kirill Taran</Authors>
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-    <Version>1.0.17</Version>
-    <PackageReleaseNotes>Dates moved from Price to DailyPrice.
-BookingRoomPrice replaced with a list of Price</PackageReleaseNotes>
+    <Version>1.0.18</Version>
+    <PackageReleaseNotes>Pax's initials removed</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

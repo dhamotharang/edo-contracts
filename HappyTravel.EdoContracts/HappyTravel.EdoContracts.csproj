@@ -7,8 +7,9 @@
     <Company>HappyTravel</Company>
     <Authors>Hasmik Harutyunyan, Vadim Mingazhev, Kirill Taran</Authors>
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-    <Version>1.0.16</Version>
-    <PackageReleaseNotes>Agreement and Room prices combined in one</PackageReleaseNotes>
+    <Version>1.0.17</Version>
+    <PackageReleaseNotes>Dates moved from Price to DailyPrice.
+BookingRoomPrice replaced with a list of Price</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,23 +1,26 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
 using HappyTravel.EdoContracts.General.Enums;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.General
 {
-    [StructLayout(LayoutKind.Auto)]
-    public readonly struct Price
+    public readonly struct DailyPrice
     {
         [JsonConstructor]
-        public Price(string currencyCode, decimal netTotal, decimal gross, PriceTypes type = PriceTypes.Room, string description = null)
+        public DailyPrice(DateTime fromDate, DateTime toDate, string currencyCode, decimal netTotal, decimal gross, PriceTypes type = PriceTypes.Room, string description = null)
         {
             CurrencyCode = currencyCode;
             Description = description ?? string.Empty;
+            FromDate = fromDate;
             Gross = gross;
             NetTotal = netTotal;
+            ToDate = toDate;
             Type = type;
         }
 
 
+        public DateTime FromDate { get; }
+        public DateTime ToDate { get; }
         public string CurrencyCode { get; }
         public string Description { get; }
         public decimal Gross { get; }

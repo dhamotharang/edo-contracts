@@ -1,5 +1,4 @@
 ﻿using System.Runtime.InteropServices;
-using HappyTravel.EdoContracts.Accommodations.Enums;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations.Internals
@@ -8,14 +7,14 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct FeatureInfo
     {
         [JsonConstructor]
-        public FeatureInfo(FeatureTypes type, bool isValueRequired)
+        public FeatureInfo(string feature, bool isValueRequired)
         {
-            Type = type;
+            Feature = feature;
             IsValueRequired = isValueRequired;
         }
 
 
-        public FeatureTypes Type { get; }
+        public string Feature { get; }
         public bool IsValueRequired { get; }
     }
 }

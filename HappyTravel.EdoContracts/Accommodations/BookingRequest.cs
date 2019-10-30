@@ -11,12 +11,15 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct BookingRequest
     {
         [JsonConstructor]
-        public BookingRequest(string accommodationId, long availabilityId, in DateTime checkInDate, in DateTime checkOutDate, string nationality,
-            PaymentMethods paymentMethod, string referenceCode, string residency, string tariffCode, List<BookingRoomDetails> roomDetails,
+        public BookingRequest(string accommodationId, long availabilityId, Guid agreementId, in DateTime checkInDate,
+            in DateTime checkOutDate, string nationality,
+            PaymentMethods paymentMethod, string referenceCode, string residency, string tariffCode,
+            List<BookingRoomDetails> roomDetails,
             List<Feature> features, bool rejectIfUnavailable = true)
         {
             AccommodationId = accommodationId;
             AvailabilityId = availabilityId;
+            AgreementId = agreementId;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
             Nationality = nationality;
@@ -34,6 +37,8 @@ namespace HappyTravel.EdoContracts.Accommodations
         public string AccommodationId { get; }
 
         public long AvailabilityId { get; }
+
+        public Guid AgreementId { get; }
 
         public DateTime CheckInDate { get; }
 

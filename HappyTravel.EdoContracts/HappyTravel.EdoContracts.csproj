@@ -9,8 +9,8 @@
     <Company>HappyTravel</Company>
     <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-    <Version>1.0.21</Version>
-    <PackageReleaseNotes>Feature and FeatureInfo refactored</PackageReleaseNotes>
+    <Version>1.0.23</Version>
+    <PackageReleaseNotes>Added a IsCommentRequired field to FeatureInfo</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

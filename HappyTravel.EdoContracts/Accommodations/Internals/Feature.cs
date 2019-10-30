@@ -7,13 +7,15 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct Feature
     {
         [JsonConstructor]
-        public Feature(string name, string value)
+        public Feature(string name, string value, string? comment = null)
         {
+            Comment = comment ?? string.Empty;
             Name = name;
             Value = value;
         }
 
 
+        public string Comment { get; }
         public string Name { get; }
         public string Value { get; }
     }

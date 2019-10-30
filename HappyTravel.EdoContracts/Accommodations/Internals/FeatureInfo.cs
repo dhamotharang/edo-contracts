@@ -8,13 +8,15 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct FeatureInfo
     {
         [JsonConstructor]
-        public FeatureInfo(string name, FieldTypes type)
+        public FeatureInfo(string name, FieldTypes type, bool isCommentRequired = false)
         {
+            IsCommentRequired = isCommentRequired;
             Name = name;
             Type = type;
         }
 
 
+        public bool IsCommentRequired { get; }
         public string Name { get; }
         public FieldTypes Type { get; }
     }

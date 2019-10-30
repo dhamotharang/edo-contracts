@@ -7,11 +7,10 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company>HappyTravel</Company>
-    <Authors>Hasmik Harutyunyan, Vadim Mingazhev, Kirill Taran, Oleg Konovalov</Authors>
+    <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-    <Version>1.0.20</Version>
-    <PackageReleaseNotes>Pax's initials removed.
-Enabled nullable reference types</PackageReleaseNotes>
+    <Version>1.0.21</Version>
+    <PackageReleaseNotes>Feature and FeatureInfo refactored</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,19 +1,20 @@
-﻿using HappyTravel.EdoContracts.Accommodations.Enums;
+﻿using System.Runtime.InteropServices;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations.Internals
 {
+    [StructLayout(LayoutKind.Auto)]
     public readonly struct Feature
     {
         [JsonConstructor]
-        public Feature(FeatureTypes type, string value)
+        public Feature(string name, string value)
         {
-            Type = type;
+            Name = name;
             Value = value;
         }
 
 
-        public FeatureTypes Type { get; }
+        public string Name { get; }
         public string Value { get; }
     }
 }

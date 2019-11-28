@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.2;netcoreapp3.0</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -9,13 +9,19 @@
     <Company>HappyTravel</Company>
     <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-    <Version>1.1.0-beta1</Version>
-    <PackageReleaseNotes>Refactored room details</PackageReleaseNotes>
+    <Version>1.1.0-beta2</Version>
+    <PackageReleaseNotes>Added .NET Core 2.2 support</PackageReleaseNotes>
+    <PackageVersion>1.1.0-beta2</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HappyTravel.Geography" Version="1.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.2' ">
+    <PackageReference Include="HappyTravel.Geography" Version="1.0.3" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
+    <PackageReference Include="HappyTravel.Geography" Version="1.1.0" />
   </ItemGroup>
 
 </Project>

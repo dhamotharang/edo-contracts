@@ -11,7 +11,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     {
         [JsonConstructor]
         public Agreement(Guid id, string tariffCode, string boardBasis, string mealPlan, DateTime deadlineDate, int contractTypeId, bool isAvailableImmediately,
-            bool isDynamic, bool isSpecial, in Price price, List<DailyPrice> roomPrices, List<RoomDetails> rooms, string contractType,
+            bool isDynamic, bool isSpecial, in Price price, List<RoomDetails> rooms, string contractType,
             Dictionary<string, string> remarks)
         {
             Id = id;
@@ -27,7 +27,6 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             TariffCode = tariffCode;
 
             Remarks = remarks ?? new Dictionary<string, string>(0);
-            RoomPrices = roomPrices ?? new List<DailyPrice>(0);
             Rooms = rooms ?? new List<RoomDetails>(0);
         }
 
@@ -42,7 +41,6 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public bool IsDynamic { get; }
         public bool IsSpecial { get; }
         public Price Price { get; }
-        public List<DailyPrice> RoomPrices { get; }
         public Dictionary<string, string> Remarks { get; }
         public List<RoomDetails> Rooms { get; }
         public string TariffCode { get; }

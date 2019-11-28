@@ -6,16 +6,17 @@ using Newtonsoft.Json;
 namespace HappyTravel.EdoContracts.Accommodations.Internals
 {
     [StructLayout(LayoutKind.Auto)]
-    public struct BookingRoomDetailsWithPrice
+    public struct SlimRoomDetailsWithPrice
     {
         [JsonConstructor]
-        public BookingRoomDetailsWithPrice(BookingRoomDetails roomDetails, List<Price> prices)
+        public SlimRoomDetailsWithPrice(SlimRoomDetails roomDetails, List<Price> prices)
         {
             RoomDetails = roomDetails;
             Prices = prices;
         }
+
 		
-        public BookingRoomDetails RoomDetails { get; }
+        public SlimRoomDetails RoomDetails { get; }
         public List<Price> Prices { get; }
     }
 }

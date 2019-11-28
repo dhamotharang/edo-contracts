@@ -12,7 +12,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public BookingDetails(string referenceCode, BookingStatusCodes status, string accommodationId, string bookingCode, DateTime checkInDate, 
-            DateTime checkOutDate, string contractDescription, DateTime deadline, string locality, string tariffCode, List<BookingRoomDetailsWithPrice> roomDetails)
+            DateTime checkOutDate, string contractDescription, DateTime deadline, string locality, string tariffCode, List<SlimRoomDetailsWithPrice> roomDetails)
         {
             AccommodationId = accommodationId;
             BookingCode = bookingCode;
@@ -22,7 +22,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             Deadline = deadline;
             Locality = locality;
             ReferenceCode = referenceCode;
-            RoomDetails = roomDetails ?? new List<BookingRoomDetailsWithPrice>(0);
+            RoomDetails = roomDetails ?? new List<SlimRoomDetailsWithPrice>(0);
             Status = status;
             TariffCode = tariffCode;
         }
@@ -36,7 +36,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public DateTime Deadline { get; }
         public string Locality { get; }
         public string ReferenceCode { get; }
-        public List<BookingRoomDetailsWithPrice> RoomDetails { get; }
+        public List<SlimRoomDetailsWithPrice> RoomDetails { get; }
         public BookingStatusCodes Status { get; }
         public string TariffCode { get; }
     }

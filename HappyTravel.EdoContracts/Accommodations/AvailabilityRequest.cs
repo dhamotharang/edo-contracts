@@ -15,7 +15,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public AvailabilityRequest(string nationality, string residency, DateTime checkInDate, DateTime checkOutDate,
-            SearchFilters filters, List<RoomDetails> roomDetails, List<string> accommodationIds, Location location, PropertyTypes propertyTypes, AccommodationRatings ratings)
+            SearchFilters filters, List<RoomRequestDetails> roomDetails, List<string> accommodationIds, Location location, PropertyTypes propertyTypes, AccommodationRatings ratings)
         {
             AccommodationIds = accommodationIds ?? new List<string>(0);
             CheckInDate = checkInDate;
@@ -26,7 +26,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             PropertyTypes = propertyTypes;
             Ratings = ratings;
             Residency = residency;
-            RoomDetails = roomDetails ?? new List<RoomDetails>(0);
+            RoomDetails = roomDetails ?? new List<RoomRequestDetails>(0);
         }
 
         
@@ -54,6 +54,6 @@ namespace HappyTravel.EdoContracts.Accommodations
         public string Residency { get; }
 
         [Required]
-        public List<RoomDetails> RoomDetails { get; }
+        public List<RoomRequestDetails> RoomDetails { get; }
     }
 }

@@ -1,24 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Enums;
-using HappyTravel.EdoContracts.General;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations.Internals
 {
-    [StructLayout(LayoutKind.Auto)]
-    public readonly struct RoomDetails
+    public readonly struct RoomRequestDetails
     {
         [JsonConstructor]
-        public RoomDetails(List<DailyPrice> roomPrices, int adultsNumber, int childrenNumber = 0, List<int>? childrenAges = null, RoomTypes type = RoomTypes.NotSpecified, 
+        public RoomRequestDetails(int adultsNumber, int childrenNumber = 0, List<int>? childrenAges = null, RoomTypes type = RoomTypes.NotSpecified, 
             bool isExtraBedNeeded = false)
         {
             AdultsNumber = adultsNumber;
             ChildrenAges = childrenAges ?? new List<int>(0);
             ChildrenNumber = childrenNumber;
             IsExtraBedNeeded = isExtraBedNeeded;
-            RoomPrices = roomPrices ?? new List<DailyPrice>(0);
             Type = type;
         }
 
@@ -43,11 +39,6 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         /// Indicates if extra child bed needed.
         /// </summary>
         public bool IsExtraBedNeeded { get; }
-
-        /// <summary>
-        /// List of room prices on daily basis
-        /// </summary>
-        public List<DailyPrice> RoomPrices { get; }
 
         /// <summary>
         /// Desirable room type.

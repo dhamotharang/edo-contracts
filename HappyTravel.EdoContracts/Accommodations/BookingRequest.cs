@@ -14,7 +14,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public BookingRequest(string accommodationId, long availabilityId, Guid agreementId, in DateTime checkInDate,
             in DateTime checkOutDate, string nationality,
             PaymentMethods paymentMethod, string referenceCode, string residency, string tariffCode,
-            List<BookingRoomDetails> roomDetails,
+            List<SlimRoomDetails> roomDetails,
             List<Feature> features, bool rejectIfUnavailable = true)
         {
             AccommodationId = accommodationId;
@@ -29,7 +29,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             Residency = residency;
             TariffCode = tariffCode;
 
-            RoomDetails = roomDetails ?? new List<BookingRoomDetails>(0);
+            RoomDetails = roomDetails ?? new List<SlimRoomDetails>(0);
             Features = features ?? new List<Feature>(0);
         }
 
@@ -54,7 +54,7 @@ namespace HappyTravel.EdoContracts.Accommodations
 
         public bool RejectIfUnavailable { get; }
 
-        public List<BookingRoomDetails> RoomDetails { get; }
+        public List<SlimRoomDetails> RoomDetails { get; }
 
         public string TariffCode { get; }
 

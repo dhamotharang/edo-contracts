@@ -8,20 +8,20 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimLocationInfo
     {
         [JsonConstructor]
-        public SlimLocationInfo(string address, string country, string city, string cityZone, GeoPoint coordinates)
+        public SlimLocationInfo(string address, string country, string locality, string localityZone, GeoPoint coordinates)
         {
             Address = address;
             Coordinates = coordinates;
             Country = country;
-            City = city;
-            CityZone = cityZone;
+            Locality = locality;
+            LocalityZone = localityZone;
         }
 
 
         public string Address { get; }
         public string Country { get; }
         public GeoPoint Coordinates { get; }
-        public string City { get; }
-        public string CityZone { get; }
+        public string Locality { get; }
+        public string LocalityZone { get; }
     }
 }

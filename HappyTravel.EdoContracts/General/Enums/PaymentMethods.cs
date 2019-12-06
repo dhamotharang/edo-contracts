@@ -8,6 +8,7 @@ namespace HappyTravel.EdoContracts.General.Enums
     {
         Other = 0,
         BankTransfer = 1,
-        CreditCard = 2
+        CreditCard = 2,
+        Offline = 3
     }
 }

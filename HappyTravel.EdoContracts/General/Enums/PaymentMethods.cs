@@ -12,6 +12,8 @@ namespace HappyTravel.EdoContracts.General.Enums
         [Description("Bank Transfer")]
         BankTransfer = 1,
         [Description("Credit Card")]
-        CreditCard = 2
+        CreditCard = 2,
+        [Description("Offline")]
+        Offline = 3
     }
 }

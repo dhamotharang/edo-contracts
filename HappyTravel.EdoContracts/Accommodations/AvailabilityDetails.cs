@@ -29,12 +29,14 @@ namespace HappyTravel.EdoContracts.Accommodations
 
         public override bool Equals(object? obj) => obj is AvailabilityDetails other && Equals(other);
 
+        
         public bool Equals(AvailabilityDetails other)
         {
             return (AvailabilityId, CheckInDate, NumberOfNights, Results) ==
                 (other.AvailabilityId, other.CheckInDate, other.NumberOfNights, other.Results);
         }
 
+        
         public override int GetHashCode() => (AvailabilityId, CheckInDate, NumberOfNights, Results).GetHashCode();
     }
 }

@@ -17,5 +17,18 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
         public SlimAccommodationDetails AccommodationDetails { get; }
         public List<Agreement> Agreements { get; }
+        
+        
+        public override bool Equals(object? obj) => obj is SlimAvailabilityResult other && Equals(other);
+
+        
+        public bool Equals(SlimAvailabilityResult other)
+        {
+            return (AccommodationDetails, Agreements)
+                .Equals((other.AccommodationDetails, other.Agreements));
+        }
+
+        
+        public override int GetHashCode() => (AccommodationDetails, Agreements).GetHashCode();
     }
 }

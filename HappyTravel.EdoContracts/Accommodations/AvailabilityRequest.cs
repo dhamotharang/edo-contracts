@@ -55,5 +55,17 @@ namespace HappyTravel.EdoContracts.Accommodations
 
         [Required]
         public List<RoomRequestDetails> RoomDetails { get; }
+        
+        
+        public override bool Equals(object? obj) => obj is AvailabilityRequest other && Equals(other);
+
+        
+        public bool Equals(AvailabilityRequest other)
+        {
+            return (AccommodationIds, CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, RoomDetails)
+                .Equals((other.AccommodationIds, other.CheckInDate, other.CheckOutDate, other.Filters, other.Location, other.Nationality, other.PropertyTypes, other.Ratings, other.Residency, other.RoomDetails));
+        }
+
+        public override int GetHashCode() => (AccommodationIds, CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, RoomDetails).GetHashCode();
     }
 }

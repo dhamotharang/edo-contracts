@@ -26,5 +26,18 @@ namespace HappyTravel.EdoContracts.General
         public decimal Gross { get; }
         public decimal NetTotal { get; }
         public PriceTypes Type { get; }
+        
+        
+        public override bool Equals(object? obj) => obj is DailyPrice other && Equals(other);
+
+        
+        public bool Equals(DailyPrice other)
+        {
+            return (FromDate, ToDate, CurrencyCode, Description, Gross, NetTotal, Type)
+                .Equals((other.FromDate, other.ToDate, other.CurrencyCode, other.Description, other.Gross, other.NetTotal, other.Type));
+        }
+
+        
+        public override int GetHashCode() => (FromDate, ToDate, CurrencyCode, Description, Gross, NetTotal, Type).GetHashCode();
     }
 }

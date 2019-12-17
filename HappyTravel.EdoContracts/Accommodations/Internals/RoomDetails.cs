@@ -53,5 +53,18 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         /// Desirable room type.
         /// </summary>
         public RoomTypes Type { get; }
+        
+        
+        public override bool Equals(object? obj) => obj is RoomDetails other && Equals(other);
+
+        
+        public bool Equals(RoomDetails other)
+        {
+            return (AdultsNumber, ChildrenAges, ChildrenNumber, IsExtraBedNeeded, RoomPrices, Type)
+                .Equals((other.AdultsNumber, other.ChildrenAges, other.ChildrenNumber, other.IsExtraBedNeeded, other.RoomPrices, other.Type));
+        }
+
+        
+        public override int GetHashCode() => (AdultsNumber, ChildrenAges, ChildrenNumber, IsExtraBedNeeded, RoomPrices, Type).GetHashCode();
     }
 }

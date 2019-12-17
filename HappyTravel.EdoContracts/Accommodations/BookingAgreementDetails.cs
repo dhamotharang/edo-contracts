@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Internals;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations
 {
+    [StructLayout(LayoutKind.Auto)]
     public readonly struct BookingAgreementDetails
     {
         [JsonConstructor]

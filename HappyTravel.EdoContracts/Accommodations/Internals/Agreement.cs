@@ -49,5 +49,18 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public List<RoomDetails> Rooms { get; }
         public string TariffCode { get; }
         public string BoardBasisCode { get; }
+        
+        
+        public override bool Equals(object? obj) => obj is Agreement other && Equals(other);
+
+        
+        public bool Equals(Agreement other)
+        {
+            return (Id, BoardBasis, MealPlanCode, ContractType, ContractTypeId, MealPlan, DeadlineDate, IsAvailableImmediately, IsDynamic, IsSpecial, Price, Remarks, Rooms, TariffCode, BoardBasisCode)
+                .Equals((other.Id, other.BoardBasis, other.MealPlanCode, other.ContractType, other.ContractTypeId, other.MealPlan, other.DeadlineDate, other.IsAvailableImmediately, other.IsDynamic, other.IsSpecial, other.Price, other.Remarks, other.Rooms, other.TariffCode, other.BoardBasisCode));
+        }
+
+        
+        public override int GetHashCode() => (Id, BoardBasis, MealPlanCode, ContractType, ContractTypeId, MealPlan, DeadlineDate, IsAvailableImmediately, IsDynamic, IsSpecial, Price, Remarks, Rooms, TariffCode, BoardBasisCode).GetHashCode();
     }
 }

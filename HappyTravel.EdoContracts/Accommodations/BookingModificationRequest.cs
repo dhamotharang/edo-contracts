@@ -7,10 +7,10 @@ using Newtonsoft.Json;
 namespace HappyTravel.EdoContracts.Accommodations
 {
     [StructLayout(LayoutKind.Auto)]
-    public readonly struct BookingModifyRequest
+    public readonly struct BookingModificationRequest
     {
         [JsonConstructor]
-        public BookingModifyRequest(
+        public BookingModificationRequest(
             DateTime checkInDate,
             DateTime checkOutDate,
             BookingRequest bookingRequest,
@@ -27,7 +27,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             AvailabilityId = availabilityId;
             TariffCode = tariffCode;
             Price = price;
-            RoomDetails = roomDetails;
+            RoomDetails = roomDetails ?? new List<RoomRequestDetails>(0);
         }
         
         

@@ -4,10 +4,10 @@ using Newtonsoft.Json;
 namespace HappyTravel.EdoContracts.Accommodations
 {
     [StructLayout(LayoutKind.Auto)]
-    public struct BookingModifyDetails
+    public struct BookingModificationDetails
     {
         [JsonConstructor]
-        public BookingModifyDetails(in AvailabilityDetails availabilityDetails, BookingDetails bookingDetails)
+        public BookingModificationDetails(in AvailabilityDetails availabilityDetails, BookingDetails bookingDetails)
         {
             AvailabilityDetails = availabilityDetails;
             BookingDetails = bookingDetails;

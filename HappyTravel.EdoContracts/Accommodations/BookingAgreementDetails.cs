@@ -9,22 +9,31 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct BookingAgreementDetails
     {
         [JsonConstructor]
-        public BookingAgreementDetails(
-            Agreement agreement,
-            DateTime checkInDate,
-            DateTime checkOutDate,
-            int accommodationId)
+        public BookingAgreementDetails(Agreement agreement, DateTime checkInDate, DateTime checkOutDate, int accommodationId)
         {
+            AccommodationId = accommodationId;
             Agreement = agreement;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
-            AccommodationId = accommodationId;
         }
 
 
+        public int AccommodationId { get; }
         public Agreement Agreement { get; }
         public DateTime CheckInDate { get; }
         public DateTime CheckOutDate { get; }
-        public int AccommodationId { get; }
+
+
+        public override bool Equals(object? obj) 
+            => obj is BookingAgreementDetails other && Equals(other);
+
+
+        public bool Equals(BookingAgreementDetails other)
+            => (Agreement, CheckInDate, CheckOutDate, AccommodationId)
+                .Equals((other.Agreement, other.CheckInDate, other.CheckOutDate, other.AccommodationId));
+
+
+        public override int GetHashCode() 
+            => (Agreement, CheckInDate, CheckOutDate, AccommodationId).GetHashCode();
     }
 }

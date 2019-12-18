@@ -9,9 +9,9 @@
     <Company>HappyTravel</Company>
     <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-    <Version>1.1.2-beta6</Version>
+    <Version>1.1.3-beta6</Version>
     <PackageReleaseNotes>Added .NET Core 2.2 support</PackageReleaseNotes>
-    <PackageVersion>1.1.2-beta6</PackageVersion>
+    <PackageVersion>1.1.3-beta6</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

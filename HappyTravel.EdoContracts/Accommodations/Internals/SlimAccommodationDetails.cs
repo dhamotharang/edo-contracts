@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Enums;
 using Newtonsoft.Json;
@@ -45,8 +46,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         
         public bool Equals(SlimAccommodationDetails other)
         {
-            return (Id, GeneralTextualDescription, Location, Name, Picture, Rating, Type, AccommodationAmenities, AdditionalInfo, Features, RoomAmenities)
-                .Equals((other.Id, other.GeneralTextualDescription, other.Location, other.Name, other.Picture, other.Rating, other.Type, other.AccommodationAmenities, other.AdditionalInfo, other.Features, other.RoomAmenities));
+            return (Id, GeneralTextualDescription, Location, Name, Picture, Rating, Type)
+                .Equals((other.Id, other.GeneralTextualDescription, other.Location, other.Name, other.Picture, other.Rating, other.Type)) &&
+                AccommodationAmenities.SequenceEqual(other.AccommodationAmenities) &&
+                AdditionalInfo.SequenceEqual(other.AdditionalInfo) &&
+                Features.SequenceEqual(other.Features) &&
+                RoomAmenities.SequenceEqual(other.RoomAmenities);
         }
 
         

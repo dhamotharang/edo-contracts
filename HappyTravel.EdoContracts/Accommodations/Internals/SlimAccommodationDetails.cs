@@ -38,5 +38,18 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public Dictionary<string, string> AdditionalInfo { get; }
         public List<FeatureInfo> Features { get; }
         public List<string> RoomAmenities { get; }
+        
+        
+        public override bool Equals(object? obj) => obj is SlimAccommodationDetails other && Equals(other);
+
+        
+        public bool Equals(SlimAccommodationDetails other)
+        {
+            return (Id, GeneralTextualDescription, Location, Name, Picture, Rating, Type, AccommodationAmenities, AdditionalInfo, Features, RoomAmenities)
+                .Equals((other.Id, other.GeneralTextualDescription, other.Location, other.Name, other.Picture, other.Rating, other.Type, other.AccommodationAmenities, other.AdditionalInfo, other.Features, other.RoomAmenities));
+        }
+
+        
+        public override int GetHashCode() => (Id, GeneralTextualDescription, Location, Name, Picture, Rating, Type, AccommodationAmenities, AdditionalInfo, Features, RoomAmenities).GetHashCode();
     }
 }

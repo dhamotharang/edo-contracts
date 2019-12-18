@@ -16,5 +16,18 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
         public string Source { get; }
         public string Caption { get; }
+        
+        
+        public override bool Equals(object? obj) => obj is Picture other && Equals(other);
+
+        
+        public bool Equals(Picture other)
+        {
+            return (Caption, Source)
+                .Equals((other.Caption, other.Source));
+        }
+
+        
+        public override int GetHashCode() => (Caption, Source).GetHashCode();
     }
 }

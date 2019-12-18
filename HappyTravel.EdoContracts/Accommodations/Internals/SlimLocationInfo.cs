@@ -23,5 +23,18 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public GeoPoint Coordinates { get; }
         public string Locality { get; }
         public string LocalityZone { get; }
+        
+        
+        public override bool Equals(object? obj) => obj is SlimAccommodationDetails other && Equals(other);
+
+        
+        public bool Equals(SlimLocationInfo other)
+        {
+            return (Address, Country, Coordinates, Locality, LocalityZone)
+                .Equals((other.Address, other.Country, other.Coordinates, other.Locality, other.LocalityZone));
+        }
+
+        
+        public override int GetHashCode() => (Address, Country, Coordinates, Locality, LocalityZone).GetHashCode();
     }
 }

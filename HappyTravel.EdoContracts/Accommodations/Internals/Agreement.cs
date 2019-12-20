@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.General;
 using Newtonsoft.Json;
@@ -56,8 +57,13 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         
         public bool Equals(Agreement other)
         {
-            return (Id, BoardBasis, MealPlanCode, ContractType, ContractTypeId, MealPlan, DeadlineDate, IsAvailableImmediately, IsDynamic, IsSpecial, Price, Remarks, Rooms, TariffCode, BoardBasisCode)
-                .Equals((other.Id, other.BoardBasis, other.MealPlanCode, other.ContractType, other.ContractTypeId, other.MealPlan, other.DeadlineDate, other.IsAvailableImmediately, other.IsDynamic, other.IsSpecial, other.Price, other.Remarks, other.Rooms, other.TariffCode, other.BoardBasisCode));
+            return (Id, BoardBasis, MealPlanCode, ContractType, ContractTypeId, MealPlan, DeadlineDate,
+                       IsAvailableImmediately, IsDynamic, IsSpecial, Price, TariffCode, BoardBasisCode)
+                   .Equals((other.Id, other.BoardBasis, other.MealPlanCode, other.ContractType, other.ContractTypeId,
+                       other.MealPlan, other.DeadlineDate, other.IsAvailableImmediately, other.IsDynamic,
+                       other.IsSpecial, other.Price, other.TariffCode, other.BoardBasisCode)) && 
+                   Remarks.SequenceEqual(other.Remarks) &&
+                   Rooms.SequenceEqual(other.Rooms);
         }
 
         

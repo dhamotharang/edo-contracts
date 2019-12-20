@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Internals;
 using Newtonsoft.Json;
@@ -32,8 +33,9 @@ namespace HappyTravel.EdoContracts.Accommodations
         
         public bool Equals(AvailabilityDetails other)
         {
-            return (AvailabilityId, CheckInDate, NumberOfNights, Results) ==
-                (other.AvailabilityId, other.CheckInDate, other.NumberOfNights, other.Results);
+            return (AvailabilityId, CheckInDate, NumberOfNights) ==
+                (other.AvailabilityId, other.CheckInDate, other.NumberOfNights) &&
+                Results.SequenceEqual(other.Results);
         }
 
         

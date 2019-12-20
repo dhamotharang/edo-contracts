@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Enums;
 using HappyTravel.EdoContracts.Accommodations.Internals;
@@ -62,8 +63,11 @@ namespace HappyTravel.EdoContracts.Accommodations
         
         public bool Equals(AvailabilityRequest other)
         {
-            return (AccommodationIds, CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, RoomDetails)
-                .Equals((other.AccommodationIds, other.CheckInDate, other.CheckOutDate, other.Filters, other.Location, other.Nationality, other.PropertyTypes, other.Ratings, other.Residency, other.RoomDetails));
+            return (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency)
+                   .Equals((other.CheckInDate, other.CheckOutDate, other.Filters, other.Location, other.Nationality,
+                       other.PropertyTypes, other.Ratings, other.Residency)) &&
+                   AccommodationIds.SequenceEqual(other.AccommodationIds) &&
+                   RoomDetails.SequenceEqual(other.RoomDetails);
         }
 
         public override int GetHashCode() => (AccommodationIds, CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, RoomDetails).GetHashCode();

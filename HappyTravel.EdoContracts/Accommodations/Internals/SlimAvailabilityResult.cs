@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json;
 
@@ -24,8 +25,9 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         
         public bool Equals(SlimAvailabilityResult other)
         {
-            return (AccommodationDetails, Agreements)
-                .Equals((other.AccommodationDetails, other.Agreements));
+            return AccommodationDetails
+                .Equals(other.AccommodationDetails) && 
+                Agreements.SequenceEqual(other.Agreements);
         }
 
         

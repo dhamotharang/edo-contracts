@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Enums;
 using HappyTravel.EdoContracts.General;
@@ -60,8 +61,10 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         
         public bool Equals(RoomDetails other)
         {
-            return (AdultsNumber, ChildrenAges, ChildrenNumber, IsExtraBedNeeded, RoomPrices, Type)
-                .Equals((other.AdultsNumber, other.ChildrenAges, other.ChildrenNumber, other.IsExtraBedNeeded, other.RoomPrices, other.Type));
+            return (AdultsNumber, ChildrenNumber, IsExtraBedNeeded, Type).Equals((other.AdultsNumber,
+                       other.ChildrenNumber, other.IsExtraBedNeeded, other.Type)) 
+                   && ChildrenAges.SequenceEqual(other.ChildrenAges) 
+                   && RoomPrices.SequenceEqual(other.RoomPrices);
         }
 
         

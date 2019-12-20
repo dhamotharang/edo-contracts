@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using HappyTravel.EdoContracts.Accommodations.Enums;
 using Newtonsoft.Json;
 
@@ -50,8 +51,9 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         
         public bool Equals(RoomRequestDetails other)
         {
-            return (AdultsNumber, ChildrenAges, ChildrenNumber, IsExtraBedNeeded, Type)
-                .Equals((other.AdultsNumber, other.ChildrenAges, other.ChildrenNumber, other.IsExtraBedNeeded, other.Type));
+            return (AdultsNumber, ChildrenNumber, IsExtraBedNeeded, Type)
+                .Equals((other.AdultsNumber, other.ChildrenNumber, other.IsExtraBedNeeded, other.Type)) &&
+                ChildrenAges.SequenceEqual(other.ChildrenAges);
         }
 
         public override int GetHashCode() => (AdultsNumber, ChildrenAges, ChildrenNumber, IsExtraBedNeeded, Type).GetHashCode();

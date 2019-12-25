@@ -10,25 +10,14 @@ namespace HappyTravel.EdoContracts.Accommodations
     public struct SingleAccommodationAvailabilityDetailsWithDeadline
     {
         [JsonConstructor]
-        public SingleAccommodationAvailabilityDetailsWithDeadline(long availabilityId, DateTime checkInDate, DateTime checkOutDate,
-            int numberOfNights, AccommodationDetails accommodationDetails, List<Agreement> agreements, DeadlineDetails deadlineDetails)
+        public SingleAccommodationAvailabilityDetailsWithDeadline(SingleAccommodationAvailabilityDetails singleAccommodationAvailabilityDetails, DeadlineDetails deadlineDetails)
         {
-            AvailabilityId = availabilityId;
-            CheckInDate = checkInDate;
-            CheckOutDate = checkOutDate;
-            NumberOfNights = numberOfNights;
-            AccommodationDetails = accommodationDetails;
-            Agreements = agreements ?? new List<Agreement>(0);
+            SingleAccommodationAvailabilityDetails = singleAccommodationAvailabilityDetails;
             DeadlineDetails = deadlineDetails;
         }
 
 
-        public long AvailabilityId { get; }
-        public DateTime CheckInDate { get; }
-        public DateTime CheckOutDate { get; }
-        public int NumberOfNights { get; }
-        public AccommodationDetails AccommodationDetails { get; }
-        public List<Agreement> Agreements { get; }
+        public SingleAccommodationAvailabilityDetails  SingleAccommodationAvailabilityDetails { get; }
         public DeadlineDetails DeadlineDetails { get; }
     }
 }

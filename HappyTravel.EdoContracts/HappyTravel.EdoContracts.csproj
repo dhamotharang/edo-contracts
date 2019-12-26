@@ -11,7 +11,7 @@
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
     <Version>1.1.0-beta7</Version>
     <PackageReleaseNotes>Added .NET Core 2.2 support</PackageReleaseNotes>
-    <PackageVersion>1.1.0-beta7</PackageVersion>
+    <PackageVersion>1.1.0-beta8</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -8,7 +8,7 @@ namespace HappyTravel.EdoContracts.General
     public readonly struct Price
     {
         [JsonConstructor]
-        public Price(string currencyCode, decimal netTotal, decimal gross, PriceTypes type = PriceTypes.Room, string? description = null)
+        public Price(Currencies currencyCode, decimal netTotal, decimal gross, PriceTypes type = PriceTypes.Room, string? description = null)
         {
             CurrencyCode = currencyCode;
             Description = description ?? string.Empty;
@@ -18,7 +18,7 @@ namespace HappyTravel.EdoContracts.General
         }
 
 
-        public string CurrencyCode { get; }
+        public Currencies CurrencyCode { get; }
         public string Description { get; }
         public decimal Gross { get; }
         public decimal NetTotal { get; }

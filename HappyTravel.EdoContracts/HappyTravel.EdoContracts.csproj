@@ -12,7 +12,7 @@
     <Version>1.1.4</Version>
     <PackageReleaseNotes>Project consolidation.
 Currency codes replaced with a Currencies enum.</PackageReleaseNotes>
-    <PackageVersion>1.1.0-beta8</PackageVersion>
+    <PackageVersion>1.1.4</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

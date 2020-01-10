@@ -8,9 +8,9 @@ namespace HappyTravel.EdoContracts.General
     public readonly struct Price
     {
         [JsonConstructor]
-        public Price(Currencies currencyCode, decimal netTotal, decimal gross, PriceTypes type = PriceTypes.Room, string? description = null)
+        public Price(Currencies currency, decimal netTotal, decimal gross, PriceTypes type = PriceTypes.Room, string? description = null)
         {
-            CurrencyCode = currencyCode;
+            Currency = currency;
             Description = description ?? string.Empty;
             Gross = gross;
             NetTotal = netTotal;
@@ -18,7 +18,7 @@ namespace HappyTravel.EdoContracts.General
         }
 
 
-        public Currencies CurrencyCode { get; }
+        public Currencies Currency { get; }
         public string Description { get; }
         public decimal Gross { get; }
         public decimal NetTotal { get; }
@@ -29,11 +29,11 @@ namespace HappyTravel.EdoContracts.General
         
         public bool Equals(Price other)
         {
-            return (CurrencyCode, Description, Gross, NetTotal, Type)
-                .Equals((other.CurrencyCode, other.Description, other.Gross, other.NetTotal, other.Type));
+            return (Currency, Description, Gross, NetTotal, Type)
+                .Equals((other.Currency, other.Description, other.Gross, other.NetTotal, other.Type));
         }
 
         
-        public override int GetHashCode() => (CurrencyCode, Description, Gross, NetTotal, Type).GetHashCode();
+        public override int GetHashCode() => (Currency, Description, Gross, NetTotal, Type).GetHashCode();
     }
 }

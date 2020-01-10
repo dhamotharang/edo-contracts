@@ -7,9 +7,9 @@ namespace HappyTravel.EdoContracts.General
     public readonly struct DailyPrice
     {
         [JsonConstructor]
-        public DailyPrice(DateTime fromDate, DateTime toDate, Currencies currencyCode, decimal netTotal, decimal gross, PriceTypes type = PriceTypes.Room, string? description = null)
+        public DailyPrice(DateTime fromDate, DateTime toDate, Currencies currency, decimal netTotal, decimal gross, PriceTypes type = PriceTypes.Room, string? description = null)
         {
-            CurrencyCode = currencyCode;
+            Currency = currency;
             Description = description ?? string.Empty;
             FromDate = fromDate;
             Gross = gross;
@@ -21,7 +21,7 @@ namespace HappyTravel.EdoContracts.General
 
         public DateTime FromDate { get; }
         public DateTime ToDate { get; }
-        public Currencies CurrencyCode { get; }
+        public Currencies Currency { get; }
         public string Description { get; }
         public decimal Gross { get; }
         public decimal NetTotal { get; }
@@ -33,11 +33,11 @@ namespace HappyTravel.EdoContracts.General
         
         public bool Equals(DailyPrice other)
         {
-            return (FromDate, ToDate, CurrencyCode, Description, Gross, NetTotal, Type)
-                .Equals((other.FromDate, other.ToDate, other.CurrencyCode, other.Description, other.Gross, other.NetTotal, other.Type));
+            return (FromDate, ToDate, Currency, Description, Gross, NetTotal, Type)
+                .Equals((other.FromDate, other.ToDate, other.Currency, other.Description, other.Gross, other.NetTotal, other.Type));
         }
 
         
-        public override int GetHashCode() => (FromDate, ToDate, CurrencyCode, Description, Gross, NetTotal, Type).GetHashCode();
+        public override int GetHashCode() => (FromDate, ToDate, Currency, Description, Gross, NetTotal, Type).GetHashCode();
     }
 }

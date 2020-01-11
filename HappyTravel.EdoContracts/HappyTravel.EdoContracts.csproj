@@ -11,17 +11,17 @@
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
         <Version>1.1.4</Version>
         <PackageReleaseNotes>Changed SingleAccommodationAvailabilityDetailsWithDeadline(instead of agreements list it contains one agreement).</PackageReleaseNotes>
-        <PackageVersion>1.1.5</PackageVersion>
+        <PackageVersion>1.1.6</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="12.0.2"/>
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     </ItemGroup>
     <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.2' ">
-        <PackageReference Include="HappyTravel.Geography" Version="1.0.3"/>
+        <PackageReference Include="HappyTravel.Geography" Version="1.0.3" />
     </ItemGroup>
     <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
-        <PackageReference Include="HappyTravel.Geography" Version="1.1.0"/>
+        <PackageReference Include="HappyTravel.Geography" Version="1.1.0" />
     </ItemGroup>
 
 </Project>

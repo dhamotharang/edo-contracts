@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Enums;
 using HappyTravel.EdoContracts.Accommodations.Internals;
+using HappyTravel.EdoContracts.Extensions;
 using HappyTravel.EdoContracts.General.Enums;
 using HappyTravel.EdoContracts.GeoData;
 using Newtonsoft.Json;
@@ -16,7 +17,8 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public AvailabilityRequest(string nationality, string residency, DateTime checkInDate, DateTime checkOutDate,
-            SearchFilters filters, List<RoomRequestDetails> roomDetails, List<string> accommodationIds, Location location, PropertyTypes propertyTypes, AccommodationRatings ratings)
+            SearchFilters filters, List<RoomRequestDetails> roomDetails, List<string> accommodationIds, Location location, PropertyTypes propertyTypes,
+            AccommodationRatings ratings)
         {
             AccommodationIds = accommodationIds ?? new List<string>(0);
             CheckInDate = checkInDate;
@@ -30,7 +32,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             RoomDetails = roomDetails ?? new List<RoomRequestDetails>(0);
         }
 
-        
+
         [Required]
         public List<string> AccommodationIds { get; }
 
@@ -56,20 +58,20 @@ namespace HappyTravel.EdoContracts.Accommodations
 
         [Required]
         public List<RoomRequestDetails> RoomDetails { get; }
-        
-        
+
+
         public override bool Equals(object? obj) => obj is AvailabilityRequest other && Equals(other);
 
-        
-        public bool Equals(AvailabilityRequest other)
-        {
-            return (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency)
-                   .Equals((other.CheckInDate, other.CheckOutDate, other.Filters, other.Location, other.Nationality,
-                       other.PropertyTypes, other.Ratings, other.Residency)) &&
-                   AccommodationIds.SequenceEqual(other.AccommodationIds) &&
-                   RoomDetails.SequenceEqual(other.RoomDetails);
-        }
 
-        public override int GetHashCode() => (AccommodationIds, CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, RoomDetails).GetHashCode();
+        public bool Equals(AvailabilityRequest other)
+            => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency)
+                .Equals((other.CheckInDate, other.CheckOutDate, other.Filters, other.Location, other.Nationality, other.PropertyTypes, other.Ratings,
+                    other.Residency)) &&
+                AccommodationIds.SafeSequenceEqual(other.AccommodationIds) &&
+                RoomDetails.SafeSequenceEqual(other.RoomDetails);
+
+
+        public override int GetHashCode()
+            => (AccommodationIds, CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, RoomDetails).GetHashCode();
     }
 }

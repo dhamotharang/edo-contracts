@@ -39,7 +39,6 @@ namespace HappyTravel.EdoContracts.Accommodations
             details.CheckInDate, details.CheckOutDate, details.ContractDescription, details.Deadline,
             details.Locality, details.TariffCode, details.RoomDetails, details.LocationDescription, agreement)
         {
-            
         }
 
 

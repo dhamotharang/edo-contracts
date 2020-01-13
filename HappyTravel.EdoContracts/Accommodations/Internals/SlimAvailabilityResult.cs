@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
+using HappyTravel.EdoContracts.Extensions;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations.Internals
@@ -18,19 +18,17 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
         public SlimAccommodationDetails AccommodationDetails { get; }
         public List<Agreement> Agreements { get; }
-        
-        
+
+
         public override bool Equals(object? obj) => obj is SlimAvailabilityResult other && Equals(other);
 
-        
-        public bool Equals(SlimAvailabilityResult other)
-        {
-            return AccommodationDetails
-                .Equals(other.AccommodationDetails) && 
-                Agreements.SequenceEqual(other.Agreements);
-        }
 
-        
+        public bool Equals(SlimAvailabilityResult other)
+            => AccommodationDetails
+                    .Equals(other.AccommodationDetails) &&
+                Agreements.SafeSequenceEqual(other.Agreements);
+
+
         public override int GetHashCode() => (AccommodationDetails, Agreements).GetHashCode();
     }
 }

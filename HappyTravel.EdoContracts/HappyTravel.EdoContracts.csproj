@@ -12,6 +12,8 @@
         <Version>1.1.8</Version>
         <PackageReleaseNotes>Deleted SingleAccommodationAvailabilityRequest model.</PackageReleaseNotes>
         <PackageVersion>1.1.8</PackageVersion>
+        <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
+        <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
     </PropertyGroup>
 
     <ItemGroup>

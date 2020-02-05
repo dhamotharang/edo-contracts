@@ -12,7 +12,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     {
         [JsonConstructor]
         public Agreement(Guid id, string tariffCode, string boardBasisCode, string boardBasis, string mealPlanCode,
-            string mealPlan, DateTime deadlineDate, int contractTypeId, bool isAvailableImmediately,
+            string mealPlan, DateTime? deadlineDate, int contractTypeId, bool isAvailableImmediately,
             bool isDynamic, bool isSpecial, in Price price, List<RoomDetails> rooms, string contractType,
             Dictionary<string, string> remarks)
         {
@@ -41,7 +41,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public string ContractType { get; }
         public int ContractTypeId { get; }
         public string MealPlan { get; }
-        public DateTime DeadlineDate { get; }
+        public DateTime? DeadlineDate { get; }
         public bool IsAvailableImmediately { get; }
         public bool IsDynamic { get; }
         public bool IsSpecial { get; }

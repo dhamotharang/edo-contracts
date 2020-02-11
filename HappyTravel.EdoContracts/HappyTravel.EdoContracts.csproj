@@ -11,7 +11,7 @@
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
         <Version>1.1.12</Version>
         <PackageReleaseNotes>Changed AvailabilityId from 'long' to 'string' in Booking models</PackageReleaseNotes>
-        <PackageVersion>1.1.11</PackageVersion>
+        <PackageVersion>1.1.12</PackageVersion>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
     </PropertyGroup>

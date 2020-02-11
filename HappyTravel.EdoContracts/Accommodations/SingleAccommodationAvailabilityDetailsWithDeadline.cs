@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Internals;
 using Newtonsoft.Json;
@@ -10,7 +9,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     public struct SingleAccommodationAvailabilityDetailsWithDeadline
     {
         [JsonConstructor]
-        public SingleAccommodationAvailabilityDetailsWithDeadline(long availabilityId, DateTime checkInDate,
+        public SingleAccommodationAvailabilityDetailsWithDeadline(string availabilityId, DateTime checkInDate,
             DateTime checkOutDate, int numberOfNights, AccommodationDetails accommodationDetails, Agreement agreement,
             DeadlineDetails deadlineDetails)
         {
@@ -24,7 +23,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         }
 
 
-        public long AvailabilityId { get; }
+        public string AvailabilityId { get; }
         public DateTime CheckInDate { get; }
         public DateTime CheckOutDate { get; }
         public int NumberOfNights { get; }

@@ -9,9 +9,9 @@
         <Company>HappyTravel</Company>
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-        <Version>1.1.8</Version>
-        <PackageReleaseNotes>Deleted SingleAccommodationAvailabilityRequest model.</PackageReleaseNotes>
-        <PackageVersion>1.1.8</PackageVersion>
+        <Version>1.1.9</Version>
+        <PackageReleaseNotes>AvailabilityId changed from 'long' to 'string'</PackageReleaseNotes>
+        <PackageVersion>1.1.9</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>

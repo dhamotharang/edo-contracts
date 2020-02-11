@@ -11,12 +11,13 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct AvailabilityDetails
     {
         [JsonConstructor]
-        public AvailabilityDetails(string availabilityId, int numberOfNights, DateTime checkInDate, DateTime checkOutDate, List<SlimAvailabilityResult> results)
+        public AvailabilityDetails(string availabilityId, int numberOfNights, DateTime checkInDate, DateTime checkOutDate, List<SlimAvailabilityResult> results, int numberOfProcessedAccommodations = 0)
         {
             AvailabilityId = availabilityId;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
             NumberOfNights = numberOfNights;
+            NumberOfProcessedAccommodations = numberOfProcessedAccommodations;
             Results = results ?? new List<SlimAvailabilityResult>(0);
         }
 
@@ -25,6 +26,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public DateTime CheckInDate { get; }
         public DateTime CheckOutDate { get; }
         public int NumberOfNights { get; }
+        public int NumberOfProcessedAccommodations { get; }
         public List<SlimAvailabilityResult> Results { get; }
 
 

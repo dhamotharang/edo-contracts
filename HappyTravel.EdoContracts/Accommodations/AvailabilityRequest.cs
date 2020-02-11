@@ -17,10 +17,9 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public AvailabilityRequest(string nationality, string residency, DateTime checkInDate, DateTime checkOutDate,
-            SearchFilters filters, List<RoomRequestDetails> roomDetails, List<string> accommodationIds, Location location, PropertyTypes propertyTypes,
+            SearchFilters filters, List<RoomRequestDetails> roomDetails, Location location, PropertyTypes propertyTypes,
             AccommodationRatings ratings)
         {
-            AccommodationIds = accommodationIds ?? new List<string>(0);
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
             Filters = filters;
@@ -32,9 +31,6 @@ namespace HappyTravel.EdoContracts.Accommodations
             RoomDetails = roomDetails ?? new List<RoomRequestDetails>(0);
         }
 
-
-        [Required]
-        public List<string> AccommodationIds { get; }
 
         [Required]
         public DateTime CheckInDate { get; }
@@ -67,11 +63,10 @@ namespace HappyTravel.EdoContracts.Accommodations
             => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency)
                 .Equals((other.CheckInDate, other.CheckOutDate, other.Filters, other.Location, other.Nationality, other.PropertyTypes, other.Ratings,
                     other.Residency)) &&
-                AccommodationIds.SafeSequenceEqual(other.AccommodationIds) &&
                 RoomDetails.SafeSequenceEqual(other.RoomDetails);
 
 
         public override int GetHashCode()
-            => (AccommodationIds, CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, RoomDetails).GetHashCode();
+            => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, RoomDetails).GetHashCode();
     }
 }

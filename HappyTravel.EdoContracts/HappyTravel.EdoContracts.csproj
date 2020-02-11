@@ -10,7 +10,7 @@
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
         <Version>1.1.11</Version>
-        <PackageReleaseNotes>Changed DeadlineDate to nullable in Agreement and removed AccommodationIds in AvailabilityRequest</PackageReleaseNotes>
+        <PackageReleaseNotes>Changed AvailabilityId from 'long' to 'string'</PackageReleaseNotes>
         <PackageVersion>1.1.11</PackageVersion>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>

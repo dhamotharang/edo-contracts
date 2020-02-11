@@ -11,7 +11,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct BookingRequest
     {
         [JsonConstructor]
-        public BookingRequest(long availabilityId,
+        public BookingRequest(string availabilityId,
             Guid agreementId, 
             string nationality,
             PaymentMethods paymentMethod,
@@ -34,7 +34,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         }
 
 
-        public long AvailabilityId { get; }
+        public string AvailabilityId { get; }
 
         public Guid AgreementId { get; }
 

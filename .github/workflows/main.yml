@@ -24,19 +24,3 @@ jobs:
 
     - name: Push generated package to GitHub registry
       run: nuget push ..\edo-contracts\HappyTravel.EdoContracts\bin\Release\*.nupkg -Source "github"
-
-    - name: Discord notification FAILED
-      uses: Ilshidur/action-discord@master
-      env:
-        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-      if: failure()
-      with:
-        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed. ${{ job.status }}'
-
-    - name: Discord notification SUCCESS
-      uses: Ilshidur/action-discord@master
-      env:
-        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}      
-      if: success()
-      with:
-        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed. ${{ job.status }}'

@@ -25,3 +25,18 @@ jobs:
     - name: Push generated package to GitHub registry
       run: nuget push ..\edo-contracts\HappyTravel.EdoContracts\bin\Release\*.nupkg -Source "github"
 
+    - name: Discord notification FAILED
+      uses: appleboy/discord-action@master
+      if: failure()
+      with:
+        webhook_id: ${{ secrets.WEBHOOK_ID }}
+        webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+        args: "status: ${{ job.status }}." 
+
+    - name: Discord notification SUCCESS
+      uses: appleboy/discord-action@master
+      if: success()
+      with:
+        webhook_id: ${{ secrets.WEBHOOK_ID }}
+        webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+        args: "status: ${{ job.status }}." 

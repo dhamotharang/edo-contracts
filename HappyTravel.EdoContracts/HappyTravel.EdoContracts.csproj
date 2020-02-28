@@ -9,7 +9,7 @@
         <Company>HappyTravel</Company>
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-        <Version>1.1.12</Version>
+        <Version>1.2.0-beta1</Version>
         <PackageReleaseNotes>Changed AvailabilityId from 'long' to 'string' in Booking models</PackageReleaseNotes>
         <PackageVersion>1.1.12</PackageVersion>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>

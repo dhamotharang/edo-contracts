@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Enums;
-using HappyTravel.EdoContracts.Extensions;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations.Internals
@@ -10,51 +8,33 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimAccommodationDetails
     {
         [JsonConstructor]
-        public SlimAccommodationDetails(string id, List<string> accommodationAmenities, Dictionary<string, string> additionalInfo, List<FeatureInfo> features,
-            SlimLocationInfo location, string name, Picture picture, AccommodationRatings rating, List<string> roomAmenities,
-            TextualDescription generalTextualDescription, PropertyTypes type)
+        public SlimAccommodationDetails(string id, SlimLocationInfo location, string name, Picture picture, AccommodationRatings rating)
         {
             Id = id;
-            AccommodationAmenities = accommodationAmenities ?? new List<string>(0);
-            AdditionalInfo = additionalInfo ?? new Dictionary<string, string>(0);
-            Features = features ?? new List<FeatureInfo>(0);
-            GeneralTextualDescription = generalTextualDescription;
             Location = location;
             Name = name;
             Picture = picture;
             Rating = rating;
-            RoomAmenities = roomAmenities ?? new List<string>(0);
-            Type = type;
         }
 
 
         public string Id { get; }
-        public TextualDescription GeneralTextualDescription { get; }
         public SlimLocationInfo Location { get; }
         public string Name { get; }
         public Picture Picture { get; }
         public AccommodationRatings Rating { get; }
-        public PropertyTypes Type { get; }
-        public List<string> AccommodationAmenities { get; }
-        public Dictionary<string, string> AdditionalInfo { get; }
-        public List<FeatureInfo> Features { get; }
-        public List<string> RoomAmenities { get; }
 
 
         public override bool Equals(object? obj) => obj is SlimAccommodationDetails other && Equals(other);
 
 
         public bool Equals(SlimAccommodationDetails other)
-            => (Id, GeneralTextualDescription, Location, Name, Picture, Rating, Type)
-                .Equals((other.Id, other.GeneralTextualDescription, other.Location, other.Name, other.Picture, other.Rating, other.Type)) &&
-                AccommodationAmenities.SafeSequenceEqual(other.AccommodationAmenities) &&
-                AdditionalInfo.SafeSequenceEqual(other.AdditionalInfo) &&
-                Features.SafeSequenceEqual(other.Features) &&
-                RoomAmenities.SafeSequenceEqual(other.RoomAmenities);
+            => (Id, Location, Name, Picture, Rating)
+                .Equals((other.Id, other.Location, other.Name, other.Picture, other.Rating));
 
 
         public override int GetHashCode()
-            => (Id, GeneralTextualDescription, Location, Name, Picture, Rating, Type, AccommodationAmenities, AdditionalInfo, Features, RoomAmenities)
+            => (Id, Location, Name, Picture, Rating)
                 .GetHashCode();
     }
 }

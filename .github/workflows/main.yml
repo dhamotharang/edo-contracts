@@ -23,4 +23,6 @@ jobs:
       shell: bash
 
     - name: Push generated package to GitHub registry
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
       run: nuget push ..\edo-contracts\HappyTravel.EdoContracts\bin\Release\*.nupkg -Source "github"

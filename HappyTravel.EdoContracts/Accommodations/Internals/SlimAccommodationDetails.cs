@@ -8,13 +8,14 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimAccommodationDetails
     {
         [JsonConstructor]
-        public SlimAccommodationDetails(string id, SlimLocationInfo location, string name, Picture picture, AccommodationRatings rating)
+        public SlimAccommodationDetails(string id, in SlimLocationInfo location, string name, in Picture picture, AccommodationRatings rating, PropertyTypes propertyType)
         {
             Id = id;
             Location = location;
             Name = name;
             Picture = picture;
             Rating = rating;
+            PropertyType = propertyType;
         }
 
 
@@ -24,13 +25,15 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public Picture Picture { get; }
         public AccommodationRatings Rating { get; }
 
+        public PropertyTypes PropertyType { get; }
+
 
         public override bool Equals(object? obj) => obj is SlimAccommodationDetails other && Equals(other);
 
 
         public bool Equals(SlimAccommodationDetails other)
-            => (Id, Location, Name, Picture, Rating)
-                .Equals((other.Id, other.Location, other.Name, other.Picture, other.Rating));
+            => (Id, Location, Name, Picture, Rating, PropertyType)
+                .Equals((other.Id, other.Location, other.Name, other.Picture, other.Rating, other.PropertyType));
 
 
         public override int GetHashCode()

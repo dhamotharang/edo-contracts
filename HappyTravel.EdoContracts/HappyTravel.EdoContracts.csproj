@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netcoreapp2.2;netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
+        <TargetFrameworks>netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -12,19 +12,11 @@
         <PackageReleaseNotes>Changed AvailabilityId from 'long' to 'string' in Booking models</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
-        <Version>1.2.0-beta2</Version>
+        <Version>1.2.0</Version>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    </ItemGroup>
-      <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.2' ">
-          <PackageReference Include="HappyTravel.Geography" Version="1.0.3" />
-      </ItemGroup>
-      <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
-          <PackageReference Include="HappyTravel.Geography" Version="1.1.1" />
-      </ItemGroup>
-    <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
       <PackageReference Include="HappyTravel.Geography" Version="1.1.1" />
     </ItemGroup>
 

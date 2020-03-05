@@ -8,7 +8,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     [StructLayout(LayoutKind.Auto)]
     public readonly struct DeadlineDetails
     {
-        public DeadlineDetails(DateTime date, List<CancellationPolicy> policies, List<string> remarks)
+        public DeadlineDetails(DateTime? date, List<CancellationPolicy> policies, List<string> remarks)
         {
             Date = date;
             Policies = policies ?? new List<CancellationPolicy>(0);
@@ -16,7 +16,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         }
 
 
-        public DateTime Date { get; }
+        public DateTime? Date { get; }
         public List<CancellationPolicy> Policies { get; }
         public List<string> Remarks { get; }
     }

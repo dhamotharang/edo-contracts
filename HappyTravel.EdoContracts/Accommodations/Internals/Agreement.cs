@@ -14,7 +14,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public Agreement(Guid id, string tariffCode, string boardBasisCode, string boardBasis, string mealPlanCode,
             string mealPlan, DateTime? deadlineDate, int contractTypeId, bool isAvailableImmediately,
             bool isDynamic, bool isSpecial, in Price price, List<RoomDetails> rooms, string contractType,
-            Dictionary<string, string> remarks)
+            List<KeyValuePair<string, string>> remarks)
         {
             Id = id;
             BoardBasis = boardBasis;
@@ -30,7 +30,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             TariffCode = tariffCode;
             BoardBasisCode = boardBasisCode;
 
-            Remarks = remarks ?? new Dictionary<string, string>(0);
+            Remarks = remarks ?? new List<KeyValuePair<string, string>>(0);
             Rooms = rooms ?? new List<RoomDetails>(0);
         }
 
@@ -46,7 +46,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public bool IsDynamic { get; }
         public bool IsSpecial { get; }
         public Price Price { get; }
-        public Dictionary<string, string> Remarks { get; }
+        public List<KeyValuePair<string, string>> Remarks { get; }
         public List<RoomDetails> Rooms { get; }
         public string TariffCode { get; }
         public string BoardBasisCode { get; }

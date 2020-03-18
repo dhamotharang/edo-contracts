@@ -30,5 +30,15 @@ namespace HappyTravel.EdoContracts.Accommodations
         public AccommodationDetails AccommodationDetails { get; }
         public Agreement Agreement { get; }
         public DeadlineDetails DeadlineDetails { get; }
+        
+        public bool Equals(SingleAccommodationAvailabilityDetailsWithDeadline other)
+        {
+            return (AvailabilityId, CheckInDate, CheckOutDate, NumberOfNights, AccommodationDetails, Agreement, DeadlineDetails)
+                .Equals((other.AvailabilityId, other.CheckInDate, other.CheckOutDate, other.NumberOfNights, other.AccommodationDetails, other.Agreement, other.DeadlineDetails));
+        }
+
+        public override bool Equals(object? obj) => obj is SingleAccommodationAvailabilityDetailsWithDeadline other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(AvailabilityId, CheckInDate, CheckOutDate, NumberOfNights, AccommodationDetails, Agreement, DeadlineDetails);
     }
 }

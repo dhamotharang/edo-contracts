@@ -9,15 +9,15 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimAvailabilityResult
     {
         [JsonConstructor]
-        public SlimAvailabilityResult(SlimAccommodationDetails accommodationDetails, List<Agreement> agreements)
+        public SlimAvailabilityResult(SlimAccommodationDetails accommodationDetails, List<RoomContractSet> agreements)
         {
             AccommodationDetails = accommodationDetails;
-            Agreements = agreements ?? new List<Agreement>(0);
+            Agreements = agreements ?? new List<RoomContractSet>(0);
         }
 
 
         public SlimAccommodationDetails AccommodationDetails { get; }
-        public List<Agreement> Agreements { get; }
+        public List<RoomContractSet> Agreements { get; }
 
 
         public override bool Equals(object? obj) => obj is SlimAvailabilityResult other && Equals(other);

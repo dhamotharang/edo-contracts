@@ -9,10 +9,11 @@
         <Company>HappyTravel</Company>
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-        <PackageReleaseNotes>Added AgentReference in BookingDetails</PackageReleaseNotes>
+        <PackageReleaseNotes>Changed names and data structures for room contracts</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
-        <Version>1.2.3</Version>
+        <Version>1.2.4</Version>
+        <PackageVersion>1.2.4</PackageVersion>
     </PropertyGroup>
 
   <ItemGroup>

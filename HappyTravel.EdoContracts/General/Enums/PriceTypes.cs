@@ -8,6 +8,6 @@ namespace HappyTravel.EdoContracts.General.Enums
     {
         Room = 1,
         Supplement = 2,
-        Agreement = 3
+        RoomContractSet = 3
     }
 }

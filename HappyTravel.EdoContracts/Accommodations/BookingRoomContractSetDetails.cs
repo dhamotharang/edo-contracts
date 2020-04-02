@@ -6,10 +6,10 @@ using Newtonsoft.Json;
 namespace HappyTravel.EdoContracts.Accommodations
 {
     [StructLayout(LayoutKind.Auto)]
-    public readonly struct BookingAgreementDetails
+    public readonly struct BookingRoomContractSetDetails
     {
         [JsonConstructor]
-        public BookingAgreementDetails(RoomContractSet roomContractSet, DateTime checkInDate, DateTime checkOutDate, int accommodationId)
+        public BookingRoomContractSetDetails(RoomContractSet roomContractSet, DateTime checkInDate, DateTime checkOutDate, int accommodationId)
         {
             AccommodationId = accommodationId;
             RoomContractSet = roomContractSet;
@@ -25,15 +25,15 @@ namespace HappyTravel.EdoContracts.Accommodations
 
 
         public override bool Equals(object? obj) 
-            => obj is BookingAgreementDetails other && Equals(other);
+            => obj is BookingRoomContractSetDetails other && Equals(other);
 
 
-        public bool Equals(BookingAgreementDetails other)
-            => (Agreement: RoomContractSet, CheckInDate, CheckOutDate, AccommodationId)
+        public bool Equals(BookingRoomContractSetDetails other)
+            => (RoomContractSet: RoomContractSet, CheckInDate, CheckOutDate, AccommodationId)
                 .Equals((other.RoomContractSet, other.CheckInDate, other.CheckOutDate, other.AccommodationId));
 
 
         public override int GetHashCode() 
-            => (Agreement: RoomContractSet, CheckInDate, CheckOutDate, AccommodationId).GetHashCode();
+            => (RoomContractSet: RoomContractSet, CheckInDate, CheckOutDate, AccommodationId).GetHashCode();
     }
 }

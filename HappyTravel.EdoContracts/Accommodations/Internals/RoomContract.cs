@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Enums;
 using HappyTravel.EdoContracts.Extensions;
@@ -17,7 +16,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public RoomContract(string tariffCode, string boardBasisCode, string boardBasis, string mealPlanCode,
             string mealPlan, DateTime? deadlineDate, int contractTypeId, bool isAvailableImmediately,
             bool isDynamic, bool isSpecial, string contractType, List<KeyValuePair<string, string>> remarks,
-            List<DailyPrice> roomPrices, int adultsNumber, int childrenNumber = 0, List<int>? childrenAges = null,
+            List<DailyPrice> roomPrices, Price totalPrice, int adultsNumber, int childrenNumber = 0, List<int>? childrenAges = null,
             RoomTypes type = RoomTypes.NotSpecified, bool isExtraBedNeeded = false)
         {
             TariffCode = tariffCode;
@@ -31,6 +30,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             IsDynamic = isDynamic;
             IsSpecial = isSpecial;
             ContractType = contractType;
+            TotalPrice = totalPrice;
             Remarks = remarks ?? new List<KeyValuePair<string, string>>(0);
             AdultsNumber = adultsNumber;
             ChildrenAges = childrenAges ?? new List<int>(0);
@@ -52,6 +52,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public bool IsDynamic { get; }
         public bool IsSpecial { get; }
         public string ContractType { get; }
+        public Price TotalPrice { get; }
         public List<KeyValuePair<string, string>> Remarks { get; }
 
         /// <summary>
@@ -90,11 +91,16 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
 
         public bool Equals(RoomContract other)
-            => (AdultsNumber, ChildrenNumber, IsExtraBedNeeded, Type).Equals((other.AdultsNumber, other.ChildrenNumber, other.IsExtraBedNeeded, other.Type)) &&
+            => (TariffCode, BoardBasisCode, MealPlanCode, DeadlineDate, IsAvailableImmediately, IsDynamic, IsSpecial, TotalPrice,
+                    ContractTypeId, AdultsNumber,
+                    ChildrenNumber, IsExtraBedNeeded, Type).Equals((other.TariffCode, other.BoardBasisCode, other.MealPlanCode,
+                    other.DeadlineDate, other.IsAvailableImmediately, other.IsDynamic, other.IsSpecial, other.TotalPrice,
+                    other.ContractTypeId, other.AdultsNumber, other.ChildrenNumber, other.IsExtraBedNeeded, other.Type)) &&
                 ChildrenAges.SafeSequenceEqual(other.ChildrenAges) &&
-                RoomPrices.SafeSequenceEqual(other.RoomPrices);
+                RoomPrices.SafeSequenceEqual(other.RoomPrices) && Remarks.SafeSequenceEqual(other.Remarks);
 
 
-        public override int GetHashCode() => (AdultsNumber, ChildrenAges, ChildrenNumber, IsExtraBedNeeded, RoomPrices, Type).GetHashCode();
+        public override int GetHashCode() => (TariffCode, BoardBasisCode, MealPlanCode, DeadlineDate, IsAvailableImmediately, IsDynamic, IsSpecial, TotalPrice,
+            ContractTypeId, AdultsNumber, ChildrenAges, ChildrenNumber, IsExtraBedNeeded, RoomPrices, Type, Remarks).GetHashCode();
     }
 }

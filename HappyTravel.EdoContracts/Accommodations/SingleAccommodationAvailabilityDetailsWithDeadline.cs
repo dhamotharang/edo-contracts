@@ -10,8 +10,8 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public SingleAccommodationAvailabilityDetailsWithDeadline(string availabilityId, DateTime checkInDate,
-            DateTime checkOutDate, int numberOfNights, AccommodationDetails accommodationDetails, RoomContractSet roomContractSet,
-            DeadlineDetails deadlineDetails)
+            DateTime checkOutDate, int numberOfNights, in AccommodationDetails accommodationDetails, in RoomContractSet roomContractSet,
+            in DeadlineDetails deadlineDetails)
         {
             AvailabilityId = availabilityId;
             CheckInDate = checkInDate;

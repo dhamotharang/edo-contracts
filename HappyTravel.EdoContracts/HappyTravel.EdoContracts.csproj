@@ -9,7 +9,9 @@
         <Company>HappyTravel</Company>
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-        <PackageReleaseNotes>Updated availability models</PackageReleaseNotes>
+        <PackageReleaseNotes>Updated availability models: Renamed RoomRequestDetails to RoomOccupationRequest, SlimAvailabilityResult to AccommodationAvailabilityDetails,
+            Removed ChildrenNumber from RoomRequestDetails and RoomContract,
+            In RoomContract removed TariffCode, MealPlanCode, IsSpecial, renamed ContractTypeId to ContractType, ContractType to ContractDescription, changed BoardBasisCode to BoardBasis (where BoardBasis type is enum)  </PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
         <Version>1.3.0</Version>

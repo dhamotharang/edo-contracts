@@ -9,7 +9,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct AccommodationAvailabilityDetails
     {
         [JsonConstructor]
-        public AccommodationAvailabilityDetails(SlimAccommodationDetails accommodationDetails, List<RoomContractSet> roomContractSets)
+        public AccommodationAvailabilityDetails(in SlimAccommodationDetails accommodationDetails, List<RoomContractSet> roomContractSets)
         {
             AccommodationDetails = accommodationDetails;
             RoomContractSets = roomContractSets ?? new List<RoomContractSet>(0);

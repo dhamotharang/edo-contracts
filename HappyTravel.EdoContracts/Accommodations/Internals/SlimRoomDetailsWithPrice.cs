@@ -9,13 +9,13 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public struct SlimRoomDetailsWithPrice
     {
         [JsonConstructor]
-        public SlimRoomDetailsWithPrice(SlimRoomDetails roomDetails, List<Price> prices)
+        public SlimRoomDetailsWithPrice(in SlimRoomDetails roomDetails, List<Price> prices)
         {
             RoomDetails = roomDetails;
             Prices = prices;
         }
 
-		
+
         public SlimRoomDetails RoomDetails { get; }
         public List<Price> Prices { get; }
     }

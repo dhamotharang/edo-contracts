@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations.Internals
 {
-    public struct BookingLocationDescription
+    public readonly struct BookingLocationDescription
     {
         [JsonConstructor]
         public BookingLocationDescription(string countryCode, string countryName, string cityCode,
@@ -15,7 +15,8 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             AccommodationId = accommodationId;
             AccommodationName = accommodationName;
         }
-        
+
+
         public string CountryCode { get; }
         public string CountryName { get; }
         public string CityCode { get; }

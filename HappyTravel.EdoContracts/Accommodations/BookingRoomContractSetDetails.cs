@@ -9,7 +9,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct BookingRoomContractSetDetails
     {
         [JsonConstructor]
-        public BookingRoomContractSetDetails(RoomContractSet roomContractSet, DateTime checkInDate, DateTime checkOutDate, int accommodationId)
+        public BookingRoomContractSetDetails(in RoomContractSet roomContractSet, DateTime checkInDate, DateTime checkOutDate, int accommodationId)
         {
             AccommodationId = accommodationId;
             RoomContractSet = roomContractSet;
@@ -24,8 +24,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public DateTime CheckOutDate { get; }
 
 
-        public override bool Equals(object? obj) 
-            => obj is BookingRoomContractSetDetails other && Equals(other);
+        public override bool Equals(object? obj) => obj is BookingRoomContractSetDetails other && Equals(other);
 
 
         public bool Equals(BookingRoomContractSetDetails other)
@@ -33,7 +32,6 @@ namespace HappyTravel.EdoContracts.Accommodations
                 .Equals((other.RoomContractSet, other.CheckInDate, other.CheckOutDate, other.AccommodationId));
 
 
-        public override int GetHashCode() 
-            => (RoomContractSet: RoomContractSet, CheckInDate, CheckOutDate, AccommodationId).GetHashCode();
+        public override int GetHashCode() => (RoomContractSet: RoomContractSet, CheckInDate, CheckOutDate, AccommodationId).GetHashCode();
     }
 }

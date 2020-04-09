@@ -7,13 +7,13 @@ namespace HappyTravel.EdoContracts.Accommodations
     public struct BookingModificationDetails
     {
         [JsonConstructor]
-        public BookingModificationDetails(in AvailabilityDetails availabilityDetails, BookingDetails bookingDetails)
+        public BookingModificationDetails(in AvailabilityDetails availabilityDetails, in BookingDetails bookingDetails)
         {
             AvailabilityDetails = availabilityDetails;
             BookingDetails = bookingDetails;
         }
-        
-        
+
+
         public AvailabilityDetails AvailabilityDetails { get; }
         public BookingDetails BookingDetails { get; }
     }

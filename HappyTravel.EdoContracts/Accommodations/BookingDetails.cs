@@ -16,8 +16,8 @@ namespace HappyTravel.EdoContracts.Accommodations
             DateTime checkOutDate, string contractDescription, DateTime deadline, string locality,
             string tariffCode,
             List<SlimRoomDetailsWithPrice> roomDetails,
-            BookingLocationDescription locationDescription,
-            RoomContractSet roomContractSet = default)
+            in BookingLocationDescription locationDescription,
+            in RoomContractSet roomContractSet = default)
         {
             AccommodationId = accommodationId;
             BookingCode = bookingCode;

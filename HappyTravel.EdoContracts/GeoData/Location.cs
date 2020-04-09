@@ -9,7 +9,7 @@ namespace HappyTravel.EdoContracts.GeoData
     public readonly struct Location
     {
         [JsonConstructor]
-        public Location(string name, string locality, string country, GeoPoint coordinates, int distance, PredictionSources source, LocationTypes type)
+        public Location(string name, string locality, string country, in GeoPoint coordinates, int distance, PredictionSources source, LocationTypes type)
         {
             Name = name;
             Locality = locality;

@@ -17,7 +17,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public AvailabilityRequest(string nationality, string residency, DateTime checkInDate, DateTime checkOutDate,
-            SearchFilters filters, List<RoomRequestDetails> roomDetails, Location location, PropertyTypes propertyTypes,
+            SearchFilters filters, List<RoomOccupationRequest> roomDetails, in Location location, PropertyTypes propertyTypes,
             AccommodationRatings ratings)
         {
             CheckInDate = checkInDate;
@@ -28,7 +28,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             PropertyTypes = propertyTypes;
             Ratings = ratings;
             Residency = residency;
-            RoomDetails = roomDetails ?? new List<RoomRequestDetails>(0);
+            RoomDetails = roomDetails ?? new List<RoomOccupationRequest>(0);
         }
 
 
@@ -53,7 +53,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public string Residency { get; }
 
         [Required]
-        public List<RoomRequestDetails> RoomDetails { get; }
+        public List<RoomOccupationRequest> RoomDetails { get; }
 
 
         public override bool Equals(object? obj) => obj is AvailabilityRequest other && Equals(other);

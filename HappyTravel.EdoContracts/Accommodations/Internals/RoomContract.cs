@@ -13,45 +13,37 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct RoomContract
     {
         [JsonConstructor]
-        public RoomContract(string tariffCode, string boardBasisCode, string boardBasis, string mealPlanCode,
-            string mealPlan, DateTime? deadlineDate, int contractTypeId, bool isAvailableImmediately,
-            bool isDynamic, bool isSpecial, string contractType, List<KeyValuePair<string, string>> remarks,
-            List<DailyPrice> roomPrices, Price totalPrice, int adultsNumber, int childrenNumber = 0, List<int>? childrenAges = null,
+        public RoomContract(BoardBasisTypes boardBasisType, string mealPlan, DateTime? deadlineDate, int contractType, bool isAvailableImmediately,
+            bool isDynamic, bool isSpecial, string contractDescription, List<KeyValuePair<string, string>> remarks,
+            List<DailyPrice> roomPrices, Price totalPrice, int adultsNumber, List<int>? childrenAges = null,
             RoomTypes type = RoomTypes.NotSpecified, bool isExtraBedNeeded = false)
         {
-            TariffCode = tariffCode;
-            BoardBasisCode = boardBasisCode;
-            BoardBasis = boardBasis;
-            MealPlanCode = mealPlanCode;
+            BoardBasisType = boardBasisType;
             MealPlan = mealPlan;
             DeadlineDate = deadlineDate;
-            ContractTypeId = contractTypeId;
+            ContractType = contractType;
             IsAvailableImmediately = isAvailableImmediately;
             IsDynamic = isDynamic;
             IsSpecial = isSpecial;
-            ContractType = contractType;
+            ContractDescription = contractDescription;
             TotalPrice = totalPrice;
             Remarks = remarks ?? new List<KeyValuePair<string, string>>(0);
             AdultsNumber = adultsNumber;
             ChildrenAges = childrenAges ?? new List<int>(0);
-            ChildrenNumber = childrenNumber;
             IsExtraBedNeeded = isExtraBedNeeded;
             RoomPrices = roomPrices ?? new List<DailyPrice>(0);
             Type = type;
         }
 
 
-        public string TariffCode { get; }
-        public string BoardBasisCode { get; }
-        public string BoardBasis { get; }
-        public string MealPlanCode { get; }
+        public BoardBasisTypes BoardBasisType { get; }
         public string MealPlan { get; }
         public DateTime? DeadlineDate { get; }
-        public int ContractTypeId { get; }
+        public int ContractType { get; }
         public bool IsAvailableImmediately { get; }
         public bool IsDynamic { get; }
         public bool IsSpecial { get; }
-        public string ContractType { get; }
+        public string ContractDescription { get; }
         public Price TotalPrice { get; }
         public List<KeyValuePair<string, string>> Remarks { get; }
 
@@ -65,11 +57,6 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         ///     Ages of each child.
         /// </summary>
         public List<int> ChildrenAges { get; }
-
-        /// <summary>
-        ///     Number of children.
-        /// </summary>
-        public int ChildrenNumber { get; }
 
         /// <summary>
         ///     Indicates if extra child bed needed.
@@ -91,16 +78,16 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
 
         public bool Equals(RoomContract other)
-            => (TariffCode, BoardBasisCode, MealPlanCode, DeadlineDate, IsAvailableImmediately, IsDynamic, IsSpecial, TotalPrice,
-                    ContractTypeId, AdultsNumber,
-                    ChildrenNumber, IsExtraBedNeeded, Type).Equals((other.TariffCode, other.BoardBasisCode, other.MealPlanCode,
+            => (BoardBasisType, MealPlan, DeadlineDate, IsAvailableImmediately, IsDynamic, IsSpecial, TotalPrice,
+                    ContractType, ContractDescription, AdultsNumber, IsExtraBedNeeded, Type).Equals((other.BoardBasisType, other.MealPlan,
                     other.DeadlineDate, other.IsAvailableImmediately, other.IsDynamic, other.IsSpecial, other.TotalPrice,
-                    other.ContractTypeId, other.AdultsNumber, other.ChildrenNumber, other.IsExtraBedNeeded, other.Type)) &&
+                    other.ContractType, other.ContractDescription, other.AdultsNumber, other.IsExtraBedNeeded, other.Type)) &&
                 ChildrenAges.SafeSequenceEqual(other.ChildrenAges) &&
                 RoomPrices.SafeSequenceEqual(other.RoomPrices) && Remarks.SafeSequenceEqual(other.Remarks);
 
 
-        public override int GetHashCode() => (TariffCode, BoardBasisCode, MealPlanCode, DeadlineDate, IsAvailableImmediately, IsDynamic, IsSpecial, TotalPrice,
-            ContractTypeId, AdultsNumber, ChildrenAges, ChildrenNumber, IsExtraBedNeeded, RoomPrices, Type, Remarks).GetHashCode();
+        public override int GetHashCode()
+            => (BoardBasisType, MealPlan, DeadlineDate, IsAvailableImmediately, IsDynamic, IsSpecial, TotalPrice,
+                ContractType, ContractDescription, AdultsNumber, ChildrenAges, IsExtraBedNeeded, RoomPrices, Type, Remarks).GetHashCode();
     }
 }

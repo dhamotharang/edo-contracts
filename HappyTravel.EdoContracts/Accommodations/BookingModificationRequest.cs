@@ -18,7 +18,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             string availabilityId,
             string tariffCode,
             decimal price,
-            List<RoomRequestDetails> roomDetails)
+            List<RoomOccupationRequest> roomDetails)
         {
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
@@ -27,7 +27,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             AvailabilityId = availabilityId;
             TariffCode = tariffCode;
             Price = price;
-            RoomDetails = roomDetails ?? new List<RoomRequestDetails>(0);
+            RoomDetails = roomDetails ?? new List<RoomOccupationRequest>(0);
         }
         
         
@@ -38,6 +38,6 @@ namespace HappyTravel.EdoContracts.Accommodations
         public string AvailabilityId { get; }
         public string TariffCode { get; }
         public decimal Price { get; }
-        public List<RoomRequestDetails> RoomDetails { get; }
+        public List<RoomOccupationRequest> RoomDetails { get; }
     }
 }

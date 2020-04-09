@@ -6,15 +6,14 @@ using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations.Internals
 {
-    public readonly struct RoomRequestDetails
+    public readonly struct RoomOccupationRequest
     {
         [JsonConstructor]
-        public RoomRequestDetails(int adultsNumber, int childrenNumber = 0, List<int>? childrenAges = null, RoomTypes type = RoomTypes.NotSpecified,
+        public RoomOccupationRequest(int adultsNumber, List<int>? childrenAges = null, RoomTypes type = RoomTypes.NotSpecified,
             bool isExtraBedNeeded = false)
         {
             AdultsNumber = adultsNumber;
             ChildrenAges = childrenAges ?? new List<int>(0);
-            ChildrenNumber = childrenNumber;
             IsExtraBedNeeded = isExtraBedNeeded;
             Type = type;
         }
@@ -32,11 +31,6 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public List<int> ChildrenAges { get; }
 
         /// <summary>
-        ///     Number of children.
-        /// </summary>
-        public int ChildrenNumber { get; }
-
-        /// <summary>
         ///     Indicates if extra child bed needed.
         /// </summary>
         public bool IsExtraBedNeeded { get; }
@@ -46,15 +40,15 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         /// </summary>
         public RoomTypes Type { get; }
 
-        public override bool Equals(object? obj) => obj is RoomRequestDetails other && Equals(other);
+        public override bool Equals(object? obj) => obj is RoomOccupationRequest other && Equals(other);
 
 
-        public bool Equals(RoomRequestDetails other)
-            => (AdultsNumber, ChildrenNumber, IsExtraBedNeeded, Type)
-                .Equals((other.AdultsNumber, other.ChildrenNumber, other.IsExtraBedNeeded, other.Type)) &&
+        public bool Equals(RoomOccupationRequest other)
+            => (AdultsNumber, IsExtraBedNeeded, Type)
+                .Equals((other.AdultsNumber, other.IsExtraBedNeeded, other.Type)) &&
                 ChildrenAges.SafeSequenceEqual(other.ChildrenAges);
 
 
-        public override int GetHashCode() => (AdultsNumber, ChildrenAges, ChildrenNumber, IsExtraBedNeeded, Type).GetHashCode();
+        public override int GetHashCode() => (AdultsNumber, ChildrenAges, IsExtraBedNeeded, Type).GetHashCode();
     }
 }

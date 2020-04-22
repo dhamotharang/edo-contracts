@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations
 {
-    public struct SingleAccommodationAvailabilityDetails
+    public readonly struct SingleAccommodationAvailabilityDetails
     {
         [JsonConstructor]
         public SingleAccommodationAvailabilityDetails(string availabilityId, DateTime checkInDate, DateTime checkOutDate,

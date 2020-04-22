@@ -16,7 +16,8 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public RoomContract(BoardBasisTypes boardBasis, string mealPlan, DateTime? deadlineDate, int contractType, bool isAvailableImmediately,
             bool isDynamic, string contractDescription, List<KeyValuePair<string, string>> remarks,
             List<DailyPrice> roomPrices, Price totalPrice, int adultsNumber, List<int>? childrenAges = null,
-            RoomTypes type = RoomTypes.NotSpecified, bool isExtraBedNeeded = false)
+            RoomTypes type = RoomTypes.NotSpecified, bool isExtraBedNeeded = false,
+            in DeadlineDetails deadlineDetails = default)
         {
             BoardBasis = boardBasis;
             MealPlan = mealPlan;
@@ -32,6 +33,17 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             IsExtraBedNeeded = isExtraBedNeeded;
             RoomPrices = roomPrices ?? new List<DailyPrice>(0);
             Type = type;
+        }
+
+
+        public RoomContract(in RoomContract roomContract, in DeadlineDetails deadlineDetails)
+            : this(roomContract.BoardBasis, roomContract.MealPlan, roomContract.DeadlineDate, roomContract.ContractType,
+                roomContract.IsAvailableImmediately,
+                roomContract.IsDynamic, roomContract.ContractDescription, roomContract.Remarks,
+                roomContract.RoomPrices, roomContract.TotalPrice, roomContract.AdultsNumber,
+                roomContract.ChildrenAges, roomContract.Type, roomContract.IsExtraBedNeeded, deadlineDetails)
+        {
+            
         }
 
 

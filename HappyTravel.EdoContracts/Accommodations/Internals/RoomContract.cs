@@ -31,6 +31,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             AdultsNumber = adultsNumber;
             ChildrenAges = childrenAges ?? new List<int>(0);
             IsExtraBedNeeded = isExtraBedNeeded;
+            DeadlineDetails = deadlineDetails;
             RoomPrices = roomPrices ?? new List<DailyPrice>(0);
             Type = type;
         }
@@ -72,6 +73,11 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         ///     Indicates if extra child bed needed.
         /// </summary>
         public bool IsExtraBedNeeded { get; }
+
+        /// <summary>
+        ///     Deadline and cancellation information.
+        /// </summary>
+        public DeadlineDetails DeadlineDetails { get; }
 
         /// <summary>
         ///     List of room prices on daily basis

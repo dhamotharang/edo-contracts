@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.General.Enums;
+using HappyTravel.Money.Enums;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.General

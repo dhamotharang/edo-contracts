@@ -17,6 +17,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             string tariffCode,
             List<SlimRoomDetailsWithPrice> roomDetails,
             in BookingLocationDescription locationDescription,
+            BookingUpdateMode bookingUpdateMode,
             in RoomContractSet roomContractSet = default)
         {
             AccommodationId = accommodationId;
@@ -32,6 +33,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             Status = status;
             TariffCode = tariffCode;
             LocationDescription = locationDescription;
+            BookingUpdateMode = bookingUpdateMode;
             RoomContractSet = roomContractSet;
         }
 
@@ -39,7 +41,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public BookingDetails(BookingDetails details, RoomContractSet roomContractSet) : this(details.ReferenceCode, details.AgentReference,
             details.Status, details.AccommodationId, details.BookingCode,
             details.CheckInDate, details.CheckOutDate, details.ContractDescription, details.Deadline,
-            details.Locality, details.TariffCode, details.RoomDetails, details.LocationDescription, roomContractSet)
+            details.Locality, details.TariffCode, details.RoomDetails, details.LocationDescription, details.BookingUpdateMode, roomContractSet)
         { }
 
 
@@ -57,6 +59,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public BookingStatusCodes Status { get; }
         public string TariffCode { get; }
         public BookingLocationDescription LocationDescription { get; }
+        public BookingUpdateMode BookingUpdateMode { get; }
         public RoomContractSet RoomContractSet { get; }
     }
 }

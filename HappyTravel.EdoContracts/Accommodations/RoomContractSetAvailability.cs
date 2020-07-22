@@ -1,35 +1,31 @@
-using System;
-using System.Collections.Generic;
+﻿using System;
+using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Internals;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations
 {
-    public readonly struct SingleAccommodationAvailabilityDetails
+    [StructLayout(LayoutKind.Auto)]
+    public readonly struct RoomContractSetAvailability
     {
         [JsonConstructor]
-        public SingleAccommodationAvailabilityDetails(string availabilityId, DateTime checkInDate, DateTime checkOutDate,
-            int numberOfNights, in AccommodationDetails accommodationDetails, List<RoomContractSet> roomContractSets)
+        public RoomContractSetAvailability(string availabilityId, DateTime checkInDate,
+            DateTime checkOutDate, int numberOfNights, in SlimAccommodationDetails accommodationDetails, in RoomContractSet roomContractSet)
         {
             AvailabilityId = availabilityId;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
             NumberOfNights = numberOfNights;
             AccommodationDetails = accommodationDetails;
-            RoomContractSets = roomContractSets ?? new List<RoomContractSet>(0);
+            RoomContractSet = roomContractSet;
         }
 
 
         public string AvailabilityId { get; }
-
         public DateTime CheckInDate { get; }
-
         public DateTime CheckOutDate { get; }
-
         public int NumberOfNights { get; }
-
-        public AccommodationDetails AccommodationDetails { get; }
-
-        public List<RoomContractSet> RoomContractSets { get; }
+        public SlimAccommodationDetails AccommodationDetails { get; }
+        public RoomContractSet RoomContractSet { get; }
     }
 }

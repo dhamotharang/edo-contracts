@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Internals;
+using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations
 {
     [StructLayout(LayoutKind.Auto)]
-    public readonly struct DeadlineDetails
+    public readonly struct Deadline
     {
-        public DeadlineDetails(DateTime? date, List<CancellationPolicy> policies, List<string> remarks)
+        [JsonConstructor]
+        public Deadline(DateTime? date, List<CancellationPolicy> policies, List<string> remarks)
         {
             Date = date;
             Policies = policies ?? new List<CancellationPolicy>(0);

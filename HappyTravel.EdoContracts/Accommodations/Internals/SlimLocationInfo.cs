@@ -25,7 +25,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public string LocalityZone { get; }
 
 
-        public override bool Equals(object? obj) => obj is SlimAccommodationDetails other && Equals(other);
+        public override bool Equals(object? obj) => obj is SlimAccommodation other && Equals(other);
 
 
         public bool Equals(SlimLocationInfo other)

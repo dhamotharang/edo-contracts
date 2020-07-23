@@ -17,7 +17,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             bool isDynamic, string contractDescription, List<KeyValuePair<string, string>> remarks,
             List<DailyPrice> roomPrices, Price totalPrice, int adultsNumber, List<int>? childrenAges = null,
             RoomTypes type = RoomTypes.NotSpecified, bool isExtraBedNeeded = false,
-            in DeadlineDetails deadlineDetails = default)
+            in Deadline deadline = default)
         {
             BoardBasis = boardBasis;
             MealPlan = mealPlan;
@@ -31,18 +31,18 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             AdultsNumber = adultsNumber;
             ChildrenAges = childrenAges ?? new List<int>(0);
             IsExtraBedNeeded = isExtraBedNeeded;
-            DeadlineDetails = deadlineDetails;
+            Deadline = deadline;
             RoomPrices = roomPrices ?? new List<DailyPrice>(0);
             Type = type;
         }
 
 
-        public RoomContract(in RoomContract roomContract, in DeadlineDetails deadlineDetails)
+        public RoomContract(in RoomContract roomContract, in Deadline deadline)
             : this(roomContract.BoardBasis, roomContract.MealPlan, roomContract.DeadlineDate, roomContract.ContractType,
                 roomContract.IsAvailableImmediately,
                 roomContract.IsDynamic, roomContract.ContractDescription, roomContract.Remarks,
                 roomContract.RoomPrices, roomContract.TotalPrice, roomContract.AdultsNumber,
-                roomContract.ChildrenAges, roomContract.Type, roomContract.IsExtraBedNeeded, deadlineDetails)
+                roomContract.ChildrenAges, roomContract.Type, roomContract.IsExtraBedNeeded, deadline)
         {
             
         }
@@ -77,7 +77,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         /// <summary>
         ///     Deadline and cancellation information.
         /// </summary>
-        public DeadlineDetails DeadlineDetails { get; }
+        public Deadline Deadline { get; }
 
         /// <summary>
         ///     List of room prices on daily basis

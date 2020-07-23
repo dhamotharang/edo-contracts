@@ -17,7 +17,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             PaymentMethods paymentMethod,
             string referenceCode, 
             string residency,
-            List<SlimRoomDetails> roomDetails,
+            List<SlimRoom> roomDetails,
             List<Feature> features, 
             bool rejectIfUnavailable = true)
         {
@@ -29,7 +29,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             RejectIfUnavailable = rejectIfUnavailable;
             Residency = residency;
 
-            RoomDetails = roomDetails ?? new List<SlimRoomDetails>(0);
+            Room = roomDetails ?? new List<SlimRoom>(0);
             Features = features ?? new List<Feature>(0);
         }
 
@@ -48,7 +48,7 @@ namespace HappyTravel.EdoContracts.Accommodations
 
         public bool RejectIfUnavailable { get; }
 
-        public List<SlimRoomDetails> RoomDetails { get; }
+        public List<SlimRoom> Room { get; }
 
         public List<Feature> Features { get; }
     }

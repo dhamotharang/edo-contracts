@@ -6,10 +6,10 @@ using Newtonsoft.Json;
 namespace HappyTravel.EdoContracts.Accommodations
 {
     [StructLayout(LayoutKind.Auto)]
-    public readonly struct BookingRoomContractSetDetails
+    public readonly struct BookingRoomContractSet
     {
         [JsonConstructor]
-        public BookingRoomContractSetDetails(in RoomContractSet roomContractSet, DateTime checkInDate, DateTime checkOutDate, int accommodationId)
+        public BookingRoomContractSet(in RoomContractSet roomContractSet, DateTime checkInDate, DateTime checkOutDate, int accommodationId)
         {
             AccommodationId = accommodationId;
             RoomContractSet = roomContractSet;
@@ -24,10 +24,10 @@ namespace HappyTravel.EdoContracts.Accommodations
         public DateTime CheckOutDate { get; }
 
 
-        public override bool Equals(object? obj) => obj is BookingRoomContractSetDetails other && Equals(other);
+        public override bool Equals(object? obj) => obj is BookingRoomContractSet other && Equals(other);
 
 
-        public bool Equals(BookingRoomContractSetDetails other)
+        public bool Equals(BookingRoomContractSet other)
             => (RoomContractSet: RoomContractSet, CheckInDate, CheckOutDate, AccommodationId)
                 .Equals((other.RoomContractSet, other.CheckInDate, other.CheckOutDate, other.AccommodationId));
 

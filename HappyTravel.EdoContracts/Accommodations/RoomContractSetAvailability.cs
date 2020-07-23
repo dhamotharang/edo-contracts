@@ -10,13 +10,13 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public RoomContractSetAvailability(string availabilityId, DateTime checkInDate,
-            DateTime checkOutDate, int numberOfNights, in SlimAccommodationDetails accommodationDetails, in RoomContractSet roomContractSet)
+            DateTime checkOutDate, int numberOfNights, in SlimAccommodation accommodation, in RoomContractSet roomContractSet)
         {
             AvailabilityId = availabilityId;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
             NumberOfNights = numberOfNights;
-            AccommodationDetails = accommodationDetails;
+            Accommodation = accommodation;
             RoomContractSet = roomContractSet;
         }
 
@@ -25,7 +25,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public DateTime CheckInDate { get; }
         public DateTime CheckOutDate { get; }
         public int NumberOfNights { get; }
-        public SlimAccommodationDetails AccommodationDetails { get; }
+        public SlimAccommodation Accommodation { get; }
         public RoomContractSet RoomContractSet { get; }
     }
 }

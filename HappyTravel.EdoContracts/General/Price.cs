@@ -9,12 +9,13 @@ namespace HappyTravel.EdoContracts.General
     public readonly struct Price
     {
         [JsonConstructor]
-        public Price(Currencies currency, decimal netTotal, decimal gross, PriceTypes type = PriceTypes.Room, string? description = null)
+        public Price(Currencies currency, decimal netTotal, decimal gross, decimal? discount = null, PriceTypes type = PriceTypes.Room, string? description = null)
         {
             Currency = currency;
             Description = description ?? string.Empty;
             Gross = gross;
             NetTotal = netTotal;
+            Discount = discount;
             Type = type;
         }
 
@@ -23,6 +24,7 @@ namespace HappyTravel.EdoContracts.General
         public string Description { get; }
         public decimal Gross { get; }
         public decimal NetTotal { get; }
+        public decimal? Discount { get; }
         public PriceTypes Type { get; }
         
         public override bool Equals(object? obj) => obj is Price other && Equals(other);

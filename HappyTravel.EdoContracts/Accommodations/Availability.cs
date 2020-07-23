@@ -8,10 +8,10 @@ using Newtonsoft.Json;
 namespace HappyTravel.EdoContracts.Accommodations
 {
     [StructLayout(LayoutKind.Auto)]
-    public readonly struct AvailabilityDetails
+    public readonly struct Availability
     {
         [JsonConstructor]
-        public AvailabilityDetails(string availabilityId, int numberOfNights, DateTime checkInDate, DateTime checkOutDate, List<Internals.AccommodationAvailability> results, int numberOfProcessedAccommodations = 0)
+        public Availability(string availabilityId, int numberOfNights, DateTime checkInDate, DateTime checkOutDate, List<AccommodationAvailability> results, int numberOfProcessedAccommodations = 0)
         {
             AvailabilityId = availabilityId;
             CheckInDate = checkInDate;
@@ -30,10 +30,10 @@ namespace HappyTravel.EdoContracts.Accommodations
         public List<AccommodationAvailability> Results { get; }
 
 
-        public override bool Equals(object? obj) => obj is AvailabilityDetails other && Equals(other);
+        public override bool Equals(object? obj) => obj is Availability other && Equals(other);
 
 
-        public bool Equals(AvailabilityDetails other)
+        public bool Equals(Availability other)
             => (AvailabilityId, CheckInDate, NumberOfNights) == (other.AvailabilityId, other.CheckInDate, other.NumberOfNights) &&
                 Results.SafeSequenceEqual(other.Results);
 

@@ -5,17 +5,17 @@ using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations
 {
-    public readonly struct AccommodationAvailabilityDetails
+    public readonly struct AccommodationAvailability
     {
         [JsonConstructor]
-        public AccommodationAvailabilityDetails(string availabilityId, DateTime checkInDate, DateTime checkOutDate,
-            int numberOfNights, in SlimAccommodationDetails accommodationDetails, List<RoomContractSet> roomContractSets)
+        public AccommodationAvailability(string availabilityId, DateTime checkInDate, DateTime checkOutDate,
+            int numberOfNights, in SlimAccommodation accommodation, List<RoomContractSet> roomContractSets)
         {
             AvailabilityId = availabilityId;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
             NumberOfNights = numberOfNights;
-            AccommodationDetails = accommodationDetails;
+            Accommodation = accommodation;
             RoomContractSets = roomContractSets ?? new List<RoomContractSet>(0);
         }
 
@@ -28,7 +28,7 @@ namespace HappyTravel.EdoContracts.Accommodations
 
         public int NumberOfNights { get; }
 
-        public SlimAccommodationDetails AccommodationDetails { get; }
+        public SlimAccommodation Accommodation { get; }
 
         public List<RoomContractSet> RoomContractSets { get; }
     }

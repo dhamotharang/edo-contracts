@@ -8,14 +8,14 @@ using Newtonsoft.Json;
 namespace HappyTravel.EdoContracts.Accommodations
 {
     [StructLayout(LayoutKind.Auto)]
-    public readonly struct BookingDetails
+    public readonly struct Booking
     {
         [JsonConstructor]
-        public BookingDetails(string referenceCode, string agentReference, BookingStatusCodes status, string accommodationId, string bookingCode,
+        public Booking(string referenceCode, string agentReference, BookingStatusCodes status, string accommodationId, string bookingCode,
             DateTime checkInDate,
             DateTime checkOutDate, string contractDescription, DateTime deadline, string locality,
             string tariffCode,
-            List<SlimRoomDetailsWithPrice> roomDetails,
+            List<SlimRoomWithPrice> roomDetails,
             in BookingLocationDescription locationDescription,
             BookingUpdateMode bookingUpdateMode,
             in RoomContractSet roomContractSet = default)
@@ -29,7 +29,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             Locality = locality;
             ReferenceCode = referenceCode;
             AgentReference = agentReference;
-            RoomDetails = roomDetails ?? new List<SlimRoomDetailsWithPrice>(0);
+            Rooms = roomDetails ?? new List<SlimRoomWithPrice>(0);
             Status = status;
             TariffCode = tariffCode;
             LocationDescription = locationDescription;
@@ -38,10 +38,10 @@ namespace HappyTravel.EdoContracts.Accommodations
         }
 
 
-        public BookingDetails(BookingDetails details, RoomContractSet roomContractSet) : this(details.ReferenceCode, details.AgentReference,
+        public Booking(Booking details, RoomContractSet roomContractSet) : this(details.ReferenceCode, details.AgentReference,
             details.Status, details.AccommodationId, details.BookingCode,
             details.CheckInDate, details.CheckOutDate, details.ContractDescription, details.Deadline,
-            details.Locality, details.TariffCode, details.RoomDetails, details.LocationDescription, details.BookingUpdateMode, roomContractSet)
+            details.Locality, details.TariffCode, details.Rooms, details.LocationDescription, details.BookingUpdateMode, roomContractSet)
         { }
 
 
@@ -55,7 +55,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public string ReferenceCode { get; }
 
         public string AgentReference { get; }
-        public List<SlimRoomDetailsWithPrice> RoomDetails { get; }
+        public List<SlimRoomWithPrice> Rooms { get; }
         public BookingStatusCodes Status { get; }
         public string TariffCode { get; }
         public BookingLocationDescription LocationDescription { get; }

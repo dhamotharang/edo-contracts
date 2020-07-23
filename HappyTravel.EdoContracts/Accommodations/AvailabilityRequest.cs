@@ -28,7 +28,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             PropertyTypes = propertyTypes;
             Ratings = ratings;
             Residency = residency;
-            RoomDetails = roomDetails ?? new List<RoomOccupationRequest>(0);
+            Rooms = roomDetails ?? new List<RoomOccupationRequest>(0);
         }
 
 
@@ -53,7 +53,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public string Residency { get; }
 
         [Required]
-        public List<RoomOccupationRequest> RoomDetails { get; }
+        public List<RoomOccupationRequest> Rooms { get; }
 
 
         public override bool Equals(object? obj) => obj is AvailabilityRequest other && Equals(other);
@@ -63,10 +63,10 @@ namespace HappyTravel.EdoContracts.Accommodations
             => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency)
                 .Equals((other.CheckInDate, other.CheckOutDate, other.Filters, other.Location, other.Nationality, other.PropertyTypes, other.Ratings,
                     other.Residency)) &&
-                RoomDetails.SafeSequenceEqual(other.RoomDetails);
+                Rooms.SafeSequenceEqual(other.Rooms);
 
 
         public override int GetHashCode()
-            => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, RoomDetails).GetHashCode();
+            => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, RoomDetails: Rooms).GetHashCode();
     }
 }

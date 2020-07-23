@@ -5,10 +5,10 @@ using Newtonsoft.Json;
 namespace HappyTravel.EdoContracts.Accommodations.Internals
 {
     [StructLayout(LayoutKind.Auto)]
-    public readonly struct SlimAccommodationDetails
+    public readonly struct SlimAccommodation
     {
         [JsonConstructor]
-        public SlimAccommodationDetails(string id, in SlimLocationInfo location, string name, in Picture picture, AccommodationRatings rating, PropertyTypes propertyType)
+        public SlimAccommodation(string id, in SlimLocationInfo location, string name, in Picture picture, AccommodationRatings rating, PropertyTypes propertyType)
         {
             Id = id;
             Location = location;
@@ -28,10 +28,10 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public PropertyTypes PropertyType { get; }
 
 
-        public override bool Equals(object? obj) => obj is SlimAccommodationDetails other && Equals(other);
+        public override bool Equals(object? obj) => obj is SlimAccommodation other && Equals(other);
 
 
-        public bool Equals(SlimAccommodationDetails other)
+        public bool Equals(SlimAccommodation other)
             => (Id, Location, Name, Picture, Rating, PropertyType)
                 .Equals((other.Id, other.Location, other.Name, other.Picture, other.Rating, other.PropertyType));
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Internals;
-using HappyTravel.EdoContracts.General.Enums;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations
@@ -14,22 +13,18 @@ namespace HappyTravel.EdoContracts.Accommodations
         public BookingRequest(string availabilityId,
             Guid roomContractSetId, 
             string nationality,
-            PaymentMethods paymentMethod,
             string referenceCode, 
             string residency,
-            List<SlimRoom> roomDetails,
+            List<SlimRoomOccupation> roomDetails,
             List<Feature> features, 
             bool rejectIfUnavailable = true)
         {
             AvailabilityId = availabilityId;
             RoomContractSetId = roomContractSetId;
-            Nationality = nationality;
-            PaymentMethod = paymentMethod;
             ReferenceCode = referenceCode;
             RejectIfUnavailable = rejectIfUnavailable;
-            Residency = residency;
 
-            Room = roomDetails ?? new List<SlimRoom>(0);
+            Rooms = roomDetails ?? new List<SlimRoomOccupation>(0);
             Features = features ?? new List<Feature>(0);
         }
 
@@ -38,17 +33,11 @@ namespace HappyTravel.EdoContracts.Accommodations
 
         public Guid RoomContractSetId { get; }
 
-        public string Nationality { get; }
-
-        public string Residency { get; }
-
-        public PaymentMethods PaymentMethod { get; }
-
         public string ReferenceCode { get; }
 
         public bool RejectIfUnavailable { get; }
 
-        public List<SlimRoom> Room { get; }
+        public List<SlimRoomOccupation> Rooms { get; }
 
         public List<Feature> Features { get; }
     }

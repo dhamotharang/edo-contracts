@@ -8,7 +8,8 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimAccommodation
     {
         [JsonConstructor]
-        public SlimAccommodation(string id, in SlimLocationInfo location, string name, in Picture picture, AccommodationRatings rating, PropertyTypes propertyType)
+        public SlimAccommodation(string id, in SlimLocationInfo location, string name, in Picture picture, AccommodationRatings rating, PropertyTypes propertyType,
+            string htId = null, string? hotelChain = null)
         {
             Id = id;
             Location = location;
@@ -16,6 +17,8 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             Picture = picture;
             Rating = rating;
             PropertyType = propertyType;
+            HtId = htId;
+            HotelChain = hotelChain;
         }
 
 
@@ -26,6 +29,8 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public AccommodationRatings Rating { get; }
 
         public PropertyTypes PropertyType { get; }
+        public string HtId { get; }
+        public string? HotelChain { get; }
 
 
         public override bool Equals(object? obj) => obj is SlimAccommodation other && Equals(other);

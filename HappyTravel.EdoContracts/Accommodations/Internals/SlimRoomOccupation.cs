@@ -7,10 +7,10 @@ using Newtonsoft.Json;
 namespace HappyTravel.EdoContracts.Accommodations.Internals
 {
     [StructLayout(LayoutKind.Auto)]
-    public readonly struct SlimRoom
+    public readonly struct SlimRoomOccupation
     {
         [JsonConstructor]
-        public SlimRoom(RoomTypes type, List<Pax> passengers, bool isExtraBedNeeded = false)
+        public SlimRoomOccupation(RoomTypes type, List<Pax> passengers, bool isExtraBedNeeded = false)
         {
             Type = type;
             Passengers = passengers ?? new List<Pax>(0);

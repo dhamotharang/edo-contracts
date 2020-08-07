@@ -17,7 +17,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public AvailabilityRequest(string nationality, string residency, DateTime checkInDate, DateTime checkOutDate,
-            SearchFilters filters, List<RoomOccupationRequest> roomDetails, in Location location, PropertyTypes propertyTypes,
+            SearchFilters filters, List<RoomOccupationRequest> rooms, in Location location, PropertyTypes propertyTypes,
             AccommodationRatings ratings)
         {
             CheckInDate = checkInDate;
@@ -28,7 +28,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             PropertyTypes = propertyTypes;
             Ratings = ratings;
             Residency = residency;
-            Rooms = roomDetails ?? new List<RoomOccupationRequest>(0);
+            Rooms = rooms ?? new List<RoomOccupationRequest>(0);
         }
 
 
@@ -67,6 +67,6 @@ namespace HappyTravel.EdoContracts.Accommodations
 
 
         public override int GetHashCode()
-            => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, RoomDetails: Rooms).GetHashCode();
+            => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, Rooms).GetHashCode();
     }
 }

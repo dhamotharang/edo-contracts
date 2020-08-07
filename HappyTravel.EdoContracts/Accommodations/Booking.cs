@@ -13,8 +13,8 @@ namespace HappyTravel.EdoContracts.Accommodations
         [JsonConstructor]
         public Booking(string referenceCode, string agentReference, BookingStatusCodes status, string accommodationId, string supplierReferenceCode,
             DateTime checkInDate,
-            DateTime checkOutDate, string contractDescription, DateTime? deadline, 
-            List<SlimRoomOccupationWithPrice> roomDetails,
+            DateTime checkOutDate, string contractDescription, DateTime? deadline,
+            List<SlimRoomOccupationWithPrice> rooms,
             BookingUpdateMode bookingUpdateMode,
             in RoomContractSet roomContractSet = default)
         {
@@ -26,16 +26,16 @@ namespace HappyTravel.EdoContracts.Accommodations
             Deadline = deadline;
             ReferenceCode = referenceCode;
             AgentReference = agentReference;
-            Rooms = roomDetails ?? new List<SlimRoomOccupationWithPrice>(0);
+            Rooms = rooms ?? new List<SlimRoomOccupationWithPrice>(0);
             Status = status;
             BookingUpdateMode = bookingUpdateMode;
             RoomContractSet = roomContractSet;
         }
 
 
-        public Booking(Booking details, RoomContractSet roomContractSet) : this(details.ReferenceCode, details.AgentReference,
-            details.Status, details.AccommodationId, details.SupplierReferenceCode,
-            details.CheckInDate, details.CheckOutDate, details.ContractDescription, details.Deadline, details.Rooms, details.BookingUpdateMode, roomContractSet)
+        public Booking(Booking booking, RoomContractSet roomContractSet) : this(booking.ReferenceCode, booking.AgentReference,
+            booking.Status, booking.AccommodationId, booking.SupplierReferenceCode,
+            booking.CheckInDate, booking.CheckOutDate, booking.ContractDescription, booking.Deadline, booking.Rooms, booking.BookingUpdateMode, roomContractSet)
         { }
 
 

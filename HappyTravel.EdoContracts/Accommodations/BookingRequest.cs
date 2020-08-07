@@ -11,12 +11,10 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public BookingRequest(string availabilityId,
-            Guid roomContractSetId, 
-            string nationality,
-            string referenceCode, 
-            string residency,
-            List<SlimRoomOccupation> roomDetails,
-            List<Feature> features, 
+            Guid roomContractSetId,
+            string referenceCode,
+            List<SlimRoomOccupation> rooms,
+            List<Feature> features,
             bool rejectIfUnavailable = true)
         {
             AvailabilityId = availabilityId;
@@ -24,7 +22,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             ReferenceCode = referenceCode;
             RejectIfUnavailable = rejectIfUnavailable;
 
-            Rooms = roomDetails ?? new List<SlimRoomOccupation>(0);
+            Rooms = rooms ?? new List<SlimRoomOccupation>(0);
             Features = features ?? new List<Feature>(0);
         }
 

@@ -29,6 +29,6 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
                 RoomContractSets.SafeSequenceEqual(other.RoomContractSets);
 
 
-        public override int GetHashCode() => (AccommodationDetails: Accommodation, RoomContractSets: RoomContractSets).GetHashCode();
+        public override int GetHashCode() => (Accommodation, RoomContractSets).GetHashCode();
     }
 }

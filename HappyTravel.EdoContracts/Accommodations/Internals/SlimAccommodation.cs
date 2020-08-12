@@ -9,7 +9,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     {
         [JsonConstructor]
         public SlimAccommodation(string id, in SlimLocationInfo location, string name, in Picture picture, AccommodationRatings rating, PropertyTypes propertyType,
-            string htId = null, string? hotelChain = null)
+            string htId = "", string? hotelChain = null)
         {
             Id = id;
             Location = location;

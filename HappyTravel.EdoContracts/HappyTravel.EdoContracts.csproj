@@ -12,8 +12,8 @@
         <PackageReleaseNotes>Added advanced purchase rate support</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
-        <Version>1.3.5.1</Version>
-        <PackageVersion>1.3.5.1</PackageVersion>
+        <Version>1.3.6</Version>
+        <PackageVersion>1.3.6</PackageVersion>
     </PropertyGroup>
 
   <ItemGroup>

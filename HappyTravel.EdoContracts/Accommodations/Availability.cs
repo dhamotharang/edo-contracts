@@ -11,14 +11,14 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct Availability
     {
         [JsonConstructor]
-        public Availability(string availabilityId, int numberOfNights, DateTime checkInDate, DateTime checkOutDate, List<AccommodationAvailability> results, int numberOfProcessedAccommodations = 0)
+        public Availability(string availabilityId, int numberOfNights, DateTime checkInDate, DateTime checkOutDate, List<SlimAccommodationAvailability> results, int numberOfProcessedAccommodations = 0)
         {
             AvailabilityId = availabilityId;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
             NumberOfNights = numberOfNights;
             NumberOfProcessedAccommodations = numberOfProcessedAccommodations;
-            Results = results ?? new List<AccommodationAvailability>(0);
+            Results = results ?? new List<SlimAccommodationAvailability>(0);
         }
 
 
@@ -27,7 +27,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public DateTime CheckOutDate { get; }
         public int NumberOfNights { get; }
         public int NumberOfProcessedAccommodations { get; }
-        public List<AccommodationAvailability> Results { get; }
+        public List<SlimAccommodationAvailability> Results { get; }
 
 
         public override bool Equals(object? obj) => obj is Availability other && Equals(other);

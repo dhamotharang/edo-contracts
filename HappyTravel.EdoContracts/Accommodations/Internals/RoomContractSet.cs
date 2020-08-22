@@ -11,11 +11,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct RoomContractSet
     {
         [JsonConstructor]
-        public RoomContractSet(Guid id, in Price price, Deadline deadline, List<RoomContract> rooms)
+        public RoomContractSet(Guid id, in Price price, Deadline deadline, List<RoomContract> rooms, bool isAdvancedPurchaseRate = false)
         {
             Id = id;
             Price = price;
             Deadline = deadline;
+            IsAdvancedPurchaseRate = isAdvancedPurchaseRate;
             RoomContracts = rooms ?? new List<RoomContract>(0);
         }
 
@@ -24,6 +25,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         
         public Price Price { get; }
         public Deadline Deadline { get; }
+        public bool IsAdvancedPurchaseRate { get; }
 
         public List<RoomContract> RoomContracts { get; }
         
@@ -31,8 +33,8 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public override bool Equals(object? obj) => obj is RoomContractSet other && Equals(other);
 
         public bool Equals(RoomContractSet other)
-            => (Id, Price, Deadline)
-                .Equals((other.Id, other.Price, other.Deadline)) &&
+            => (Id, Price, Deadline, IsAdvancedPurchaseRate)
+                .Equals((other.Id, other.Price, other.Deadline, other.IsAdvancedPurchaseRate)) &&
                 RoomContracts.SafeSequenceEqual(other.RoomContracts);
 
         public override int GetHashCode() => (Id, Price, Deadline, Rooms: RoomContracts).GetHashCode();

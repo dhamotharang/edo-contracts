@@ -17,7 +17,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             bool isDynamic, string contractDescription, List<KeyValuePair<string, string>> remarks,
             List<DailyPrice> roomPrices, Price totalPrice, int adultsNumber, List<int>? childrenAges = null,
             RoomTypes type = RoomTypes.NotSpecified, bool isExtraBedNeeded = false,
-            in Deadline deadline = default)
+            in Deadline deadline = default, bool isAdvancedPurchaseRate = false)
         {
             BoardBasis = boardBasis;
             MealPlan = mealPlan;
@@ -32,6 +32,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             ChildrenAges = childrenAges ?? new List<int>(0);
             IsExtraBedNeeded = isExtraBedNeeded;
             Deadline = deadline;
+            IsAdvancedPurchaseRate = isAdvancedPurchaseRate;
             RoomPrices = roomPrices ?? new List<DailyPrice>(0);
             Type = type;
         }
@@ -79,6 +80,8 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         /// </summary>
         public Deadline Deadline { get; }
 
+        public bool IsAdvancedPurchaseRate { get; }
+
         /// <summary>
         ///     List of room prices on daily basis
         /// </summary>
@@ -95,9 +98,9 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
         public bool Equals(RoomContract other)
             => (BoardBasis, MealPlan, DeadlineDate, IsAvailableImmediately, IsDynamic, TotalPrice,
-                    ContractType, ContractDescription, AdultsNumber, IsExtraBedNeeded, Type).Equals((other.BoardBasis, other.MealPlan,
+                    ContractType, ContractDescription, AdultsNumber, IsExtraBedNeeded, Type, IsAdvancedPurchaseRate).Equals((other.BoardBasis, other.MealPlan,
                     other.DeadlineDate, other.IsAvailableImmediately, other.IsDynamic, other.TotalPrice,
-                    other.ContractType, other.ContractDescription, other.AdultsNumber, other.IsExtraBedNeeded, other.Type)) &&
+                    other.ContractType, other.ContractDescription, other.AdultsNumber, other.IsExtraBedNeeded, other.Type, other.IsAdvancedPurchaseRate)) &&
                 ChildrenAges.SafeSequenceEqual(other.ChildrenAges) &&
                 RoomPrices.SafeSequenceEqual(other.RoomPrices) && Remarks.SafeSequenceEqual(other.Remarks);
 

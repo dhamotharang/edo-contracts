@@ -9,11 +9,11 @@
         <Company>HappyTravel</Company>
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-        <PackageReleaseNotes>Changed first and third step result model</PackageReleaseNotes>
+        <PackageReleaseNotes>Added Location codes to SlimLocationInfo, removed countryCode from RoomContractSetAvailability, maken nullable remarks and polices in Deadline model</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
-        <Version>1.3.7</Version>
-        <PackageVersion>1.3.7</PackageVersion>
+        <Version>1.3.8</Version>
+        <PackageVersion>1.3.8</PackageVersion>
     </PropertyGroup>
 
   <ItemGroup>

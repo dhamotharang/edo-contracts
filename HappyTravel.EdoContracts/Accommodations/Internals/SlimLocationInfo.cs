@@ -8,17 +8,14 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimLocationInfo
     {
         [JsonConstructor]
-        public SlimLocationInfo(string address, string country, string countyCode, string locality, string localityCode, string localityZone,
-            string? localityZoneCode, in GeoPoint coordinates)
+        public SlimLocationInfo(string address, string country, string countyCode, string locality, string localityZone, in GeoPoint coordinates)
         {
             Address = address;
             Coordinates = coordinates;
             Country = country;
             CountryCode = countyCode;
             Locality = locality;
-            LocalityCode = localityCode;
             LocalityZone = localityZone;
-            LocalityZoneCode = localityZoneCode;
         }
 
 
@@ -27,10 +24,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public string CountryCode { get; }
         public GeoPoint Coordinates { get; }
         public string Locality { get; }
-        public string LocalityCode { get; }
         public string LocalityZone { get; }
-
-        public string? LocalityZoneCode { get; }
 
 
         public override bool Equals(object? obj) => obj is SlimAccommodation other && Equals(other);
@@ -38,11 +32,11 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
         public bool Equals(SlimLocationInfo other)
         {
-            return (Address, Country, CountryCode, Coordinates, Locality, LocalityCode, LocalityZone, LocalityZoneCode)
-                .Equals((other.Address, other.Country, other.CountryCode, other.Coordinates, other.Locality, other.LocalityCode, other.LocalityZone, other.LocalityZoneCode));
+            return (Address, Country, CountryCode, Coordinates, Locality, LocalityZone)
+                .Equals((other.Address, other.Country, other.CountryCode, other.Coordinates, other.Locality, other.LocalityZone));
         }
 
 
-        public override int GetHashCode() => (Address, Country, Coordinates, Locality, LocalityZone).GetHashCode();
+        public override int GetHashCode() => (Address, Country, CountryCode, Coordinates, Locality, LocalityZone).GetHashCode();
     }
 }

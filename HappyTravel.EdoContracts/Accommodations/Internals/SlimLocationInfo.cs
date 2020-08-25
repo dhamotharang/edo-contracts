@@ -8,12 +8,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimLocationInfo
     {
         [JsonConstructor]
-        public SlimLocationInfo(string address, string country, string countyCode, string locality, string localityZone, in GeoPoint coordinates)
+        public SlimLocationInfo(string address, string country, string countryCode, string locality, string localityZone, in GeoPoint coordinates)
         {
             Address = address;
             Coordinates = coordinates;
             Country = country;
-            CountryCode = countyCode;
+            CountryCode = countryCode;
             Locality = locality;
             LocalityZone = localityZone;
         }

@@ -11,7 +11,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct Deadline
     {
         [JsonConstructor]
-        public Deadline(DateTime? date, List<CancellationPolicy> policies, List<string> remarks, bool isFinal)
+        public Deadline(DateTime? date, List<CancellationPolicy>? policies = default, List<string>? remarks = default, bool isFinal = true)
         {
             Date = date;
             IsFinal = isFinal;
@@ -21,18 +21,20 @@ namespace HappyTravel.EdoContracts.Accommodations
 
 
         public DateTime? Date { get; }
-        
+
         /// <summary>
         /// If flag is set it means that deadline is actual there and not needed to fetch with a separate request
         /// </summary>
         public bool IsFinal { get; }
+
         public List<CancellationPolicy> Policies { get; }
         public List<string> Remarks { get; }
-        
-        
+
+
         public bool Equals(Deadline other)
         {
-            return Nullable.Equals(Date, other.Date) && IsFinal == other.IsFinal && Policies.SafeSequenceEqual(other.Policies) && Remarks.SafeSequenceEqual(other.Remarks);
+            return Nullable.Equals(Date, other.Date) && IsFinal == other.IsFinal && Policies.SafeSequenceEqual(other.Policies) &&
+                Remarks.SafeSequenceEqual(other.Remarks);
         }
 
 

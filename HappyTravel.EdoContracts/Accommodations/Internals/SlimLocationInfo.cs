@@ -8,11 +8,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimLocationInfo
     {
         [JsonConstructor]
-        public SlimLocationInfo(string address, string country, string locality, string localityZone, in GeoPoint coordinates)
+        public SlimLocationInfo(string address, string country, string countryCode, string locality, string localityZone, in GeoPoint coordinates)
         {
             Address = address;
             Coordinates = coordinates;
             Country = country;
+            CountryCode = countryCode;
             Locality = locality;
             LocalityZone = localityZone;
         }
@@ -20,6 +21,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
         public string Address { get; }
         public string Country { get; }
+        public string CountryCode { get; }
         public GeoPoint Coordinates { get; }
         public string Locality { get; }
         public string LocalityZone { get; }
@@ -30,11 +32,11 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
         public bool Equals(SlimLocationInfo other)
         {
-            return (Address, Country, Coordinates, Locality, LocalityZone)
-                .Equals((other.Address, other.Country, other.Coordinates, other.Locality, other.LocalityZone));
+            return (Address, Country, CountryCode, Coordinates, Locality, LocalityZone)
+                .Equals((other.Address, other.Country, other.CountryCode, other.Coordinates, other.Locality, other.LocalityZone));
         }
 
 
-        public override int GetHashCode() => (Address, Country, Coordinates, Locality, LocalityZone).GetHashCode();
+        public override int GetHashCode() => (Address, Country, CountryCode, Coordinates, Locality, LocalityZone).GetHashCode();
     }
 }

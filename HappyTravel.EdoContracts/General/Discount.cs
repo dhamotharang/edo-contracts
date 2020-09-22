@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace HappyTravel.EdoContracts.Accommodations.Internals
+namespace HappyTravel.EdoContracts.General
 {
     public readonly struct Discount
     {
@@ -12,6 +12,9 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         }
         
         public decimal Amount { get; }
+        /// <summary>
+        ///     The discount description.
+        /// </summary>
         public string? Description { get; }
     }
 }

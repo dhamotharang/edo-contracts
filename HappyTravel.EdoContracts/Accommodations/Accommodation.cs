@@ -35,81 +35,77 @@ namespace HappyTravel.EdoContracts.Accommodations
 
 
         /// <summary>
-        ///     Accommodation ID
+        ///     The accommodation ID.
         /// </summary>
         public string Id { get; }
 
         /// <summary>
-        ///     Accommodation name
+        ///     The accommodation name.
         /// </summary>
         public string Name { get; }
 
         /// <summary>
-        ///     Accommodation category
+        ///     The accommodation category.
         /// </summary>
         public string Category { get; }
 
         /// <summary>
-        ///     Contact info
+        ///     Contact info.
         /// </summary>
         public ContactInfo Contacts { get; }
 
         /// <summary>
-        ///     Location info
+        ///     Location info.
         /// </summary>
         public LocationInfo Location { get; }
 
         /// <summary>
-        ///     Accommodation pictures and their descriptions
+        ///     Accommodation pictures and their descriptions.
         /// </summary>
         public List<Picture> Pictures { get; }
 
         /// <summary>
-        ///     Accommodation rating
+        ///     The accommodation rating.
         /// </summary>
         public AccommodationRatings Rating { get; }
 
         /// <summary>
-        ///     Schedule of accommodation services
+        ///     The schedule of accommodation services.
         /// </summary>
         public ScheduleInfo Schedule { get; }
 
         /// <summary>
-        ///     Textual descriptions of an accommodation and its zones
+        ///     Textual descriptions of an accommodation and its zones.
         /// </summary>
         public List<TextualDescription> TextualDescriptions { get; }
 
         /// <summary>
-        ///     The type of a property
+        ///     The type of a property.
         /// </summary>
         public PropertyTypes Type { get; }
-
-
+        
         /// <summary>
-        /// Unique codes in external hotel mapping services
+        /// Unique codes in external accommodation mapping services.
         /// </summary>
         public UniqueAccommodationCodes? UniqueCodes { get; }
 
         /// <summary>
-        /// Name of the hotel chain, where the hotel belongs to (Radisson, Hilton etc.)
+        ///     Name of the hotel chain, where the hotel belongs to (Radisson, Hilton etc.)
         /// </summary>
         public string? HotelChain { get; }
 
-
         /// <summary>
-        /// HappyTravel unique accommodation Id
+        ///     The Happytravel.com unique accommodation ID.
         /// </summary>
         public string HtId { get; }
 
-
         /// <summary>
-        ///     Dictionary of amenities available in an accommodation
+        ///     The dictionary of amenities available in an accommodation.
         /// </summary>
         public List<string> AccommodationAmenities { get; }
 
-
         /// <summary>
-        ///     Dictionary of all other accommodation stats
+        ///     The dictionary of all other accommodation stats.
         /// </summary>
         public Dictionary<string, string> AdditionalInfo { get; }
     }

@@ -22,11 +22,29 @@ namespace HappyTravel.EdoContracts.Accommodations
         }
 
 
+        /// <summary>
+        ///     The availability ID.
+        /// </summary>
         public string AvailabilityId { get; }
+        /// <summary>
+        ///     The check-in date.
+        /// </summary>
         public DateTime CheckInDate { get; }
+        /// <summary>
+        ///     The check-out date.
+        /// </summary>
         public DateTime CheckOutDate { get; }
+        /// <summary>
+        ///     The number of nights to stay.
+        /// </summary>
         public int NumberOfNights { get; }
+        /// <summary>
+        ///     The number of processed accommodations on a supplier.
+        /// </summary>
         public int NumberOfProcessedAccommodations { get; }
+        /// <summary>
+        ///     Information about available accommodations and them contracts.
+        /// </summary>
         public List<SlimAccommodationAvailability> Results { get; }
 
 

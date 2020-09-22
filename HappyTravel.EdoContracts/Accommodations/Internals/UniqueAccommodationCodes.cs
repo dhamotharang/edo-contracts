@@ -11,7 +11,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         }
         
         /// <summary>
-        /// Giata code, more information at https://www.giata.com/en/products-services/hotel-mapping-for-otas/
+        ///     The GIATA code, more information at https://www.giata.com/en/products-services/hotel-mapping-for-otas/
         /// </summary>
         public string? GiataId { get; }
     }

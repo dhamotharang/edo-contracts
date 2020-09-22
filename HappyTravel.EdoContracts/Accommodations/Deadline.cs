@@ -20,14 +20,24 @@ namespace HappyTravel.EdoContracts.Accommodations
         }
 
 
+        /// <summary>
+        ///     The deadline date.
+        /// </summary>
         public DateTime? Date { get; }
 
         /// <summary>
-        /// If flag is set it means that deadline is actual there and not needed to fetch with a separate request
+        ///     If the flag is set it means that a deadline is actual there and not needed to fetch it with a separate request.
         /// </summary>
         public bool IsFinal { get; }
 
+        /// <summary>
+        ///     The list of deadline cancellation policies.
+        /// </summary>
         public List<CancellationPolicy> Policies { get; }
+
+        /// <summary>
+        ///     Deadline remarks.
+        /// </summary>
         public List<string> Remarks { get; }
 
 

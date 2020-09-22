@@ -22,20 +22,20 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
 
         public Guid Id { get; }
-        
         public Price Price { get; }
         public Deadline Deadline { get; }
         public bool IsAdvancedPurchaseRate { get; }
-
         public List<RoomContract> RoomContracts { get; }
         
         
         public override bool Equals(object? obj) => obj is RoomContractSet other && Equals(other);
 
+
         public bool Equals(RoomContractSet other)
             => (Id, Price, Deadline, IsAdvancedPurchaseRate)
                 .Equals((other.Id, other.Price, other.Deadline, other.IsAdvancedPurchaseRate)) &&
                 RoomContracts.SafeSequenceEqual(other.RoomContracts);
+
 
         public override int GetHashCode() => (Id, Price, Deadline, Rooms: RoomContracts).GetHashCode();
     }

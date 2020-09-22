@@ -18,13 +18,17 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         }
 
 		
-        public List<Pax> Passengers { get; }
-
-        public RoomTypes Type { get; }
-		
         /// <summary>
-        /// Indicates if extra child bed needed.
+        ///     Indicates if extra child bed needed.
         /// </summary>
         public bool IsExtraBedNeeded { get; }
+        /// <summary>
+        ///     The list of passengers in a room.
+        /// </summary>
+        public List<Pax> Passengers { get; }
+        /// <summary>
+        ///     The room type.
+        /// </summary>
+        public RoomTypes Type { get; }
     }
 }

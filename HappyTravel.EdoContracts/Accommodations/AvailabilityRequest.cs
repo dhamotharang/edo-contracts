@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Enums;
 using HappyTravel.EdoContracts.Accommodations.Internals;
@@ -32,26 +31,53 @@ namespace HappyTravel.EdoContracts.Accommodations
         }
 
 
+        /// <summary>
+        ///     The check-in date.
+        /// </summary>
         [Required]
         public DateTime CheckInDate { get; }
 
+        /// <summary>
+        ///     The check-out date.
+        /// </summary>
         [Required]
         public DateTime CheckOutDate { get; }
 
+        /// <summary>
+        ///     Search filters.
+        /// </summary>
         public SearchFilters Filters { get; }
 
+        /// <summary>
+        ///     The search location obtained from search predictions.
+        /// </summary>
         public Location Location { get; }
 
+        /// <summary>
+        ///     The lead passenger nationality.
+        /// </summary>
         [Required]
         public string Nationality { get; }
 
+        /// <summary>
+        ///     The type of a property.
+        /// </summary>
         public PropertyTypes PropertyTypes { get; }
 
+        /// <summary>
+        ///     The accommodation rating available to a search.
+        /// </summary>
         public AccommodationRatings Ratings { get; }
 
+        /// <summary>
+        ///     The lead passenger residency.
+        /// </summary>
         [Required]
         public string Residency { get; }
 
+        /// <summary>
+        ///     Requested room configurations.
+        /// </summary>
         [Required]
         public List<RoomOccupationRequest> Rooms { get; }
 

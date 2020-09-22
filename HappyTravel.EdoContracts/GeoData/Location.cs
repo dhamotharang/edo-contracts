@@ -26,12 +26,33 @@ namespace HappyTravel.EdoContracts.GeoData
         { }
 
 
+        /// <summary>
+        ///     Location coordinates.
+        /// </summary> 
         public GeoPoint Coordinates { get; }
+        /// <summary>
+        ///     The country of the <see cref="Location"/>.
+        /// </summary>
         public string Country { get; }
+        /// <summary>
+        ///     The search distance around the <see cref="Coordinates"/> in meters.
+        /// </summary>
         public int Distance { get; }
+        /// <summary>
+        ///     The locality of the <see cref="Location"/>, like a city or a region.
+        /// </summary>
         public string Locality { get; }
+        /// <summary>
+        ///     The name of the <see cref="Location"/>.
+        /// </summary>
         public string Name { get; }
+        /// <summary>
+        ///     The prediction source.
+        /// </summary>
         public PredictionSources Source { get; }
+        /// <summary>
+        ///     The location type.
+        /// </summary>
         public LocationTypes Type { get; }
 
 

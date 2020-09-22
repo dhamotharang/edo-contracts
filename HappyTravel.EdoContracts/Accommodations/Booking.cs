@@ -19,16 +19,16 @@ namespace HappyTravel.EdoContracts.Accommodations
             in RoomContractSet roomContractSet = default)
         {
             AccommodationId = accommodationId;
-            SupplierReferenceCode = supplierReferenceCode;
+            AgentReference = agentReference;
+            BookingUpdateMode = bookingUpdateMode;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
             ContractDescription = contractDescription;
             Deadline = deadline;
             ReferenceCode = referenceCode;
-            AgentReference = agentReference;
             Rooms = rooms ?? new List<SlimRoomOccupationWithPrice>(0);
             Status = status;
-            BookingUpdateMode = bookingUpdateMode;
+            SupplierReferenceCode = supplierReferenceCode;
             RoomContractSet = roomContractSet;
         }
 
@@ -39,17 +39,38 @@ namespace HappyTravel.EdoContracts.Accommodations
         { }
 
 
+        /// <summary>
+        ///     The availability ID.
+        /// </summary>
         public string AccommodationId { get; }
-        public string SupplierReferenceCode { get; }
+        public string AgentReference { get; }
+        public BookingUpdateMode BookingUpdateMode { get; }
+        /// <summary>
+        ///     The check-in date.
+        /// </summary>
         public DateTime CheckInDate { get; }
+        /// <summary>
+        ///     The check-out date.
+        /// </summary>
         public DateTime CheckOutDate { get; }
         public string ContractDescription { get; }
+        /// <summary>
+        ///     The booking deadline.
+        /// </summary>
         public DateTime? Deadline { get; }
+        /// <summary>
+        ///     The Happytravel.com reference code.
+        /// </summary>
         public string ReferenceCode { get; }
-        public string AgentReference { get; }
+        /// <summary>
+        ///     The list of booked room configurations.
+        /// </summary>
         public List<SlimRoomOccupationWithPrice> Rooms { get; }
+        /// <summary>
+        ///     The status of a booking request.
+        /// </summary>
         public BookingStatusCodes Status { get; }
-        public BookingUpdateMode BookingUpdateMode { get; }
+        public string SupplierReferenceCode { get; }
         public RoomContractSet RoomContractSet { get; }
     }
 }

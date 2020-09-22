@@ -12,26 +12,38 @@ namespace HappyTravel.EdoContracts.Accommodations
         public BookingRoomContractSet(in RoomContractSet roomContractSet, DateTime checkInDate, DateTime checkOutDate, int accommodationId)
         {
             AccommodationId = accommodationId;
-            RoomContractSet = roomContractSet;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
+            RoomContractSet = roomContractSet;
         }
 
 
+        /// <summary>
+        ///     The booking accommodation ID.
+        /// </summary>
         public int AccommodationId { get; }
-        public RoomContractSet RoomContractSet { get; }
+        /// <summary>
+        ///     The check-in date.
+        /// </summary>
         public DateTime CheckInDate { get; }
+        /// <summary>
+        ///     The check-out date.
+        /// </summary>
         public DateTime CheckOutDate { get; }
+        /// <summary>
+        ///     Information about a selected room contract set.
+        /// </summary>
+        public RoomContractSet RoomContractSet { get; }
 
 
         public override bool Equals(object? obj) => obj is BookingRoomContractSet other && Equals(other);
 
 
         public bool Equals(BookingRoomContractSet other)
-            => (RoomContractSet: RoomContractSet, CheckInDate, CheckOutDate, AccommodationId)
+            => (RoomContractSet, CheckInDate, CheckOutDate, AccommodationId)
                 .Equals((other.RoomContractSet, other.CheckInDate, other.CheckOutDate, other.AccommodationId));
 
 
-        public override int GetHashCode() => (RoomContractSet: RoomContractSet, CheckInDate, CheckOutDate, AccommodationId).GetHashCode();
+        public override int GetHashCode() => (RoomContractSet, CheckInDate, CheckOutDate, AccommodationId).GetHashCode();
     }
 }

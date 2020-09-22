@@ -17,8 +17,17 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         }
 
 
+        /// <summary>
+        ///     Shrank information about a selected accommodation.
+        /// </summary>
         public SlimAccommodation Accommodation { get; }
+        /// <summary>
+        ///     The availability ID.
+        /// </summary>
         public string AvailabilityId { get; }
+        /// <summary>
+        ///     Information about a selected room contract set.
+        /// </summary>
         public List<RoomContractSet> RoomContractSets { get; }
 
 

@@ -12,22 +12,22 @@ namespace HappyTravel.EdoContracts.GeoData.Enums
         Unknown = 0,
 
         /// <summary>
-        /// Search must be done by destination (for example airport is destination, but we have not support this locationType yet).
+        ///     A search must be done by destination (for example airport is destination, but we have not support this locationType yet).
         /// </summary>
         Destination = 1,
 
         /// <summary>
-        /// Search must be done by accommodation Name. 
+        ///     A search must be done by an accommodation name. 
         /// </summary>
         Accommodation = 2,
 
         /// <summary>
-        /// Search must be done by coordinates. 
+        ///     A search must be done by coordinates. 
         /// </summary>
         Landmark = 3,
 
         /// <summary>
-        /// Search must be done by location (country, locality, localityZone).
+        ///     A search must be done by a location (country, locality, localityZone).
         /// </summary>
         Location = 4
     }

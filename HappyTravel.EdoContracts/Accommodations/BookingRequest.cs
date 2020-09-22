@@ -27,16 +27,29 @@ namespace HappyTravel.EdoContracts.Accommodations
         }
 
 
+        /// <summary>
+        ///     The availability ID.
+        /// </summary>
         public string AvailabilityId { get; }
-
+        /// <summary>
+        ///     The Id of a selected room contract set.
+        /// </summary>
         public Guid RoomContractSetId { get; }
-
+        /// <summary>
+        ///     The Happytravel.com reference code.
+        /// </summary>
         public string ReferenceCode { get; }
-
+        /// <summary>
+        ///     If the flag is set a booking will be rejected in case of unavailability. In the other case the booking will be scheduled to 
+        /// </summary>
         public bool RejectIfUnavailable { get; }
-
+        /// <summary>
+        ///     The list of requested room configurations.
+        /// </summary>
         public List<SlimRoomOccupation> Rooms { get; }
-
+        /// <summary>
+        ///     Requested booking features (i.e. special requests).
+        /// </summary>
         public List<Feature> Features { get; }
     }
 }

@@ -11,7 +11,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct Booking
     {
         [JsonConstructor]
-        public Booking(string referenceCode, string agentReference, BookingStatusCodes status, string accommodationId, string supplierReferenceCode,
+        public Booking(string referenceCode, BookingStatusCodes status, string accommodationId, string supplierReferenceCode,
             DateTime checkInDate,
             DateTime checkOutDate, string contractDescription, DateTime? deadline,
             List<SlimRoomOccupationWithPrice> rooms,
@@ -19,7 +19,6 @@ namespace HappyTravel.EdoContracts.Accommodations
             in RoomContractSet roomContractSet = default)
         {
             AccommodationId = accommodationId;
-            AgentReference = agentReference;
             BookingUpdateMode = bookingUpdateMode;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
@@ -33,7 +32,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         }
 
 
-        public Booking(Booking booking, RoomContractSet roomContractSet) : this(booking.ReferenceCode, booking.AgentReference,
+        public Booking(Booking booking, RoomContractSet roomContractSet) : this(booking.ReferenceCode, 
             booking.Status, booking.AccommodationId, booking.SupplierReferenceCode,
             booking.CheckInDate, booking.CheckOutDate, booking.ContractDescription, booking.Deadline, booking.Rooms, booking.BookingUpdateMode, roomContractSet)
         { }
@@ -43,7 +42,9 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The availability ID.
         /// </summary>
         public string AccommodationId { get; }
-        public string AgentReference { get; }
+        /// <summary>
+        ///     The booking update mode: sync or async.
+        /// </summary>
         public BookingUpdateMode BookingUpdateMode { get; }
         /// <summary>
         ///     The check-in date.
@@ -53,6 +54,9 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The check-out date.
         /// </summary>
         public DateTime CheckOutDate { get; }
+        /// <summary>
+        ///     The textual contract description i.e. "Pool View Suite", "Ocean Club Room", or "Pioneer Cabin".
+        /// </summary>
         public string ContractDescription { get; }
         /// <summary>
         ///     The booking deadline.
@@ -70,7 +74,13 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The status of a booking request.
         /// </summary>
         public BookingStatusCodes Status { get; }
+        /// <summary>
+        ///     The reference code obtained from a supplier.
+        /// </summary>
         public string SupplierReferenceCode { get; }
+        /// <summary>
+        ///     Information about a selected room contract set.
+        /// </summary>
         public RoomContractSet RoomContractSet { get; }
     }
 }

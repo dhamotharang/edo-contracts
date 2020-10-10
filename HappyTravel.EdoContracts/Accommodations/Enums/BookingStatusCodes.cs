@@ -17,6 +17,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
         Confirmed = 3,
         Cancelled = 4,
         Rejected = 5,
-        Invalid = 6
+        Invalid = 6,
+        NotFound = 7
     }
 }

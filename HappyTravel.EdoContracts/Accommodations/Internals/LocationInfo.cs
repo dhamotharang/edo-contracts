@@ -10,8 +10,9 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct LocationInfo
     {
         [JsonConstructor]
-        public LocationInfo(string countryCode, string country, string localityCode, string locality, string localityZoneCode, string localityZone, in GeoPoint coordinates, string address,
-            LocationDescriptionCodes locationDescriptionCode, List<DirectionInfo> directions, bool isHistoricalBuilding = false)
+        public LocationInfo(string countryCode, string country, string localityCode, string locality, string localityZoneCode, string localityZone,
+            in GeoPoint coordinates, string address, LocationDescriptionCodes locationDescriptionCode, List<PoiInfo> pointsOfInterests,
+            bool isHistoricalBuilding = false)
         {
             CountryCode = countryCode;
             Country = country;
@@ -19,12 +20,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             Locality = locality;
             LocalityZoneCode = localityZoneCode;
             LocalityZone = localityZone;
-            
+
             Address = address;
             Coordinates = coordinates;
-            
+
             LocationDescriptionCode = locationDescriptionCode;
-            Directions = directions ?? new List<DirectionInfo>(0);
+            PointsOfInterests = pointsOfInterests ?? new List<PoiInfo>(0);
             IsHistoricalBuilding = isHistoricalBuilding;
         }
 
@@ -39,10 +40,9 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public string LocalityZoneCode { get; }
         public string LocalityZone { get; }
         public LocationDescriptionCodes LocationDescriptionCode { get; }
-
         /// <summary>
-        /// List of transportation facility or POI
+        ///     The list of transportation facility or POI
         /// </summary>
-        public List<DirectionInfo> Directions { get; }
+        public List<PoiInfo> PointsOfInterests { get; }
     }
 }

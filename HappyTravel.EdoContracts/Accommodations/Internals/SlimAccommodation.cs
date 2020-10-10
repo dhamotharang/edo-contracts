@@ -8,7 +8,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimAccommodation
     {
         [JsonConstructor]
-        public SlimAccommodation(string id, in SlimLocationInfo location, string name, in Picture picture, AccommodationRatings rating, PropertyTypes propertyType,
+        public SlimAccommodation(string id, in SlimLocationInfo location, string name, in ImageInfo picture, AccommodationRatings rating, PropertyTypes propertyType,
             string htId = "", string? hotelChain = null)
         {
             Id = id;
@@ -25,7 +25,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public string Id { get; }
         public SlimLocationInfo Location { get; }
         public string Name { get; }
-        public Picture Picture { get; }
+        public ImageInfo Picture { get; }
         public AccommodationRatings Rating { get; }
 
         public PropertyTypes PropertyType { get; }

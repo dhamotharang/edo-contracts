@@ -15,11 +15,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             Prices = prices;
         }
 
-        
+
         /// <summary>
         ///     The room price.
         /// </summary>
         public List<Price> Prices { get; }
+
         /// <summary>
         ///     Room occupation info.
         /// </summary>

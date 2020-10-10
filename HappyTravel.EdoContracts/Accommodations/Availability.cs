@@ -11,7 +11,8 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct Availability
     {
         [JsonConstructor]
-        public Availability(string availabilityId, int numberOfNights, DateTime checkInDate, DateTime checkOutDate, List<SlimAccommodationAvailability> results, int numberOfProcessedAccommodations = 0)
+        public Availability(string availabilityId, int numberOfNights, DateTime checkInDate, DateTime checkOutDate, List<SlimAccommodationAvailability> results,
+            int numberOfProcessedAccommodations = 0)
         {
             AvailabilityId = availabilityId;
             CheckInDate = checkInDate;
@@ -26,22 +27,27 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The availability ID.
         /// </summary>
         public string AvailabilityId { get; }
+
         /// <summary>
         ///     The check-in date.
         /// </summary>
         public DateTime CheckInDate { get; }
+
         /// <summary>
         ///     The check-out date.
         /// </summary>
         public DateTime CheckOutDate { get; }
+
         /// <summary>
         ///     The number of nights to stay.
         /// </summary>
         public int NumberOfNights { get; }
+
         /// <summary>
         ///     The number of processed accommodations on a supplier.
         /// </summary>
         public int NumberOfProcessedAccommodations { get; }
+
         /// <summary>
         ///     Information about available accommodations and them contracts.
         /// </summary>
@@ -51,7 +57,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public override bool Equals(object? obj) => obj is Availability other && Equals(other);
 
 
-        public bool Equals(Availability other)
+        public bool Equals(in Availability other)
             => (AvailabilityId, CheckInDate, NumberOfNights) == (other.AvailabilityId, other.CheckInDate, other.NumberOfNights) &&
                 Results.SafeSequenceEqual(other.Results);
 

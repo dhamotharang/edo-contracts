@@ -8,8 +8,10 @@ namespace HappyTravel.EdoContracts.GeoData.Enums
     public enum PredictionSources
     {
         NotSpecified = 0,
+
         [EnumMember(Value = "geocoder")]
         Google = 1,
+
         [EnumMember(Value = "interior")]
         Interior = 2
     }

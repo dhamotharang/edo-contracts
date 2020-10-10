@@ -12,7 +12,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public Booking(string referenceCode, BookingStatusCodes status, string accommodationId, in Guid roomContractSetId, string supplierReferenceCode,
-            in DateTime checkInDate, in DateTime checkOutDate, in DateTime? deadline, List<SlimRoomOccupation> rooms, BookingUpdateMode bookingUpdateMode)
+            in DateTime checkInDate, in DateTime checkOutDate, in DateTime? deadline, List<SlimRoomOccupation> rooms, BookingUpdateModes bookingUpdateMode)
         {
             AccommodationId = accommodationId;
             BookingUpdateMode = bookingUpdateMode;
@@ -37,38 +37,47 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The availability ID.
         /// </summary>
         public string AccommodationId { get; }
+
         /// <summary>
         ///     The booking update mode: sync or async.
         /// </summary>
-        public BookingUpdateMode BookingUpdateMode { get; }
+        public BookingUpdateModes BookingUpdateMode { get; }
+
         /// <summary>
         ///     The check-in date.
         /// </summary>
         public DateTime CheckInDate { get; }
+
         /// <summary>
         ///     The check-out date.
         /// </summary>
         public DateTime CheckOutDate { get; }
+
         /// <summary>
         ///     The booking deadline.
         /// </summary>
         public DateTime? Deadline { get; }
+
         /// <summary>
         ///     The Happytravel.com reference code.
         /// </summary>
         public string ReferenceCode { get; }
+
         /// <summary>
         ///     A selected room contract set ID.
         /// </summary>
         public Guid RoomContractSetId { get; }
+
         /// <summary>
         ///     The list of booked room configurations.
         /// </summary>
         public List<SlimRoomOccupation> Rooms { get; }
+
         /// <summary>
         ///     The status of a booking request.
         /// </summary>
         public BookingStatusCodes Status { get; }
+
         /// <summary>
         ///     The reference code obtained from a supplier.
         /// </summary>

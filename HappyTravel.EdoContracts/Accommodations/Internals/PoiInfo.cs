@@ -22,18 +22,22 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         ///     The name of a POI.
         /// </summary>
         public string Name { get; }
+
         /// <summary>
         ///     The POI description.
         /// </summary>
         public string Description { get; }
+
         /// <summary>
         ///     The distance to a POI in meters.
         /// </summary>
         public double Distance { get; }
+
         /// <summary>
         ///     Travel time to POI in seconds.
         /// </summary>
         public double Time { get; }
+
         /// <summary>
         ///     The type of a POI.
         /// </summary>

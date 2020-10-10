@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace HappyTravel.EdoContracts.General.Enums
@@ -9,14 +10,19 @@ namespace HappyTravel.EdoContracts.General.Enums
         /// <summary>
         ///     The room price
         /// </summary>
+        [Description("Room price")]
         Room = 1,
+
         /// <summary>
         ///     The price for an additional service or a charge
         /// </summary>
+        [Description("Supplement price")]
         Supplement = 2,
+
         /// <summary>
         ///     The price for a whole set of rooms
         /// </summary>
+        [Description("Room contract set price")]
         RoomContractSet = 3
     }
 }

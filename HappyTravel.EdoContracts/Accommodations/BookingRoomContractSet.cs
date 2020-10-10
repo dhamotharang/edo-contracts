@@ -22,14 +22,17 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The booking accommodation ID.
         /// </summary>
         public int AccommodationId { get; }
+
         /// <summary>
         ///     The check-in date.
         /// </summary>
         public DateTime CheckInDate { get; }
+
         /// <summary>
         ///     The check-out date.
         /// </summary>
         public DateTime CheckOutDate { get; }
+
         /// <summary>
         ///     Information about a selected room contract set.
         /// </summary>
@@ -39,7 +42,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public override bool Equals(object? obj) => obj is BookingRoomContractSet other && Equals(other);
 
 
-        public bool Equals(BookingRoomContractSet other)
+        public bool Equals(in BookingRoomContractSet other)
             => (RoomContractSet, CheckInDate, CheckOutDate, AccommodationId)
                 .Equals((other.RoomContractSet, other.CheckInDate, other.CheckOutDate, other.AccommodationId));
 

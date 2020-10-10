@@ -18,7 +18,10 @@
 - Picture removed to ImageInfo 
 - DirectionInfo renamed to PoiInfo 
 - ContractDescription removed from Booking structure 
-- Enum descriptions added</PackageReleaseNotes>
+- Enum descriptions added 
+- ContractType renamed to ContractTypeCode 
+- DeadlineDate removed from RoomContract
+- Picture renamed to Photo</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
         <Version>1.4.0</Version>

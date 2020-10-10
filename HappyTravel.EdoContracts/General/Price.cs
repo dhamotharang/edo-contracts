@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using HappyTravel.EdoContracts.Extensions;
 using HappyTravel.EdoContracts.General.Enums;
 using HappyTravel.Money.Enums;
 using HappyTravel.Money.Models;
@@ -26,36 +27,41 @@ namespace HappyTravel.EdoContracts.General
         ///     The price currency.
         /// </summary>
         public Currencies Currency => NetTotal.Currency;
+
         /// <summary>
         ///     The price description.
         /// </summary>
         public string Description { get; }
+
         /// <summary>
         ///     The gross price of a service. This is just <b>a reference</b> value.
         /// </summary>
         public MoneyAmount Gross { get; }
+
         /// <summary>
         ///     The list of available discounts.
         /// </summary>
         public List<Discount>? Discounts { get; }
+
         /// <summary>
         ///     The final and total net price of a service. This is <b>the actual</b> value of a price.
         /// </summary>
         public MoneyAmount NetTotal { get; }
+
         /// <summary>
         ///     The price type.
         /// </summary>
         public PriceTypes Type { get; }
 
-        
+
         public override bool Equals(object? obj) => obj is Price other && Equals(other);
 
 
         public bool Equals(in Price other)
             => (Description, Gross, NetTotal, Type)
-                .Equals((other.Description, other.Gross, other.NetTotal, other.Type));
+                .Equals((other.Description, other.Gross, other.NetTotal, other.Type)) && Discounts.SafeSequenceEqual(other.Discounts);
 
 
-        public override int GetHashCode() => (Description, Gross, NetTotal, Type).GetHashCode();
+        public override int GetHashCode() => (Description, Gross, NetTotal, Type, Discounts).GetHashCode();
     }
 }

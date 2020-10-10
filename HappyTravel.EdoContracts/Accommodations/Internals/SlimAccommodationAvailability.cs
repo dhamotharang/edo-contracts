@@ -21,10 +21,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         ///     Shrank information about a selected accommodation.
         /// </summary>
         public SlimAccommodation Accommodation { get; }
+
         /// <summary>
         ///     The availability ID.
         /// </summary>
         public string AvailabilityId { get; }
+
         /// <summary>
         ///     Information about a selected room contract set.
         /// </summary>
@@ -34,7 +36,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public override bool Equals(object? obj) => obj is SlimAccommodationAvailability other && Equals(other);
 
 
-        public bool Equals(SlimAccommodationAvailability other)
+        public bool Equals(in SlimAccommodationAvailability other)
             => Accommodation
                     .Equals(other.Accommodation) &&
                 RoomContractSets.SafeSequenceEqual(other.RoomContractSets) && AvailabilityId.Equals(other.AvailabilityId);

@@ -28,28 +28,34 @@ namespace HappyTravel.EdoContracts.GeoData
 
         /// <summary>
         ///     Location coordinates.
-        /// </summary> 
+        /// </summary>
         public GeoPoint Coordinates { get; }
+
         /// <summary>
-        ///     The country of the <see cref="Location"/>.
+        ///     The country of the <see cref="Location" />.
         /// </summary>
         public string Country { get; }
+
         /// <summary>
-        ///     The search distance around the <see cref="Coordinates"/> in meters.
+        ///     The search distance around the <see cref="Coordinates" /> in meters.
         /// </summary>
         public int Distance { get; }
+
         /// <summary>
-        ///     The locality of the <see cref="Location"/>, like a city or a region.
+        ///     The locality of the <see cref="Location" />, like a city or a region.
         /// </summary>
         public string Locality { get; }
+
         /// <summary>
-        ///     The name of the <see cref="Location"/>.
+        ///     The name of the <see cref="Location" />.
         /// </summary>
         public string Name { get; }
+
         /// <summary>
         ///     The prediction source.
         /// </summary>
         public PredictionSources Source { get; }
+
         /// <summary>
         ///     The location type.
         /// </summary>
@@ -59,7 +65,7 @@ namespace HappyTravel.EdoContracts.GeoData
         public override bool Equals(object? obj) => obj is Location other && Equals(other);
 
 
-        public bool Equals(Location other)
+        public bool Equals(in Location other)
             => (Coordinates, Coordinates, Country, Distance, Locality, Name, Source, Type) == (other.Coordinates,
                 other.Coordinates, other.Country, other.Distance, other.Locality, other.Name,
                 other.Source, other.Type);

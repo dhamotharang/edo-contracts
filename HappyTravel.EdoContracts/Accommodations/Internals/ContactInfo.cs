@@ -27,14 +27,17 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         ///     The accommodation email.
         /// </summary>
         public string Email { get; }
+
         /// <summary>
         ///     The accommodation fax number.
         /// </summary>
         public string Fax { get; }
+
         /// <summary>
         ///     The accommodation phone.
         /// </summary>
         public string Phone { get; }
+
         /// <summary>
         ///     The accommodation web site.
         /// </summary>

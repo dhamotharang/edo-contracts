@@ -30,18 +30,58 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         }
 
 
-        public string CountryCode { get; }
-        public string Address { get; }
-        public GeoPoint Coordinates { get; }
-        public string Country { get; }
-        public string LocalityCode { get; }
-        public bool IsHistoricalBuilding { get; }
-        public string Locality { get; }
-        public string LocalityZoneCode { get; }
-        public string LocalityZone { get; }
-        public LocationDescriptionCodes LocationDescriptionCode { get; }
         /// <summary>
-        ///     The list of transportation facility or POI
+        ///     The location address.
+        /// </summary>
+        public string Address { get; }
+
+        /// <summary>
+        ///     Location coordinates.
+        /// </summary>
+        public GeoPoint Coordinates { get; }
+
+        /// <summary>
+        ///     The country code in the ISO 3166-1 Alpha-2 format.
+        /// </summary>
+        public string CountryCode { get; }
+
+        /// <summary>
+        ///     The location country name.
+        /// </summary>
+        public string Country { get; }
+
+        /// <summary>
+        ///     Indicates if a location a historical place.
+        /// </summary>
+        public bool IsHistoricalBuilding { get; }
+
+        /// <summary>
+        ///     The code fo a locality.
+        /// </summary>
+        public string LocalityCode { get; }
+
+        /// <summary>
+        ///     The locality name.
+        /// </summary>
+        public string Locality { get; }
+
+        /// <summary>
+        ///     The locality zone code.
+        /// </summary>
+        public string LocalityZoneCode { get; }
+
+        /// <summary>
+        ///     The locality zone name.
+        /// </summary>
+        public string LocalityZone { get; }
+
+        /// <summary>
+        ///     The description of a location.
+        /// </summary>
+        public LocationDescriptionCodes LocationDescriptionCode { get; }
+
+        /// <summary>
+        ///     The list of transportation facility or POI.
         /// </summary>
         public List<PoiInfo> PointsOfInterests { get; }
     }

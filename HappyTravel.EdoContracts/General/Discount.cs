@@ -16,6 +16,7 @@ namespace HappyTravel.EdoContracts.General
         ///     The discount description.
         /// </summary>
         public string? Description { get; }
+
         /// <summary>
         ///     Discount percentage.
         /// </summary>

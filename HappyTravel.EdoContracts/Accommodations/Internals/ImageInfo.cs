@@ -23,20 +23,19 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         ///     The caption for an image.
         /// </summary>
         public string Caption { get; }
+
         /// <summary>
         ///     The URL of an image.
         /// </summary>
         public string SourceUrl { get; }
-        
-        
+
+
         public override bool Equals(object? obj) => obj is ImageInfo other && Equals(other);
 
-        
-        public bool Equals(in ImageInfo other) 
-            => (Caption, Source: SourceUrl).Equals((other.Caption, other.SourceUrl));
+
+        public bool Equals(in ImageInfo other) => (Caption, Source: SourceUrl).Equals((other.Caption, other.SourceUrl));
 
 
-        public override int GetHashCode() 
-            => (Caption, Source: SourceUrl).GetHashCode();
+        public override int GetHashCode() => (Caption, Source: SourceUrl).GetHashCode();
     }
 }

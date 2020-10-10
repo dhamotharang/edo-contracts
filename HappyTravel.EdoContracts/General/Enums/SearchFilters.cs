@@ -9,7 +9,7 @@ namespace HappyTravel.EdoContracts.General.Enums
     public enum SearchFilters
     {
         Default = 1,
-        
+
         /// <summary>
         ///     Returns only the available hotels
         /// </summary>
@@ -31,14 +31,18 @@ namespace HappyTravel.EdoContracts.General.Enums
         BestContract = 16,
 
         /// <summary>
-        ///     Returns the best price for each room basis, regardless of the contract types. WARNING: right now this filter is available only in live environment
+        ///     Returns the best price for each room basis, regardless of the contract types. WARNING: right now this filter is
+        ///     available only in live environment
         /// </summary>
         BestRoomPlans = 32,
 
         /// <summary>
-        ///     The system will remove from the response all the contract typologies - statically mapped or dynamically achieved - containing the typical "non refundable"
-        ///     wording in their description. Actually this method is not 100% safe as you can imagine so you'd better check before performing the reservation if
-        ///     the cancellation policies are in full charge and the created reservation would already be in cancellation deadline in order to avoid the last few cases.
+        ///     The system will remove from the response all the contract typologies - statically mapped or dynamically achieved -
+        ///     containing the typical "non refundable"
+        ///     wording in their description. Actually this method is not 100% safe as you can imagine so you'd better check before
+        ///     performing the reservation if
+        ///     the cancellation policies are in full charge and the created reservation would already be in cancellation deadline
+        ///     in order to avoid the last few cases.
         /// </summary>
         ExcludeNonRefundable = 64,
 
@@ -46,10 +50,11 @@ namespace HappyTravel.EdoContracts.General.Enums
         ///     The system will remove from the response all the dynamic contracts
         /// </summary>
         ExcludeDynamic = 128,
-        
+
         /// <summary>
-        ///     Default. Returns the best price for each different arrangement type of the hotels, for example one price for RB, one for RO, one for HB...
+        ///     Default. Returns the best price for each different arrangement type of the hotels, for example one price for RB,
+        ///     one for RO, one for HB...
         /// </summary>
-        BestArrangement = 256 
+        BestArrangement = 256
     }
 }

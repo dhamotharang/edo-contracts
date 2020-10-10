@@ -3,6 +3,9 @@ using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations.Internals
 {
+    /// <summary>
+    ///     The feature request for an accommodation.
+    /// </summary>
     [StructLayout(LayoutKind.Auto)]
     public readonly struct Feature
     {
@@ -15,8 +18,19 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         }
 
 
+        /// <summary>
+        ///     The comment to a feature (if acceptable).
+        /// </summary>
         public string Comment { get; }
+
+        /// <summary>
+        ///     The feature name.
+        /// </summary>
         public string Name { get; }
+
+        /// <summary>
+        ///     The feature value.
+        /// </summary>
         public string Value { get; }
     }
 }

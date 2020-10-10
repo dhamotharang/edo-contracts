@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.General.Enums;
 using Newtonsoft.Json;
 
@@ -17,15 +18,34 @@ namespace HappyTravel.EdoContracts.General
             Title = title;
         }
 
-		
-        public PassengerTitles Title { get; }
-		
-        public string LastName { get; }
 
-        public bool IsLeader { get; }
-		
+        /// <summary>
+        ///     The passenger age. <b>Required for children</b>.
+        /// </summary>
+        public int? Age { get; }
+
+        /// <summary>
+        ///     The passenger first name.
+        /// </summary>
+        [Required]
         public string FirstName { get; }
 
-        public int? Age { get; }
+        /// <summary>
+        ///     Indicates the passenger as a group leader within a booking.
+        /// </summary>
+        [Required]
+        public bool IsLeader { get; }
+
+        /// <summary>
+        ///     The passenger last name.
+        /// </summary>
+        [Required]
+        public string LastName { get; }
+
+        /// <summary>
+        ///     The passenger title.
+        /// </summary>
+        [Required]
+        public PassengerTitles Title { get; }
     }
 }

@@ -11,6 +11,9 @@
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
         <PackageReleaseNotes>- Dicsount amount changed to percentage 
 - AgentReference removed  (use SupplierReferenceCode) 
+- SlimRoomOccupationWithPrice changed to SlimRoomOccupation in Booking 
+- RoomContractSet changed to RoomContractSetId in Booking (constructor parameter order changed) 
+- All money values represened by MoneyAmount 
 - BookingModification removed 
 - Picture removed to ImageInfo 
 - DirectionInfo renamed to PoiInfo 

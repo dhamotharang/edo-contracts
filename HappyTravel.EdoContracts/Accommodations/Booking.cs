@@ -11,9 +11,8 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct Booking
     {
         [JsonConstructor]
-        public Booking(string referenceCode, BookingStatusCodes status, string accommodationId, string supplierReferenceCode, DateTime checkInDate,
-            DateTime checkOutDate, DateTime? deadline, List<SlimRoomOccupationWithPrice> rooms, BookingUpdateMode bookingUpdateMode,
-            in RoomContractSet roomContractSet = default)
+        public Booking(string referenceCode, BookingStatusCodes status, string accommodationId, in Guid roomContractSetId, string supplierReferenceCode,
+            in DateTime checkInDate, in DateTime checkOutDate, in DateTime? deadline, List<SlimRoomOccupation> rooms, BookingUpdateMode bookingUpdateMode)
         {
             AccommodationId = accommodationId;
             BookingUpdateMode = bookingUpdateMode;
@@ -21,16 +20,16 @@ namespace HappyTravel.EdoContracts.Accommodations
             CheckOutDate = checkOutDate;
             Deadline = deadline;
             ReferenceCode = referenceCode;
-            Rooms = rooms ?? new List<SlimRoomOccupationWithPrice>(0);
+            Rooms = rooms ?? new List<SlimRoomOccupation>(0);
             Status = status;
             SupplierReferenceCode = supplierReferenceCode;
-            RoomContractSet = roomContractSet;
+            RoomContractSetId = roomContractSetId;
         }
 
 
-        public Booking(Booking booking, RoomContractSet roomContractSet) : this(booking.ReferenceCode, 
-            booking.Status, booking.AccommodationId, booking.SupplierReferenceCode,
-            booking.CheckInDate, booking.CheckOutDate, booking.Deadline, booking.Rooms, booking.BookingUpdateMode, roomContractSet)
+        public Booking(in Booking booking, in RoomContractSet roomContractSet) : this(booking.ReferenceCode, booking.Status, booking.AccommodationId,
+            roomContractSet.Id, booking.SupplierReferenceCode, booking.CheckInDate, booking.CheckOutDate, booking.Deadline, booking.Rooms,
+            booking.BookingUpdateMode)
         { }
 
 
@@ -59,9 +58,13 @@ namespace HappyTravel.EdoContracts.Accommodations
         /// </summary>
         public string ReferenceCode { get; }
         /// <summary>
+        ///     A selected room contract set ID.
+        /// </summary>
+        public Guid RoomContractSetId { get; }
+        /// <summary>
         ///     The list of booked room configurations.
         /// </summary>
-        public List<SlimRoomOccupationWithPrice> Rooms { get; }
+        public List<SlimRoomOccupation> Rooms { get; }
         /// <summary>
         ///     The status of a booking request.
         /// </summary>
@@ -70,9 +73,5 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The reference code obtained from a supplier.
         /// </summary>
         public string SupplierReferenceCode { get; }
-        /// <summary>
-        ///     Information about a selected room contract set.
-        /// </summary>
-        public RoomContractSet RoomContractSet { get; }
     }
 }

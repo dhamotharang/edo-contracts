@@ -11,7 +11,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public Accommodation(string id, string name, List<string> accommodationAmenities, Dictionary<string, string> additionalInfo,
-            string category, in ContactInfo contacts, in LocationInfo location, List<Picture> pictures, AccommodationRatings rating,
+            string category, in ContactInfo contacts, in LocationInfo location, List<ImageInfo> pictures, AccommodationRatings rating,
             in ScheduleInfo schedule, List<TextualDescription> textualDescriptions, PropertyTypes type, string htId = "",
             UniqueAccommodationCodes? uniqueCodes = null,
             string? hotelChain = null)
@@ -24,7 +24,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             Rating = rating;
             Location = location;
             Name = name;
-            Pictures = pictures ?? new List<Picture>(0);
+            Pictures = pictures ?? new List<ImageInfo>(0);
             Schedule = schedule;
             TextualDescriptions = textualDescriptions ?? new List<TextualDescription>(0);
             Type = type;
@@ -62,7 +62,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         /// <summary>
         ///     Accommodation pictures and their descriptions.
         /// </summary>
-        public List<Picture> Pictures { get; }
+        public List<ImageInfo> Pictures { get; }
 
         /// <summary>
         ///     The accommodation rating.

@@ -11,18 +11,14 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct Booking
     {
         [JsonConstructor]
-        public Booking(string referenceCode, BookingStatusCodes status, string accommodationId, string supplierReferenceCode,
-            DateTime checkInDate,
-            DateTime checkOutDate, string contractDescription, DateTime? deadline,
-            List<SlimRoomOccupationWithPrice> rooms,
-            BookingUpdateMode bookingUpdateMode,
+        public Booking(string referenceCode, BookingStatusCodes status, string accommodationId, string supplierReferenceCode, DateTime checkInDate,
+            DateTime checkOutDate, DateTime? deadline, List<SlimRoomOccupationWithPrice> rooms, BookingUpdateMode bookingUpdateMode,
             in RoomContractSet roomContractSet = default)
         {
             AccommodationId = accommodationId;
             BookingUpdateMode = bookingUpdateMode;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
-            ContractDescription = contractDescription;
             Deadline = deadline;
             ReferenceCode = referenceCode;
             Rooms = rooms ?? new List<SlimRoomOccupationWithPrice>(0);
@@ -34,7 +30,7 @@ namespace HappyTravel.EdoContracts.Accommodations
 
         public Booking(Booking booking, RoomContractSet roomContractSet) : this(booking.ReferenceCode, 
             booking.Status, booking.AccommodationId, booking.SupplierReferenceCode,
-            booking.CheckInDate, booking.CheckOutDate, booking.ContractDescription, booking.Deadline, booking.Rooms, booking.BookingUpdateMode, roomContractSet)
+            booking.CheckInDate, booking.CheckOutDate, booking.Deadline, booking.Rooms, booking.BookingUpdateMode, roomContractSet)
         { }
 
 
@@ -54,10 +50,6 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The check-out date.
         /// </summary>
         public DateTime CheckOutDate { get; }
-        /// <summary>
-        ///     The textual contract description i.e. "Pool View Suite", "Ocean Club Room", or "Pioneer Cabin".
-        /// </summary>
-        public string ContractDescription { get; }
         /// <summary>
         ///     The booking deadline.
         /// </summary>

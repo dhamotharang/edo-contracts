@@ -10,7 +10,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         [JsonConstructor]
         public SlimAccommodation(string id, in SlimLocationInfo location, string name, in ImageInfo photo, AccommodationRatings rating,
             PropertyTypes propertyType,
-            string htId = "", string? hotelChain = null)
+            string? htId = null, string? hotelChain = null)
         {
             Id = id;
             Location = location;
@@ -18,7 +18,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             Photo = photo;
             Rating = rating;
             PropertyType = propertyType;
-            HtId = htId;
+            HtId = htId ?? string.Empty;
             HotelChain = hotelChain;
         }
 
@@ -68,12 +68,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
 
         public bool Equals(in SlimAccommodation other)
-            => (Id, Location, Name, Picture: Photo, Rating, PropertyType)
+            => (Id, Location, Name, Photo, Rating, PropertyType)
                 .Equals((other.Id, other.Location, other.Name, other.Photo, other.Rating, other.PropertyType));
 
 
         public override int GetHashCode()
-            => (Id, Location, Name, Picture: Photo, Rating)
+            => (Id, Location, Name, Photo, Rating)
                 .GetHashCode();
     }
 }

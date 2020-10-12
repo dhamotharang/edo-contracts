@@ -11,31 +11,25 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct Booking
     {
         [JsonConstructor]
-        public Booking(string referenceCode, string agentReference, BookingStatusCodes status, string accommodationId, string supplierReferenceCode,
-            DateTime checkInDate,
-            DateTime checkOutDate, string contractDescription, DateTime? deadline,
-            List<SlimRoomOccupationWithPrice> rooms,
-            BookingUpdateMode bookingUpdateMode,
-            in RoomContractSet roomContractSet = default)
+        public Booking(string referenceCode, BookingStatusCodes status, string accommodationId, in Guid roomContractSetId, string supplierReferenceCode,
+            in DateTime checkInDate, in DateTime checkOutDate, in DateTime? deadline, List<SlimRoomOccupation> rooms, BookingUpdateModes bookingUpdateMode)
         {
             AccommodationId = accommodationId;
-            AgentReference = agentReference;
             BookingUpdateMode = bookingUpdateMode;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
-            ContractDescription = contractDescription;
             Deadline = deadline;
             ReferenceCode = referenceCode;
-            Rooms = rooms ?? new List<SlimRoomOccupationWithPrice>(0);
+            Rooms = rooms ?? new List<SlimRoomOccupation>(0);
             Status = status;
             SupplierReferenceCode = supplierReferenceCode;
-            RoomContractSet = roomContractSet;
+            RoomContractSetId = roomContractSetId;
         }
 
 
-        public Booking(Booking booking, RoomContractSet roomContractSet) : this(booking.ReferenceCode, booking.AgentReference,
-            booking.Status, booking.AccommodationId, booking.SupplierReferenceCode,
-            booking.CheckInDate, booking.CheckOutDate, booking.ContractDescription, booking.Deadline, booking.Rooms, booking.BookingUpdateMode, roomContractSet)
+        public Booking(in Booking booking, in RoomContractSet roomContractSet) : this(booking.ReferenceCode, booking.Status, booking.AccommodationId,
+            roomContractSet.Id, booking.SupplierReferenceCode, booking.CheckInDate, booking.CheckOutDate, booking.Deadline, booking.Rooms,
+            booking.BookingUpdateMode)
         { }
 
 
@@ -43,34 +37,50 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The availability ID.
         /// </summary>
         public string AccommodationId { get; }
-        public string AgentReference { get; }
-        public BookingUpdateMode BookingUpdateMode { get; }
+
+        /// <summary>
+        ///     The booking update mode: sync or async.
+        /// </summary>
+        public BookingUpdateModes BookingUpdateMode { get; }
+
         /// <summary>
         ///     The check-in date.
         /// </summary>
         public DateTime CheckInDate { get; }
+
         /// <summary>
         ///     The check-out date.
         /// </summary>
         public DateTime CheckOutDate { get; }
-        public string ContractDescription { get; }
+
         /// <summary>
         ///     The booking deadline.
         /// </summary>
         public DateTime? Deadline { get; }
+
         /// <summary>
         ///     The Happytravel.com reference code.
         /// </summary>
         public string ReferenceCode { get; }
+
+        /// <summary>
+        ///     A selected room contract set ID.
+        /// </summary>
+        public Guid RoomContractSetId { get; }
+
         /// <summary>
         ///     The list of booked room configurations.
         /// </summary>
-        public List<SlimRoomOccupationWithPrice> Rooms { get; }
+        public List<SlimRoomOccupation> Rooms { get; }
+
         /// <summary>
         ///     The status of a booking request.
         /// </summary>
         public BookingStatusCodes Status { get; }
+
+        /// <summary>
+        ///     The reference code obtained from a supplier.
+        /// </summary>
         public string SupplierReferenceCode { get; }
-        public RoomContractSet RoomContractSet { get; }
     }
 }

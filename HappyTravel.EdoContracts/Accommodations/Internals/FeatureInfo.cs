@@ -19,18 +19,16 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public bool IsCommentRequired { get; }
         public string Name { get; }
         public FieldTypes Type { get; }
-        
-        
+
+
         public override bool Equals(object? obj) => obj is FeatureInfo other && Equals(other);
 
-        
-        public bool Equals(FeatureInfo other)
-        {
-            return (IsCommentRequired, Name, Type)
-                .Equals((other.IsCommentRequired, other.Name, other.Type));
-        }
 
-        
+        public bool Equals(in FeatureInfo other)
+            => (IsCommentRequired, Name, Type)
+                .Equals((other.IsCommentRequired, other.Name, other.Type));
+
+
         public override int GetHashCode() => (IsCommentRequired, Name, Type).GetHashCode();
     }
 }

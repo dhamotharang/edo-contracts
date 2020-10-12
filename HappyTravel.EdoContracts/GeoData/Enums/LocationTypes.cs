@@ -4,7 +4,7 @@ using Newtonsoft.Json.Converters;
 namespace HappyTravel.EdoContracts.GeoData.Enums
 {
     /// <summary>
-    /// Used in availability search request.
+    ///     Used in availability search request.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum LocationTypes
@@ -12,17 +12,18 @@ namespace HappyTravel.EdoContracts.GeoData.Enums
         Unknown = 0,
 
         /// <summary>
-        ///     A search must be done by destination (for example airport is destination, but we have not support this locationType yet).
+        ///     A search must be done by destination (for example airport is destination, but we have not support this locationType
+        ///     yet).
         /// </summary>
         Destination = 1,
 
         /// <summary>
-        ///     A search must be done by an accommodation name. 
+        ///     A search must be done by an accommodation name.
         /// </summary>
         Accommodation = 2,
 
         /// <summary>
-        ///     A search must be done by coordinates. 
+        ///     A search must be done by coordinates.
         /// </summary>
         Landmark = 3,
 

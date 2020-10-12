@@ -41,11 +41,9 @@ namespace HappyTravel.EdoContracts.Accommodations
         public List<string> Remarks { get; }
 
 
-        public bool Equals(Deadline other)
-        {
-            return Nullable.Equals(Date, other.Date) && IsFinal == other.IsFinal && Policies.SafeSequenceEqual(other.Policies) &&
+        public bool Equals(in Deadline other)
+            => Nullable.Equals(Date, other.Date) && IsFinal == other.IsFinal && Policies.SafeSequenceEqual(other.Policies) &&
                 Remarks.SafeSequenceEqual(other.Remarks);
-        }
 
 
         public override bool Equals(object? obj) => obj is Deadline other && Equals(other);

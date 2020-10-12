@@ -10,8 +10,9 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct LocationInfo
     {
         [JsonConstructor]
-        public LocationInfo(string countryCode, string country, string localityCode, string locality, string localityZoneCode, string localityZone, in GeoPoint coordinates, string address,
-            LocationDescriptionCodes locationDescriptionCode, List<DirectionInfo> directions, bool isHistoricalBuilding = false)
+        public LocationInfo(string countryCode, string country, string localityCode, string locality, string localityZoneCode, string localityZone,
+            in GeoPoint coordinates, string address, LocationDescriptionCodes locationDescriptionCode, List<PoiInfo> pointsOfInterests,
+            bool isHistoricalBuilding = false)
         {
             CountryCode = countryCode;
             Country = country;
@@ -19,30 +20,69 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             Locality = locality;
             LocalityZoneCode = localityZoneCode;
             LocalityZone = localityZone;
-            
+
             Address = address;
             Coordinates = coordinates;
-            
+
             LocationDescriptionCode = locationDescriptionCode;
-            Directions = directions ?? new List<DirectionInfo>(0);
+            PointsOfInterests = pointsOfInterests ?? new List<PoiInfo>(0);
             IsHistoricalBuilding = isHistoricalBuilding;
         }
 
 
-        public string CountryCode { get; }
+        /// <summary>
+        ///     The location address.
+        /// </summary>
         public string Address { get; }
+
+        /// <summary>
+        ///     Location coordinates.
+        /// </summary>
         public GeoPoint Coordinates { get; }
+
+        /// <summary>
+        ///     The country code in the ISO 3166-1 Alpha-2 format.
+        /// </summary>
+        public string CountryCode { get; }
+
+        /// <summary>
+        ///     The location country name.
+        /// </summary>
         public string Country { get; }
-        public string LocalityCode { get; }
+
+        /// <summary>
+        ///     Indicates if a location a historical place.
+        /// </summary>
         public bool IsHistoricalBuilding { get; }
+
+        /// <summary>
+        ///     The code fo a locality.
+        /// </summary>
+        public string LocalityCode { get; }
+
+        /// <summary>
+        ///     The locality name.
+        /// </summary>
         public string Locality { get; }
+
+        /// <summary>
+        ///     The locality zone code.
+        /// </summary>
         public string LocalityZoneCode { get; }
+
+        /// <summary>
+        ///     The locality zone name.
+        /// </summary>
         public string LocalityZone { get; }
+
+        /// <summary>
+        ///     The description of a location.
+        /// </summary>
         public LocationDescriptionCodes LocationDescriptionCode { get; }
 
         /// <summary>
-        /// List of transportation facility or POI
+        ///     The list of transportation facility or POI.
         /// </summary>
-        public List<DirectionInfo> Directions { get; }
+        public List<PoiInfo> PointsOfInterests { get; }
     }
 }

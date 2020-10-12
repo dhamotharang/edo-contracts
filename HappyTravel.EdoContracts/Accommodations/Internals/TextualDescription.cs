@@ -19,17 +19,17 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         ///     The description.
         /// </summary>
         public string Description { get; }
+
         /// <summary>
         ///     The description type.
         /// </summary>
         public TextualDescriptionTypes Type { get; }
-        
-        
+
+
         public override bool Equals(object? obj) => obj is TextualDescription other && Equals(other);
 
-        
-        public bool Equals(TextualDescription other) 
-            => (Type, Description).Equals((other.Type, other.Description));
+
+        public bool Equals(in TextualDescription other) => (Type, Description).Equals((other.Type, other.Description));
 
 
         public override int GetHashCode() => (Type, Description).GetHashCode();

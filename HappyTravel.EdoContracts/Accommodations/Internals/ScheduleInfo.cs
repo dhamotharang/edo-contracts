@@ -8,7 +8,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     {
         [JsonConstructor]
         public ScheduleInfo(string checkInTime, string checkOutTime, string? portersStartTime = null, string? portersEndTime = null,
-                 string? roomServiceStartTime = null, string? roomServiceEndTime = null)
+            string? roomServiceStartTime = null, string? roomServiceEndTime = null)
         {
             CheckInTime = checkInTime;
             CheckOutTime = checkOutTime;
@@ -19,16 +19,35 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         }
 
 
+        /// <summary>
+        ///     The check-in time in an accommodation.
+        /// </summary>
         public string CheckInTime { get; }
 
+        /// <summary>
+        ///     The check-out time in an accommodation.
+        /// </summary>
         public string CheckOutTime { get; }
+
+        /// <summary>
+        ///     The time when porters start working in an accommodation.
+        /// </summary>
 
         public string PortersStartTime { get; }
 
+        /// <summary>
+        ///     The time when porters end working in an accommodation.
+        /// </summary>
         public string PortersEndTime { get; }
 
+        /// <summary>
+        ///     The time when a room service start working in an accommodation.
+        /// </summary>
         public string RoomServiceStartTime { get; }
 
+        /// <summary>
+        ///     The time when a room service end working in an accommodation.
+        /// </summary>
         public string RoomServiceEndTime { get; }
     }
 }

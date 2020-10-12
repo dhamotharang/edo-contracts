@@ -43,7 +43,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public override bool Equals(object? obj) => obj is RoomOccupationRequest other && Equals(other);
 
 
-        public bool Equals(RoomOccupationRequest other)
+        public bool Equals(in RoomOccupationRequest other)
             => (AdultsNumber, IsExtraBedNeeded, Type)
                 .Equals((other.AdultsNumber, other.IsExtraBedNeeded, other.Type)) &&
                 ChildrenAges.SafeSequenceEqual(other.ChildrenAges);

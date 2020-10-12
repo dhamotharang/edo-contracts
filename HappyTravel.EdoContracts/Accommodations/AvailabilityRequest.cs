@@ -85,7 +85,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public override bool Equals(object? obj) => obj is AvailabilityRequest other && Equals(other);
 
 
-        public bool Equals(AvailabilityRequest other)
+        public bool Equals(in AvailabilityRequest other)
             => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency)
                 .Equals((other.CheckInDate, other.CheckOutDate, other.Filters, other.Location, other.Nationality, other.PropertyTypes, other.Ratings,
                     other.Residency)) &&

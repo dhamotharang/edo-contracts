@@ -11,7 +11,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public Accommodation(string id, string name, List<string> accommodationAmenities, Dictionary<string, string> additionalInfo,
-            string category, in ContactInfo contacts, in LocationInfo location, List<Picture> pictures, AccommodationRatings rating,
+            string category, in ContactInfo contacts, in LocationInfo location, List<ImageInfo> photos, AccommodationRatings rating,
             in ScheduleInfo schedule, List<TextualDescription> textualDescriptions, PropertyTypes type, string htId = "",
             UniqueAccommodationCodes? uniqueCodes = null,
             string? hotelChain = null)
@@ -24,7 +24,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             Rating = rating;
             Location = location;
             Name = name;
-            Pictures = pictures ?? new List<Picture>(0);
+            Photos = photos ?? new List<ImageInfo>(0);
             Schedule = schedule;
             TextualDescriptions = textualDescriptions ?? new List<TextualDescription>(0);
             Type = type;
@@ -62,7 +62,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         /// <summary>
         ///     Accommodation pictures and their descriptions.
         /// </summary>
-        public List<Picture> Pictures { get; }
+        public List<ImageInfo> Photos { get; }
 
         /// <summary>
         ///     The accommodation rating.
@@ -83,9 +83,9 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The type of a property.
         /// </summary>
         public PropertyTypes Type { get; }
-        
+
         /// <summary>
-        /// Unique codes in external accommodation mapping services.
+        ///     Unique codes in external accommodation mapping services.
         /// </summary>
         public UniqueAccommodationCodes? UniqueCodes { get; }
 
@@ -95,7 +95,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public string? HotelChain { get; }
 
         /// <summary>
-        ///     The Happytravel.com unique accommodation ID.
+        ///     The Happytravel.com unique accommodation correlation ID.
         /// </summary>
         public string HtId { get; }
 

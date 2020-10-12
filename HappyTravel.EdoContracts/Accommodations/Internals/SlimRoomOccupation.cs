@@ -17,15 +17,17 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             IsExtraBedNeeded = isExtraBedNeeded;
         }
 
-		
+
         /// <summary>
         ///     Indicates if extra child bed needed.
         /// </summary>
         public bool IsExtraBedNeeded { get; }
+
         /// <summary>
         ///     The list of passengers in a room.
         /// </summary>
         public List<Pax> Passengers { get; }
+
         /// <summary>
         ///     The room type.
         /// </summary>

@@ -8,7 +8,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct CancellationPolicy
     {
         [JsonConstructor]
-        public CancellationPolicy(in DateTime fromDate, double percentage)
+        public CancellationPolicy(DateTime fromDate, double percentage)
         {
             FromDate = fromDate;
             Percentage = percentage;

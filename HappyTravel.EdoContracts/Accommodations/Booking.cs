@@ -33,6 +33,11 @@ namespace HappyTravel.EdoContracts.Accommodations
         { }
 
 
+        public static Booking Empty(string referenceCode, BookingStatusCodes statusCode, BookingUpdateModes updateMode = BookingUpdateModes.Asynchronous)
+            => new Booking(referenceCode, statusCode, string.Empty, Guid.Empty, string.Empty, default, default, default, new List<SlimRoomOccupation>(0),
+                updateMode);
+
+
         /// <summary>
         ///     The availability ID.
         /// </summary>

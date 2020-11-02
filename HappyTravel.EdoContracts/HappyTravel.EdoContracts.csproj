@@ -9,23 +9,10 @@
         <Company>HappyTravel</Company>
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-        <PackageReleaseNotes>- Empty Booking constructor added
-- Dicsount amount changed to percentage 
-- AgentReference removed  (use SupplierReferenceCode) 
-- SlimRoomOccupationWithPrice changed to SlimRoomOccupation in Booking 
-- RoomContractSet changed to RoomContractSetId in Booking (constructor parameter order changed) 
-- All money values represened by MoneyAmount 
-- BookingModification removed 
-- Picture removed to ImageInfo 
-- DirectionInfo renamed to PoiInfo 
-- ContractDescription removed from Booking structure 
-- Enum descriptions added 
-- ContractType renamed to ContractTypeCode 
-- DeadlineDate removed from RoomContract
-- Picture renamed to Photo</PackageReleaseNotes>
+        <PackageReleaseNotes> Added SupplierRoomReferenceCode in SlimRoomOccupation and removed Deadline from Booking model.</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
-        <Version>1.4.1</Version>
+        <Version>1.4.2</Version>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
@@ -35,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HappyTravel.Money" Version="0.0.3.1" />
+    <PackageReference Include="HappyTravel.Money" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

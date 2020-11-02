@@ -12,13 +12,12 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public Booking(string referenceCode, BookingStatusCodes status, string accommodationId, in Guid roomContractSetId, string supplierReferenceCode,
-            in DateTime checkInDate, in DateTime checkOutDate, in DateTime? deadline, List<SlimRoomOccupation> rooms, BookingUpdateModes bookingUpdateMode)
+            in DateTime checkInDate, in DateTime checkOutDate,  List<SlimRoomOccupation> rooms, BookingUpdateModes bookingUpdateMode)
         {
             AccommodationId = accommodationId;
             BookingUpdateMode = bookingUpdateMode;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
-            Deadline = deadline;
             ReferenceCode = referenceCode;
             Rooms = rooms ?? new List<SlimRoomOccupation>(0);
             Status = status;
@@ -28,13 +27,13 @@ namespace HappyTravel.EdoContracts.Accommodations
 
 
         public Booking(in Booking booking, in RoomContractSet roomContractSet) : this(booking.ReferenceCode, booking.Status, booking.AccommodationId,
-            roomContractSet.Id, booking.SupplierReferenceCode, booking.CheckInDate, booking.CheckOutDate, booking.Deadline, booking.Rooms,
+            roomContractSet.Id, booking.SupplierReferenceCode, booking.CheckInDate, booking.CheckOutDate, booking.Rooms,
             booking.BookingUpdateMode)
         { }
 
 
         public static Booking Empty(string referenceCode, BookingStatusCodes statusCode, BookingUpdateModes updateMode = BookingUpdateModes.Asynchronous)
-            => new Booking(referenceCode, statusCode, string.Empty, Guid.Empty, string.Empty, default, default, default, new List<SlimRoomOccupation>(0),
+            => new Booking(referenceCode, statusCode, string.Empty, Guid.Empty, string.Empty, default, default, new List<SlimRoomOccupation>(0),
                 updateMode);
 
 
@@ -57,11 +56,6 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The check-out date.
         /// </summary>
         public DateTime CheckOutDate { get; }
-
-        /// <summary>
-        ///     The booking deadline.
-        /// </summary>
-        public DateTime? Deadline { get; }
 
         /// <summary>
         ///     The Happytravel.com reference code.

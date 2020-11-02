@@ -10,11 +10,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimRoomOccupation
     {
         [JsonConstructor]
-        public SlimRoomOccupation(RoomTypes type, List<Pax> passengers, bool isExtraBedNeeded = false)
+        public SlimRoomOccupation(RoomTypes type, List<Pax> passengers,string? supplierRoomReferenceCode = null, bool isExtraBedNeeded = false)
         {
             Type = type;
             Passengers = passengers ?? new List<Pax>(0);
             IsExtraBedNeeded = isExtraBedNeeded;
+            SupplierRoomReferenceCode = supplierRoomReferenceCode;
         }
 
 
@@ -32,5 +33,10 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         ///     The room type.
         /// </summary>
         public RoomTypes Type { get; }
+        
+        /// <summary>
+        /// The supplier room reference code (must be used in Booking result)
+        /// </summary>
+        public string? SupplierRoomReferenceCode { get; }
     }
 }

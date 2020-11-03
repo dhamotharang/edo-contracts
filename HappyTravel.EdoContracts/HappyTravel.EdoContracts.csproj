@@ -9,10 +9,10 @@
         <Company>HappyTravel</Company>
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-        <PackageReleaseNotes> Added SupplierRoomReferenceCode in SlimRoomOccupation and removed Deadline from Booking model.</PackageReleaseNotes>
+        <PackageReleaseNotes>Removed room contract set id from Booking</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
-        <Version>1.4.2</Version>
+        <Version>1.4.3</Version>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 

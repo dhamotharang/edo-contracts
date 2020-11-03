@@ -11,7 +11,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct Booking
     {
         [JsonConstructor]
-        public Booking(string referenceCode, BookingStatusCodes status, string accommodationId, in Guid roomContractSetId, string supplierReferenceCode,
+        public Booking(string referenceCode, BookingStatusCodes status, string accommodationId, string supplierReferenceCode,
             in DateTime checkInDate, in DateTime checkOutDate,  List<SlimRoomOccupation> rooms, BookingUpdateModes bookingUpdateMode)
         {
             AccommodationId = accommodationId;
@@ -22,18 +22,11 @@ namespace HappyTravel.EdoContracts.Accommodations
             Rooms = rooms ?? new List<SlimRoomOccupation>(0);
             Status = status;
             SupplierReferenceCode = supplierReferenceCode;
-            RoomContractSetId = roomContractSetId;
         }
 
 
-        public Booking(in Booking booking, in RoomContractSet roomContractSet) : this(booking.ReferenceCode, booking.Status, booking.AccommodationId,
-            roomContractSet.Id, booking.SupplierReferenceCode, booking.CheckInDate, booking.CheckOutDate, booking.Rooms,
-            booking.BookingUpdateMode)
-        { }
-
-
         public static Booking Empty(string referenceCode, BookingStatusCodes statusCode, BookingUpdateModes updateMode = BookingUpdateModes.Asynchronous)
-            => new Booking(referenceCode, statusCode, string.Empty, Guid.Empty, string.Empty, default, default, new List<SlimRoomOccupation>(0),
+            => new Booking(referenceCode, statusCode, string.Empty, string.Empty, default, default, new List<SlimRoomOccupation>(0),
                 updateMode);
 
 
@@ -61,11 +54,6 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The Happytravel.com reference code.
         /// </summary>
         public string ReferenceCode { get; }
-
-        /// <summary>
-        ///     A selected room contract set ID.
-        /// </summary>
-        public Guid RoomContractSetId { get; }
 
         /// <summary>
         ///     The list of booked room configurations.

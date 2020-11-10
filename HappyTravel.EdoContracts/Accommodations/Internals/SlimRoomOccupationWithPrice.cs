@@ -9,17 +9,17 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimRoomOccupationWithPrice
     {
         [JsonConstructor]
-        public SlimRoomOccupationWithPrice(in SlimRoomOccupation roomOccupation, List<Price> prices)
+        public SlimRoomOccupationWithPrice(in SlimRoomOccupation roomOccupation, List<Rate> rates)
         {
             RoomOccupation = roomOccupation;
-            Prices = prices;
+            Rates = rates;
         }
 
 
         /// <summary>
         ///     The room price.
         /// </summary>
-        public List<Price> Prices { get; }
+        public List<Rate> Rates { get; }
 
         /// <summary>
         ///     Room occupation info.

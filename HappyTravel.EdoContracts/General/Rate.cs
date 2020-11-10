@@ -9,16 +9,16 @@ using Newtonsoft.Json;
 namespace HappyTravel.EdoContracts.General
 {
     [StructLayout(LayoutKind.Auto)]
-    public readonly struct Price
+    public readonly struct Rate
     {
         [JsonConstructor]
-        public Price(in MoneyAmount netTotal, in MoneyAmount gross, List<Discount>? discounts = null, PriceTypes type = PriceTypes.Room,
+        public Rate(in MoneyAmount finalPrice, in MoneyAmount gross, List<Discount>? discounts = null, PriceTypes type = PriceTypes.Room,
             string? description = null)
         {
             Description = description ?? string.Empty;
             Gross = gross;
             Discounts = discounts ?? new List<Discount>(0);
-            NetTotal = netTotal;
+            FinalPrice = finalPrice;
             Type = type;
         }
 
@@ -26,7 +26,7 @@ namespace HappyTravel.EdoContracts.General
         /// <summary>
         ///     The price currency.
         /// </summary>
-        public Currencies Currency => NetTotal.Currency;
+        public Currencies Currency => FinalPrice.Currency;
 
         /// <summary>
         ///     The price description.
@@ -46,7 +46,7 @@ namespace HappyTravel.EdoContracts.General
         /// <summary>
         ///     The final and total net price of a service. This is <b>the actual</b> value of a price.
         /// </summary>
-        public MoneyAmount NetTotal { get; }
+        public MoneyAmount FinalPrice { get; }
 
         /// <summary>
         ///     The price type.
@@ -54,14 +54,14 @@ namespace HappyTravel.EdoContracts.General
         public PriceTypes Type { get; }
 
 
-        public override bool Equals(object? obj) => obj is Price other && Equals(other);
+        public override bool Equals(object? obj) => obj is Rate other && Equals(other);
 
 
-        public bool Equals(in Price other)
-            => (Description, Gross, NetTotal, Type)
-                .Equals((other.Description, other.Gross, other.NetTotal, other.Type)) && Discounts.SafeSequenceEqual(other.Discounts);
+        public bool Equals(in Rate other)
+            => (Description, Gross, FinalPrice, Type)
+                .Equals((other.Description, other.Gross, other.FinalPrice, other.Type)) && Discounts.SafeSequenceEqual(other.Discounts);
 
 
-        public override int GetHashCode() => (Description, Gross, NetTotal, Type, Discounts).GetHashCode();
+        public override int GetHashCode() => (Description, Gross, FinalPrice, Type, Discounts).GetHashCode();
     }
 }

@@ -6,10 +6,10 @@ using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.General
 {
-    public readonly struct DailyPrice
+    public readonly struct DailyRate
     {
         [JsonConstructor]
-        public DailyPrice(DateTime fromDate, in DateTime toDate, in MoneyAmount netTotal, in MoneyAmount gross, PriceTypes type = PriceTypes.Room,
+        public DailyRate(DateTime fromDate, in DateTime toDate, in MoneyAmount finalPrice, in MoneyAmount gross, PriceTypes type = PriceTypes.Room,
             string? description = null)
         {
             if ((toDate - fromDate).Days != 1)
@@ -18,7 +18,7 @@ namespace HappyTravel.EdoContracts.General
             Description = description ?? string.Empty;
             FromDate = fromDate;
             Gross = gross;
-            NetTotal = netTotal;
+            FinalPrice = finalPrice;
             ToDate = toDate;
             Type = type;
         }
@@ -37,7 +37,7 @@ namespace HappyTravel.EdoContracts.General
         /// <summary>
         ///     The price currency.
         /// </summary>
-        public Currencies Currency => NetTotal.Currency;
+        public Currencies Currency => FinalPrice.Currency;
 
         /// <summary>
         ///     The price description.
@@ -52,7 +52,7 @@ namespace HappyTravel.EdoContracts.General
         /// <summary>
         ///     The final and total net price of a service. This is <b>the actual</b> value of a price.
         /// </summary>
-        public MoneyAmount NetTotal { get; }
+        public MoneyAmount FinalPrice { get; }
 
         /// <summary>
         ///     The price type.
@@ -60,14 +60,14 @@ namespace HappyTravel.EdoContracts.General
         public PriceTypes Type { get; }
 
 
-        public override bool Equals(object? obj) => obj is DailyPrice other && Equals(other);
+        public override bool Equals(object? obj) => obj is DailyRate other && Equals(other);
 
 
-        public bool Equals(in DailyPrice other)
-            => (FromDate, ToDate, Description, Gross, NetTotal, Type)
-                .Equals((other.FromDate, other.ToDate, other.Description, other.Gross, other.NetTotal, other.Type));
+        public bool Equals(in DailyRate other)
+            => (FromDate, ToDate, Description, Gross, FinalPrice, Type)
+                .Equals((other.FromDate, other.ToDate, other.Description, other.Gross, other.FinalPrice, other.Type));
 
 
-        public override int GetHashCode() => (FromDate, ToDate, Description, Gross, NetTotal, Type).GetHashCode();
+        public override int GetHashCode() => (FromDate, ToDate, Description, Gross, FinalPrice, Type).GetHashCode();
     }
 }

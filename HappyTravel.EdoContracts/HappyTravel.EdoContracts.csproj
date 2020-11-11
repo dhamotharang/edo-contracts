@@ -9,10 +9,10 @@
         <Company>HappyTravel</Company>
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-        <PackageReleaseNotes>Removed room contract set id from Booking</PackageReleaseNotes>
+        <PackageReleaseNotes>Prices renamed to Rates</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
-        <Version>1.4.4</Version>
+        <Version>1.4.5</Version>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 

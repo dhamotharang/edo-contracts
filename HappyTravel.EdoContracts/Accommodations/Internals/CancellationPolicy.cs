@@ -8,10 +8,10 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct CancellationPolicy
     {
         [JsonConstructor]
-        public CancellationPolicy(DateTime fromDate, double percentage)
+        public CancellationPolicy(DateTime fromDate, decimal percent)
         {
             FromDate = fromDate;
-            Percentage = percentage;
+            Percent = percent;
         }
 
 
@@ -23,15 +23,15 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         /// <summary>
         ///     The policy amount in percent.
         /// </summary>
-        public double Percentage { get; }
+        public decimal Percent { get; }
 
 
-        public bool Equals(in CancellationPolicy other) => FromDate.Equals(other.FromDate) && Percentage.Equals(other.Percentage);
+        public bool Equals(in CancellationPolicy other) => FromDate.Equals(other.FromDate) && Percent.Equals(other.Percent);
 
 
         public override bool Equals(object? obj) => obj is CancellationPolicy other && Equals(other);
 
 
-        public override int GetHashCode() => HashCode.Combine(FromDate, Percentage);
+        public override int GetHashCode() => HashCode.Combine(FromDate, Percent);
     }
 }

@@ -9,7 +9,7 @@
         <Company>HappyTravel</Company>
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-        <PackageReleaseNotes>Reverted percents in Cancellation Policy back to double</PackageReleaseNotes>
+        <PackageReleaseNotes>Reverted percents in Cancellation Policy back to double, changed percents in discount to double</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
         <Version>1.4.7</Version>

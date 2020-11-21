@@ -6,7 +6,7 @@ namespace HappyTravel.EdoContracts.General
     public readonly struct Discount
     {
         [JsonConstructor]
-        public Discount(decimal percent, string? description = null)
+        public Discount(double percent, string? description = null)
         {
             Percent = percent;
             Description = description;
@@ -30,6 +30,6 @@ namespace HappyTravel.EdoContracts.General
         /// <summary>
         ///     Discount percentage.
         /// </summary>
-        public decimal Percent { get; }
+        public double Percent { get; }
     }
 }

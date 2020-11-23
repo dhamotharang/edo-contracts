@@ -7,8 +7,6 @@ namespace HappyTravel.EdoContracts.GeoData.Enums
     [JsonConverter(typeof(StringEnumConverter))]
     public enum PredictionSources
     {
-        NotSpecified = 0,
-
         [EnumMember(Value = "geocoder")]
         Google = 1,
 

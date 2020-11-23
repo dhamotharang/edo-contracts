@@ -9,7 +9,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct RoomOccupationRequest
     {
         [JsonConstructor]
-        public RoomOccupationRequest(int adultsNumber, List<int>? childrenAges = null, RoomTypes type = RoomTypes.NotSpecified,
+        public RoomOccupationRequest(int adultsNumber, List<int>? childrenAges = null, RoomTypes type = default,
             bool isExtraBedNeeded = false)
         {
             AdultsNumber = adultsNumber;

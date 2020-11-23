@@ -15,7 +15,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public RoomContract(BoardBasisTypes boardBasis, string mealPlan, int contractTypeCode, bool isAvailableImmediately,
             bool isDynamic, string contractDescription, List<KeyValuePair<string, string>> remarks,
             List<DailyRate> dailyRoomRates, Rate rate, int adultsNumber, List<int>? childrenAges = null,
-            RoomTypes type = RoomTypes.NotSpecified, bool isExtraBedNeeded = false,
+            RoomTypes type = default, bool isExtraBedNeeded = false,
             in Deadline deadline = default, bool isAdvancePurchaseRate = false)
         {
             BoardBasis = boardBasis;

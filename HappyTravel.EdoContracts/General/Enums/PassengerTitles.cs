@@ -7,9 +7,6 @@ namespace HappyTravel.EdoContracts.General.Enums
     [JsonConverter(typeof(StringEnumConverter))]
     public enum PassengerTitles
     {
-        [Description("")]
-        Unspecified = 0,
-
         [Description("Miss")]
         Miss = 1,
 

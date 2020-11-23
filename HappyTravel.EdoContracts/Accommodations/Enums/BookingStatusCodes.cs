@@ -13,45 +13,45 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
         ///     that something went wrong. A manual intervention is required.
         /// </summary>
         [Description("Internal Processing")]
-        InternalProcessing = 0,
+        InternalProcessing = 1,
 
         [Description("Awaiting Final Confirmation")]
-        WaitingForResponse = 1,
+        WaitingForResponse = 2,
 
         /// <summary>
         ///     The booking have been processing by a supplier, but the final decision hasn't made yet.
         /// </summary>
         [Description("Pending Request")]
-        Pending = 2,
+        Pending = 3,
 
         /// <summary>
         ///     The booking confirmed by a supplier.
         /// </summary>
         [Description("Confirmed")]
-        Confirmed = 3,
+        Confirmed = 4,
 
         /// <summary>
         ///     The booking cancelled by an agent or a supplier <b>in a usual flow</b>.
         /// </summary>
         [Description("Cancelled")]
-        Cancelled = 4,
+        Cancelled = 5,
 
         /// <summary>
         ///     A supplier rejected the booking.
         /// </summary>
         [Description("Rejected")]
-        Rejected = 5,
+        Rejected = 6,
 
         /// <summary>
         ///     The booking considered as invalid by a suppliers.
         /// </summary>
         [Description("Request Invalid")]
-        Invalid = 6,
+        Invalid = 7,
 
         /// <summary>
         ///     The booking not found on a supplier system.
         /// </summary>
         [Description("Not Found")]
-        NotFound = 7
+        NotFound = 8
     }
 }

@@ -8,24 +8,24 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
     public enum PoiTypes
     {
         [Description("Point of interest")]
-        PointOfInterest = 0,
+        PointOfInterest = 1,
 
         [Description("Airport")]
-        Airport = 1,
+        Airport = 2,
 
         [Description("Bus stop")]
-        Bus = 2,
+        Bus = 3,
 
         [Description("Center")]
-        Center = 3,
+        Center = 4,
 
         [Description("Fair")]
-        Fair = 4,
+        Fair = 5,
 
         [Description("Metro station")]
-        Metro = 5,
+        Metro = 6,
 
         [Description("Train station")]
-        Station = 6
+        Station = 7
     }
 }

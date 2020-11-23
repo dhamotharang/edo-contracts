@@ -2,7 +2,7 @@
 {
     public enum FieldTypes
     {
-        Boolean = 0,
-        String = 1
+        Boolean = 1,
+        String = 2
     }
 }

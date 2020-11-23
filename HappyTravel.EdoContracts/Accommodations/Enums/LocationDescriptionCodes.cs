@@ -7,8 +7,6 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
     [JsonConverter(typeof(StringEnumConverter))]
     public enum LocationDescriptionCodes
     {
-        Unspecified = 0,
-
         [Description("City center")]
         CityCenter = 1,
         Airport = 2,

@@ -8,24 +8,24 @@ namespace HappyTravel.EdoContracts.General.Enums
     public enum PaymentMethods
     {
         [Description("Other")]
-        Other = 0,
+        Other = 1,
 
         /// <summary>
         ///     A payment applied by a bank account
         /// </summary>
         [Description("Bank Transfer")]
-        BankTransfer = 1,
+        BankTransfer = 2,
 
         /// <summary>
         ///     A payment applied by a card
         /// </summary>
         [Description("Credit Card")]
-        CreditCard = 2,
+        CreditCard = 3,
 
         /// <summary>
         ///     A special type of payment applied outside of the system
         /// </summary>
         [Description("Offline")]
-        Offline = 3
+        Offline = 4
     }
 }

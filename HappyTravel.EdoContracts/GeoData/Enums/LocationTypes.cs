@@ -9,8 +9,6 @@ namespace HappyTravel.EdoContracts.GeoData.Enums
     [JsonConverter(typeof(StringEnumConverter))]
     public enum LocationTypes
     {
-        Unknown = 0,
-
         /// <summary>
         ///     A search must be done by destination (for example airport is destination, but we have not support this locationType
         ///     yet).

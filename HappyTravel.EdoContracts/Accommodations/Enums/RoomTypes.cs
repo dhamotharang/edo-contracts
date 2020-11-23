@@ -7,8 +7,6 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
     [JsonConverter(typeof(StringEnumConverter))]
     public enum RoomTypes
     {
-        [Description("Not specified")]
-        NotSpecified = 0,
         Single = 1,
 
         [Description("Single/Twin")]

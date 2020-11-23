@@ -7,18 +7,20 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
     [JsonConverter(typeof(StringEnumConverter))]
     public enum RoomTypes
     {
-        Single = 1,
+        [Description("Not specified")]
+        NotSpecified = 1,
+        Single = 2,
 
         [Description("Single/Twin")]
-        TwinOrSingle = 2,
-        Twin = 3,
-        Double = 4,
-        Triple = 5,
-        Quadruple = 6,
+        TwinOrSingle = 3,
+        Twin = 4,
+        Double = 5,
+        Triple = 6,
+        Quadruple = 7,
 
         /// <summary>
         ///     Family Room (2 adult + 2 extra bed).
         /// </summary>
-        Family = 7
+        Family = 8
     }
 }

@@ -6,11 +6,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
     [JsonConverter(typeof(StringEnumConverter))]
     public enum TextualDescriptionTypes
     {
-        Exterior = 1,
-        General = 2,
-        Lobby = 3,
-        Position = 4,
-        Restaurant = 5,
-        Room = 6
+        Unspecified = 1,
+        Exterior = 2,
+        General = 3,
+        Lobby = 4,
+        Position = 5,
+        Restaurant = 6,
+        Room = 7
     }
 }

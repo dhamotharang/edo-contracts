@@ -7,34 +7,36 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
     [JsonConverter(typeof(StringEnumConverter))]
     public enum LocationDescriptionCodes
     {
+        Unspecified = 1,
+
         [Description("City center")]
-        CityCenter = 1,
-        Airport = 2,
+        CityCenter = 2,
+        Airport = 3,
 
         [Description("Railway station")]
-        RailwayStation = 3,
-        Port = 4,
+        RailwayStation = 4,
+        Port = 5,
 
         [Description("Sea or beach")]
-        SeaOrBeach = 5,
+        SeaOrBeach = 6,
 
         [Description("Countryside")]
-        OpenCountry = 6,
-        Mountains = 7,
-        Peripherals = 8,
+        OpenCountry = 7,
+        Mountains = 8,
+        Peripherals = 9,
 
         [Description("Close to a city center")]
-        CloseToCityCentre = 9,
-        City = 10,
-        Island = 11,
-        Ranch = 12,
-        Boutique = 13,
+        CloseToCityCentre = 10,
+        City = 11,
+        Island = 12,
+        Ranch = 13,
+        Boutique = 14,
 
         [Description("Waterfront")]
-        WaterFront = 14,
+        WaterFront = 15,
 
         [Description("Oceanfront")]
-        OceanFront = 15,
-        Desert = 16
+        OceanFront = 16,
+        Desert = 17
     }
 }

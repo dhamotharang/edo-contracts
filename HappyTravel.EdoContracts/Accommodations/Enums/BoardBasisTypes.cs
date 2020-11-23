@@ -7,22 +7,25 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
     [JsonConverter(typeof(StringEnumConverter))]
     public enum BoardBasisTypes
     {
+        [Description("Not specified")]
+        NotSpecified = 1,
+
         [Description("Room only")]
-        RoomOnly = 1,
+        RoomOnly = 2,
 
         [Description("Self-catering")]
-        SelfCatering = 2,
+        SelfCatering = 3,
 
         [Description("Bed and breakfast")]
-        BedAndBreakfast = 3,
+        BedAndBreakfast = 4,
 
         [Description("Half board")]
-        HalfBoard = 4,
+        HalfBoard = 5,
 
         [Description("Full board")]
-        FullBoard = 5,
+        FullBoard = 6,
 
         [Description("All-inclusive")]
-        AllInclusive = 6
+        AllInclusive = 7
     }
 }

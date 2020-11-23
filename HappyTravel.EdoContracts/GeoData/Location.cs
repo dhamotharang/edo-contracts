@@ -21,7 +21,7 @@ namespace HappyTravel.EdoContracts.GeoData
         }
 
 
-        public Location(in GeoPoint coordinates, int distance, LocationTypes type = default)
+        public Location(in GeoPoint coordinates, int distance, LocationTypes type)
             : this(string.Empty, string.Empty, string.Empty, coordinates, distance, default, type)
         { }
 

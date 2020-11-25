@@ -9,25 +9,22 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
     [JsonConverter(typeof(StringEnumConverter))]
     public enum AccommodationRatings
     {
-        [Description("")]
-        Unknown = 1,
-
         [Description("Not rated")]
-        NotRated = 2,
+        NotRated = 1,
 
         [Description("One star")]
-        OneStar = 4,
+        OneStar = 2,
 
         [Description("Two stars")]
-        TwoStars = 8,
+        TwoStars = 4,
 
         [Description("Three stars")]
-        ThreeStars = 16,
+        ThreeStars = 8,
 
         [Description("Four stars")]
-        FourStars = 32,
+        FourStars = 16,
 
         [Description("Five stars")]
-        FiveStars = 64
+        FiveStars = 32
     }
 }

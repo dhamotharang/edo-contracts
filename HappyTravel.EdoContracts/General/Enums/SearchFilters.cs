@@ -8,33 +8,31 @@ namespace HappyTravel.EdoContracts.General.Enums
     [Flags]
     public enum SearchFilters
     {
-        Default = 1,
-
         /// <summary>
         ///     Returns only the available hotels
         /// </summary>
-        AvailableOnly = 2,
+        AvailableOnly = 1,
 
         /// <summary>
         ///     In the price comparison the system gives higher weight to the available hotels
         /// </summary>
-        AvailableWeighted = 4,
+        AvailableWeighted = 2,
 
         /// <summary>
         ///     Returns only the contract with the best price for each hotel
         /// </summary>
-        BestPrice = 8,
+        BestPrice = 4,
 
         /// <summary>
         ///     Returns the best price for each contract type of the hotels
         /// </summary>
-        BestContract = 16,
+        BestContract = 8,
 
         /// <summary>
         ///     Returns the best price for each room basis, regardless of the contract types. WARNING: right now this filter is
         ///     available only in live environment
         /// </summary>
-        BestRoomPlans = 32,
+        BestRoomPlans = 16,
 
         /// <summary>
         ///     The system will remove from the response all the contract typologies - statically mapped or dynamically achieved -
@@ -44,17 +42,17 @@ namespace HappyTravel.EdoContracts.General.Enums
         ///     the cancellation policies are in full charge and the created reservation would already be in cancellation deadline
         ///     in order to avoid the last few cases.
         /// </summary>
-        ExcludeNonRefundable = 64,
+        ExcludeNonRefundable = 32,
 
         /// <summary>
         ///     The system will remove from the response all the dynamic contracts
         /// </summary>
-        ExcludeDynamic = 128,
+        ExcludeDynamic = 64,
 
         /// <summary>
         ///     Default. Returns the best price for each different arrangement type of the hotels, for example one price for RB,
         ///     one for RO, one for HB...
         /// </summary>
-        BestArrangement = 256
+        BestArrangement = 128
     }
 }

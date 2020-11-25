@@ -8,8 +8,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Enums
     [Flags]
     public enum PropertyTypes
     {
-        Any = 1,
-        Hotels = 2,
-        Apartments = 4
+        Hotels = 1,
+        Apartments = 2
     }
 }

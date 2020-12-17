@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netcoreapp3.1;</TargetFrameworks>
+        <TargetFramework>net5.0</TargetFramework>
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -9,14 +9,15 @@
         <Company>HappyTravel</Company>
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-        <PackageReleaseNotes>Fixed Equals method of SlimLocationInfo</PackageReleaseNotes>
+        <PackageReleaseNotes>Added Multilingual accommodation models and removed not needed data from LocationInfo</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
-        <Version>1.4.9</Version>
+        <Version>1.5.0</Version>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HappyTravel.MultiLanguage" Version="1.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="HappyTravel.Geography" Version="1.1.1" />
   </ItemGroup>

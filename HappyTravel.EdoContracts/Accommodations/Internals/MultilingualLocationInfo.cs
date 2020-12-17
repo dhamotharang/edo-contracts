@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using HappyTravel.EdoContracts.Accommodations.Enums;
 using HappyTravel.Geography;
+using HappyTravel.MultiLanguage;
 using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.Accommodations.Internals
 {
-    [StructLayout(LayoutKind.Auto)]
-    public readonly struct LocationInfo
+    public readonly struct MultilingualLocationInfo
     {
         [JsonConstructor]
-        public LocationInfo(string countryCode, string country, string locality, string localityZone,
-            in GeoPoint coordinates, string address, LocationDescriptionCodes locationDescriptionCode, List<PoiInfo> pointsOfInterests,
-            bool isHistoricalBuilding = false)
+        public MultilingualLocationInfo(string countryCode, MultiLanguage<string> country, string supplierLocalityCode, MultiLanguage<string> locality,
+            string? supplierLocalityZoneCode, MultiLanguage<string> localityZone, in GeoPoint coordinates, string address,
+            LocationDescriptionCodes locationDescriptionCode, List<PoiInfo> pointsOfInterests, bool isHistoricalBuilding = false)
         {
             CountryCode = countryCode;
             Country = country;
@@ -23,6 +22,8 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             LocationDescriptionCode = locationDescriptionCode;
             PointsOfInterests = pointsOfInterests ?? new List<PoiInfo>(0);
             IsHistoricalBuilding = isHistoricalBuilding;
+            SupplierLocalityCode = supplierLocalityCode;
+            SupplierLocalityZoneCode = supplierLocalityZoneCode;
         }
 
 
@@ -42,9 +43,9 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public string CountryCode { get; }
 
         /// <summary>
-        ///     The location country name.
+        ///     The multilingual country name.
         /// </summary>
-        public string Country { get; }
+        public MultiLanguage<string> Country { get; }
 
         /// <summary>
         ///     Indicates if a location a historical place.
@@ -52,14 +53,25 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public bool IsHistoricalBuilding { get; }
 
         /// <summary>
-        ///     The locality name.
+        ///  Supplier locality code 
         /// </summary>
-        public string Locality { get; }
+        public string SupplierLocalityCode { get; }
 
         /// <summary>
-        ///     The locality zone name.
+        ///     The multilingual locality name.
         /// </summary>
-        public string LocalityZone { get; }
+        public MultiLanguage<string> Locality { get; }
+
+        /// <summary>
+        /// Supplier locality zone code
+        /// </summary>
+
+        public string? SupplierLocalityZoneCode { get; }
+
+        /// <summary>
+        ///     The multilingual locality zone name.
+        /// </summary>
+        public MultiLanguage<string> LocalityZone { get; }
 
         /// <summary>
         ///     The description of a location.

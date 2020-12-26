@@ -10,7 +10,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     {
         [JsonConstructor]
         public MultilingualLocationInfo(string countryCode, MultiLanguage<string> country, string supplierLocalityCode, MultiLanguage<string> locality,
-            string? supplierLocalityZoneCode, MultiLanguage<string> localityZone, in GeoPoint coordinates, string address,
+            string? supplierLocalityZoneCode, MultiLanguage<string> localityZone, in GeoPoint coordinates, MultiLanguage<string> address,
             LocationDescriptionCodes locationDescriptionCode, List<PoiInfo> pointsOfInterests, bool isHistoricalBuilding = false)
         {
             CountryCode = countryCode;
@@ -28,9 +28,9 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
 
         /// <summary>
-        ///     The location address.
+        ///     The multilingual location address.
         /// </summary>
-        public string Address { get; }
+        public MultiLanguage<string> Address { get; }
 
         /// <summary>
         ///     Location coordinates.

@@ -9,15 +9,15 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct MultilingualAccommodation
     {
         [JsonConstructor]
-        public MultilingualAccommodation(string supplierCode, MultiLanguage<string> name, List<string> accommodationAmenities,
-            Dictionary<string, string> additionalInfo,
-            string category, in ContactInfo contacts, in MultilingualLocationInfo location, List<ImageInfo> photos, AccommodationRatings rating,
-            in ScheduleInfo schedule, List<MultilingualTextualDescription> textualDescriptions, PropertyTypes type, UniqueAccommodationCodes? uniqueCodes = null,
-            string? hotelChain = null)
+        public MultilingualAccommodation(string supplierCode, MultiLanguage<string> name, MultiLanguage<List<string>> accommodationAmenities,
+            MultiLanguage<Dictionary<string, string>> additionalInfo, MultiLanguage<string> category, in ContactInfo contacts,
+            in MultilingualLocationInfo location, List<ImageInfo> photos, AccommodationRatings rating,
+            in ScheduleInfo schedule, List<MultilingualTextualDescription> textualDescriptions, PropertyTypes type,
+            UniqueAccommodationCodes? uniqueCodes = null, string? hotelChain = null)
         {
             SupplierCode = supplierCode;
-            AccommodationAmenities = accommodationAmenities ?? new List<string>(0);
-            AdditionalInfo = additionalInfo ?? new Dictionary<string, string>(0);
+            AccommodationAmenities = accommodationAmenities;
+            AdditionalInfo = additionalInfo;
             Category = category;
             Contacts = contacts;
             Rating = rating;
@@ -38,14 +38,14 @@ namespace HappyTravel.EdoContracts.Accommodations
         public string SupplierCode { get; }
 
         /// <summary>
-        ///     The multlingual accommodation name.
+        ///     The multilingual accommodation name.
         /// </summary>
         public MultiLanguage<string> Name { get; }
 
         /// <summary>
-        ///     The accommodation category.
+        ///     The multilingual accommodation category.
         /// </summary>
-        public string Category { get; }
+        public MultiLanguage<string> Category { get; }
 
         /// <summary>
         ///     Contact info.
@@ -93,13 +93,13 @@ namespace HappyTravel.EdoContracts.Accommodations
         public string? HotelChain { get; }
 
         /// <summary>
-        ///     The dictionary of amenities available in an accommodation.
+        ///     The multilinggual amenities available in an accommodation.
         /// </summary>
-        public List<string> AccommodationAmenities { get; }
+        public MultiLanguage<List<string>> AccommodationAmenities { get; }
 
         /// <summary>
-        ///     The dictionary of all other accommodation stats.
+        ///     The multilingual dictionary of all other accommodation stats.
         /// </summary>
-        public Dictionary<string, string> AdditionalInfo { get; }
+        public MultiLanguage<Dictionary<string, string>> AdditionalInfo { get; }
     }
 }

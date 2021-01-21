@@ -16,8 +16,8 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public AvailabilityRequest(string nationality, string residency, DateTime checkInDate, DateTime checkOutDate,
-            SearchFilters filters, List<RoomOccupationRequest> rooms, in Location location, PropertyTypes propertyTypes,
-            AccommodationRatings ratings)
+            SearchFilters filters, List<RoomOccupationRequest> rooms, in Location? location, PropertyTypes propertyTypes,
+            AccommodationRatings ratings, List<string>? accommodationIds = default)
         {
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
@@ -26,6 +26,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             Nationality = nationality;
             PropertyTypes = propertyTypes;
             Ratings = ratings;
+            AccommodationIds = accommodationIds ?? new List<string>();
             Residency = residency;
             Rooms = rooms ?? new List<RoomOccupationRequest>(0);
         }
@@ -48,10 +49,12 @@ namespace HappyTravel.EdoContracts.Accommodations
         /// </summary>
         public SearchFilters Filters { get; }
 
+        
         /// <summary>
         ///     The search location obtained from search predictions.
         /// </summary>
-        public Location Location { get; }
+        [Obsolete("Use AccommodationIds from mapper instead")]
+        public Location? Location { get; }
 
         /// <summary>
         ///     The lead passenger nationality.
@@ -68,6 +71,11 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The accommodation rating available to a search.
         /// </summary>
         public AccommodationRatings Ratings { get; }
+
+        /// <summary>
+        /// List of supplier accommodation ids to search.
+        /// </summary>
+        public List<string> AccommodationIds { get; }
 
         /// <summary>
         ///     The lead passenger residency.

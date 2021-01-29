@@ -9,9 +9,10 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct MultilingualLocationInfo
     {
         [JsonConstructor]
-        public MultilingualLocationInfo(string countryCode, MultiLanguage<string> country, string supplierLocalityCode, MultiLanguage<string> locality,
-            string? supplierLocalityZoneCode, MultiLanguage<string> localityZone, in GeoPoint coordinates, MultiLanguage<string> address,
-            LocationDescriptionCodes locationDescriptionCode, List<PoiInfo> pointsOfInterests, bool isHistoricalBuilding = false)
+        public MultilingualLocationInfo(string countryCode, MultiLanguage<string> country, in GeoPoint coordinates, MultiLanguage<string> address,
+            LocationDescriptionCodes locationDescriptionCode, List<PoiInfo> pointsOfInterests, string? supplierLocalityCode = null,
+            MultiLanguage<string>? locality = null, string? supplierLocalityZoneCode = null, MultiLanguage<string>? localityZone = null,
+            bool isHistoricalBuilding = false)
         {
             CountryCode = countryCode;
             Country = country;
@@ -55,12 +56,12 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         /// <summary>
         ///  Supplier locality code 
         /// </summary>
-        public string SupplierLocalityCode { get; }
+        public string? SupplierLocalityCode { get; }
 
         /// <summary>
         ///     The multilingual locality name.
         /// </summary>
-        public MultiLanguage<string> Locality { get; }
+        public MultiLanguage<string>? Locality { get; }
 
         /// <summary>
         /// Supplier locality zone code
@@ -71,7 +72,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         /// <summary>
         ///     The multilingual locality zone name.
         /// </summary>
-        public MultiLanguage<string> LocalityZone { get; }
+        public MultiLanguage<string>? LocalityZone { get; }
 
         /// <summary>
         ///     The description of a location.

@@ -10,13 +10,16 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct LocationInfo
     {
         [JsonConstructor]
-        public LocationInfo(string countryCode, string country, string locality, string localityZone,
-            in GeoPoint coordinates, string address, LocationDescriptionCodes locationDescriptionCode, List<PoiInfo> pointsOfInterests,
+        public LocationInfo(string countryCode, string countryHtId, string country, string? localityHtId, string? locality, string? localityZoneHtId,
+            string? localityZone, in GeoPoint coordinates, string address, LocationDescriptionCodes locationDescriptionCode, List<PoiInfo> pointsOfInterests,
             bool isHistoricalBuilding = false)
         {
             CountryCode = countryCode;
+            CountryHtId = countryHtId;
             Country = country;
             Locality = locality;
+            LocalityHtId = localityHtId;
+            LocalityZoneHtId = localityZoneHtId;
             LocalityZone = localityZone;
             Address = address;
             Coordinates = coordinates;
@@ -42,6 +45,11 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public string CountryCode { get; }
 
         /// <summary>
+        /// Happy Travel country Id
+        /// </summary>
+        public string CountryHtId { get; }
+
+        /// <summary>
         ///     The location country name.
         /// </summary>
         public string Country { get; }
@@ -52,14 +60,24 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public bool IsHistoricalBuilding { get; }
 
         /// <summary>
+        /// Happy Travel localityId
+        /// </summary>
+        public string? LocalityHtId { get; }
+
+        /// <summary>
         ///     The locality name.
         /// </summary>
-        public string Locality { get; }
+        public string? Locality { get; }
+
+        /// <summary>
+        /// Happy Travel locality zone Id
+        /// </summary>
+        public string? LocalityZoneHtId { get; }
 
         /// <summary>
         ///     The locality zone name.
         /// </summary>
-        public string LocalityZone { get; }
+        public string? LocalityZone { get; }
 
         /// <summary>
         ///     The description of a location.

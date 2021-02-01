@@ -1,20 +1,31 @@
 using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace HappyTravel.EdoContracts.StaticData
 {
     public readonly struct Country
     {
-        public Country(string code, string name, DateTime modifiedDate)
+        [JsonConstructor]
+        public Country(string code, string htId, string name, List<Locality> localities)
         {
             Code = code;
             Name = name;
-            ModifiedDate = modifiedDate;
+            HtId = htId;
+            Localities = localities;
         }
+
 
         /// <summary>
         ///  Country code in the ISO 3166-1 Alpha-2 format.
         /// </summary>
         public string Code { get; }
+
+
+        /// <summary>
+        /// Happy Travel Id
+        /// </summary>
+        public string HtId { get; }
 
         /// <summary>
         /// Country Name 
@@ -22,8 +33,8 @@ namespace HappyTravel.EdoContracts.StaticData
         public string Name { get; }
 
         /// <summary>
-        /// Country modified date in UTC format
+        /// List of localities in the country
         /// </summary>
-        public DateTime ModifiedDate { get; }
+        public List<Locality> Localities { get; }
     }
 }

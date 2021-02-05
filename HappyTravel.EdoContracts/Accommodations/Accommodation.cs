@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using HappyTravel.EdoContracts.Accommodations.Enums;
 using HappyTravel.EdoContracts.Accommodations.Internals;
@@ -14,7 +15,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             string category, in ContactInfo contacts, in LocationInfo location, List<ImageInfo> photos, AccommodationRatings rating,
             in ScheduleInfo schedule, List<TextualDescription> textualDescriptions, PropertyTypes type, string htId = "",
             UniqueAccommodationCodes? uniqueCodes = null,
-            string? hotelChain = null)
+            string? hotelChain = null, DateTime? modified = null)
         {
             Id = id;
             AccommodationAmenities = accommodationAmenities ?? new List<string>(0);
@@ -31,6 +32,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             HtId = htId;
             UniqueCodes = uniqueCodes;
             HotelChain = hotelChain;
+            Modified = modified;
         }
 
 
@@ -108,5 +110,10 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The dictionary of all other accommodation stats.
         /// </summary>
         public Dictionary<string, string> AdditionalInfo { get; }
+
+        /// <summary>
+        ///     The Modification date of accommodation data
+        /// </summary>
+        public DateTime? Modified { get; }
     }
 }

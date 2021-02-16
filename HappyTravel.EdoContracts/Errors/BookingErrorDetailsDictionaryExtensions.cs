@@ -15,12 +15,19 @@ namespace HappyTravel.EdoContracts.Errors
         }
 
 
-        public static BookingFailureCodes GetBookingFailureCode(this IDictionary<string, object> extensions)
+        public static bool TryGetBookingFailureCode(this IDictionary<string, object> extensions, out BookingFailureCodes failureCode)
         {
-            return (BookingFailureCodes) extensions[BookingFailureCodeKey];
+            if (!extensions.TryGetValue(BookingFailureCodeKey, out var code))
+            {
+                failureCode = BookingFailureCodes.Unknown;
+                return false;
+            }
+
+            failureCode = (BookingFailureCodes) code;
+            return true;
         }
         
         
-        private const string BookingFailureCodeKey = "BookingFailureCode";
+        private const string BookingFailureCodeKey = "booking-failure-code";
     }
 }

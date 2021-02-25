@@ -11,7 +11,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct RoomContractSet
     {
         [JsonConstructor]
-        public RoomContractSet(Guid id, in Rate rate, Deadline deadline, List<RoomContract> rooms, bool isAdvancePurchaseRate = false, List<string> systemTags)
+        public RoomContractSet(Guid id, in Rate rate, Deadline deadline, List<RoomContract> rooms, List<string> systemTags, bool isAdvancePurchaseRate = false)
         {
             Id = id;
             Rate = rate;

@@ -3,7 +3,7 @@
     public class CommonTags
     {
         /// <summary>
-        ///     The direct connectivity tag.
+        ///     This constant mark direct connectivity contracts.
         /// </summary>
         public const string DirectConnectivity = "direct-connectivity";
     }

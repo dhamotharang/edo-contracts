@@ -11,14 +11,14 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct RoomContractSet
     {
         [JsonConstructor]
-        public RoomContractSet(Guid id, in Rate rate, Deadline deadline, List<RoomContract> rooms, List<string> systemTags, bool isAdvancePurchaseRate = false)
+        public RoomContractSet(Guid id, in Rate rate, Deadline deadline, List<RoomContract> rooms, List<string> tags, bool isAdvancePurchaseRate = false)
         {
             Id = id;
             Rate = rate;
             Deadline = deadline;
             IsAdvancePurchaseRate = isAdvancePurchaseRate;
             RoomContracts = rooms ?? new List<RoomContract>(0);
-            SystemTags = systemTags ?? new List<string>(0);
+            Tags = tags ?? new List<string>(0);
         }
 
 
@@ -39,7 +39,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         /// <summary>
         ///     The list of system tags.
         /// </summary>
-        public List<string> SystemTags { get; }
+        public List<string> Tags { get; }
 
         public override bool Equals(object? obj) => obj is RoomContractSet other && Equals(other);
 

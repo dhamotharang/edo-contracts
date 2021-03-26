@@ -58,6 +58,6 @@ namespace HappyTravel.EdoContracts.General.Enums
         /// <summary>
         ///     Returns only direct contracts
         /// </summary>
-        DirectContractOnly = 256,
+        DirectContractsOnly = 256,
     }
 }

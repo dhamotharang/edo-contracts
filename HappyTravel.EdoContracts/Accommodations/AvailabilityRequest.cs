@@ -17,7 +17,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         [JsonConstructor]
         public AvailabilityRequest(string nationality, string residency, DateTime checkInDate, DateTime checkOutDate,
             SearchFilters filters, List<RoomOccupationRequest> rooms, in Location? location, PropertyTypes propertyTypes,
-            AccommodationRatings ratings, List<string>? accommodationIds = default)
+            AccommodationRatings ratings, bool isOnlyDirectContracts, List<string>? accommodationIds = default)
         {
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
@@ -29,6 +29,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             AccommodationIds = accommodationIds ?? new List<string>();
             Residency = residency;
             Rooms = rooms ?? new List<RoomOccupationRequest>(0);
+            IsOnlyDirectContracts = isOnlyDirectContracts;
         }
 
 
@@ -88,19 +89,24 @@ namespace HappyTravel.EdoContracts.Accommodations
         /// </summary>
         [Required]
         public List<RoomOccupationRequest> Rooms { get; }
+        
+        /// <summary>
+        ///     Only direct contract filter
+        /// </summary>
+        public bool IsOnlyDirectContracts { get; }
 
 
         public override bool Equals(object? obj) => obj is AvailabilityRequest other && Equals(other);
 
 
         public bool Equals(in AvailabilityRequest other)
-            => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency)
+            => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, IsOnlyDirectContracts)
                 .Equals((other.CheckInDate, other.CheckOutDate, other.Filters, other.Location, other.Nationality, other.PropertyTypes, other.Ratings,
-                    other.Residency)) &&
+                    other.Residency, IsOnlyDirectContracts)) &&
                 Rooms.SafeSequenceEqual(other.Rooms);
 
 
         public override int GetHashCode()
-            => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, Rooms).GetHashCode();
+            => (CheckInDate, CheckOutDate, Filters, Location, Nationality, PropertyTypes, Ratings, Residency, Rooms, IsOnlyDirectContracts).GetHashCode();
     }
 }

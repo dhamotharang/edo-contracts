@@ -53,6 +53,11 @@ namespace HappyTravel.EdoContracts.General.Enums
         ///     Default. Returns the best price for each different arrangement type of the hotels, for example one price for RB,
         ///     one for RO, one for HB...
         /// </summary>
-        BestArrangement = 128
+        BestArrangement = 128,
+        
+        /// <summary>
+        ///     Returns only direct contracts
+        /// </summary>
+        DirectContractOnly = 256,
     }
 }

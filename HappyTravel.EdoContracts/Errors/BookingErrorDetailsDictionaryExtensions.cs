@@ -17,13 +17,13 @@ namespace HappyTravel.EdoContracts.Errors
 
         public static bool TryGetBookingFailureCode(this IDictionary<string, object> extensions, out BookingFailureCodes failureCode)
         {
-            if (!extensions.TryGetValue(BookingFailureCodeKey, out var code))
+            if (!extensions.TryGetValue(BookingFailureCodeKey, out var code) || !(code is string codeValue))
             {
                 failureCode = BookingFailureCodes.Unknown;
                 return false;
             }
-
-            failureCode = (BookingFailureCodes) code;
+            
+            failureCode = Enum.Parse<BookingFailureCodes>(codeValue);
             return true;
         }
         

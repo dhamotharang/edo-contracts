@@ -12,7 +12,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public MultilingualAccommodation(string supplierCode, MultiLanguage<string> name, MultiLanguage<List<string>> accommodationAmenities,
             MultiLanguage<Dictionary<string, string>> additionalInfo, MultiLanguage<string> category, in ContactInfo contacts,
             in MultilingualLocationInfo location, List<ImageInfo> photos, AccommodationRatings rating,
-            in ScheduleInfo schedule, List<MultilingualTextualDescription> textualDescriptions, PropertyTypes type,
+            in ScheduleInfo schedule, List<MultilingualTextualDescription> textualDescriptions, PropertyTypes type, bool isActive,
             UniqueAccommodationCodes? uniqueCodes = null, string? hotelChain = null)
         {
             SupplierCode = supplierCode;
@@ -29,6 +29,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             Type = type;
             UniqueCodes = uniqueCodes;
             HotelChain = hotelChain;
+            IsActive = isActive;
         }
 
 
@@ -81,6 +82,11 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The type of a property.
         /// </summary>
         public PropertyTypes Type { get; }
+
+        /// <summary>
+        /// Indicates accommodation active or not on supplier side.
+        /// </summary>
+        public bool IsActive { get; }
 
         /// <summary>
         ///     Unique codes in external accommodation mapping services.

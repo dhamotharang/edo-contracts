@@ -12,7 +12,7 @@ namespace HappyTravel.EdoContracts.Accommodations
         public MultilingualAccommodation(string supplierCode, MultiLanguage<string> name, MultiLanguage<List<string>> accommodationAmenities,
             MultiLanguage<Dictionary<string, string>> additionalInfo, MultiLanguage<string> category, in ContactInfo contacts,
             in MultilingualLocationInfo location, List<ImageInfo> photos, AccommodationRatings rating,
-            in ScheduleInfo schedule, List<MultilingualTextualDescription> textualDescriptions, PropertyTypes type, bool hasDirectContract = false,
+            in ScheduleInfo schedule, List<MultilingualTextualDescription> textualDescriptions, PropertyTypes type, bool isActive, bool hasDirectContract = false,
             UniqueAccommodationCodes? uniqueCodes = null, string? hotelChain = null)
         {
             SupplierCode = supplierCode;
@@ -29,6 +29,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             Type = type;
             UniqueCodes = uniqueCodes;
             HotelChain = hotelChain;
+            IsActive = isActive;
             HasDirectContract = hasDirectContract;
         }
 
@@ -84,6 +85,11 @@ namespace HappyTravel.EdoContracts.Accommodations
         public PropertyTypes Type { get; }
 
         /// <summary>
+        /// Indicates accommodation active or not on supplier side.
+        /// </summary>
+        public bool IsActive { get; }
+
+        /// <summary>
         ///     Unique codes in external accommodation mapping services.
         /// </summary>
         public UniqueAccommodationCodes? UniqueCodes { get; }
@@ -102,8 +108,8 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The multilingual dictionary of all other accommodation stats.
         /// </summary>
         public MultiLanguage<Dictionary<string, string>> AdditionalInfo { get; }
-        
-        
+
+
         /// <summary>
         ///     Shows whether we have direct contract with accommodation.
         /// </summary>

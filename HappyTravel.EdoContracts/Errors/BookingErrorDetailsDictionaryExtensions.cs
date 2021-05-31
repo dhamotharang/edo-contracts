@@ -10,20 +10,22 @@ namespace HappyTravel.EdoContracts.Errors
         {
             if (extensions.TryGetValue(BookingFailureCodeKey, out _))
                 throw new Exception($"Key {failureCode} already exists");
-
-            extensions[BookingFailureCodeKey] = failureCode;
+            
+            extensions[BookingFailureCodeKey] = (int) failureCode;
         }
 
 
-        public static bool TryGetBookingFailureCode(this IDictionary<string, object> extensions, out BookingFailureCodes failureCode)
+        public static bool TryGetBookingFailureCode(this IDictionary<string, object> extensions, out int failureCode)
         {
-            if (!extensions.TryGetValue(BookingFailureCodeKey, out var code))
+            if (!extensions.TryGetValue(BookingFailureCodeKey, out var obj) || 
+                !(obj is int code) || 
+                !Enum.IsDefined(typeof(BookingFailureCodes), code)) 
             {
-                failureCode = BookingFailureCodes.Unknown;
+                failureCode = (int) BookingFailureCodes.Unknown;
                 return false;
-            }
-
-            failureCode = (BookingFailureCodes) code;
+            }  
+            failureCode = code;
+            
             return true;
         }
         

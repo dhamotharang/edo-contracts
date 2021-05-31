@@ -1,7 +1,6 @@
 namespace HappyTravel.EdoContracts.Accommodations.Enums
 {
-    // Newtonsoft ProblemDetailsConverter extracts the numbers as int64: https://github.com/dotnet/aspnetcore/blob/main/src/Mvc/Mvc.NewtonsoftJson/src/ProblemDetailsConverter.cs
-    public enum BookingFailureCodes : long
+    public enum BookingFailureCodes
     {
         Unknown = 0,
         ConnectorValidationFailed = 10,

@@ -15,17 +15,23 @@ namespace HappyTravel.EdoContracts.Errors
         }
 
 
-        public static bool TryGetBookingFailureCode(this IDictionary<string, object> extensions, out int failureCode)
+        public static bool TryGetBookingFailureCode(this IDictionary<string, object> extensions, out BookingFailureCodes failureCode)
         {
-            if (!extensions.TryGetValue(BookingFailureCodeKey, out var obj) || 
-                !(obj is int code) || 
-                !Enum.IsDefined(typeof(BookingFailureCodes), code)) 
+            if (!extensions.TryGetValue(BookingFailureCodeKey, out var obj))
             {
-                failureCode = (int) BookingFailureCodes.Unknown;
+                failureCode = BookingFailureCodes.Unknown;
                 return false;
-            }  
-            failureCode = code;
-            
+            }
+
+            // During deserialization of ProblemDetails code is deserialized as 'long' so we need to cast it to int explicitly
+            var code = (int) obj;
+            if (!Enum.IsDefined(typeof(BookingFailureCodes), code))
+            {
+                failureCode = BookingFailureCodes.Unknown;
+                return false;
+            }
+
+            failureCode = (BookingFailureCodes) code;
             return true;
         }
         

@@ -9,12 +9,12 @@
         <Company>HappyTravel</Company>
         <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
         <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-        <PackageReleaseNotes>Made not nullable AccommodationIds in AvailabilityRequest</PackageReleaseNotes>
+        <PackageReleaseNotes>Fixed booking failure code parsing</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
-        <Version>1.8.2</Version>
+        <Version>1.8.3</Version>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageVersion>1.8.2</PackageVersion>
+        <PackageVersion>1.8.3</PackageVersion>
     </PropertyGroup>
 
   <ItemGroup>

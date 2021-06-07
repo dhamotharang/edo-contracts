@@ -23,8 +23,8 @@ namespace HappyTravel.EdoContracts.Errors
                 return false;
             }
 
-            // During deserialization of ProblemDetails code is deserialized as 'long' so we need to cast it to int explicitly
-            var code = (int) obj;
+            // During deserialization of ProblemDetails code is deserialized as 'long' so we need to convert it to int explicitly
+            var code = Convert.ToInt32(obj);
             if (!Enum.IsDefined(typeof(BookingFailureCodes), code))
             {
                 failureCode = BookingFailureCodes.Unknown;

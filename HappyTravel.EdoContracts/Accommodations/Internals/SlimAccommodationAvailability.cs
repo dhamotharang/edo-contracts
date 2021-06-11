@@ -9,18 +9,18 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct SlimAccommodationAvailability
     {
         [JsonConstructor]
-        public SlimAccommodationAvailability(in SlimAccommodation accommodation, List<RoomContractSet> roomContractSets, string availabilityId)
+        public SlimAccommodationAvailability(string accommodationId, List<RoomContractSet> roomContractSets, string availabilityId)
         {
-            Accommodation = accommodation;
+            AccommodationId = accommodationId;
             AvailabilityId = availabilityId;
             RoomContractSets = roomContractSets ?? new List<RoomContractSet>(0);
         }
 
 
         /// <summary>
-        ///     Shrank information about a selected accommodation.
+        /// Supplier accommodation ID
         /// </summary>
-        public SlimAccommodation Accommodation { get; }
+        public string AccommodationId { get; }
 
         /// <summary>
         ///     The availability ID.
@@ -37,11 +37,9 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
 
 
         public bool Equals(in SlimAccommodationAvailability other)
-            => Accommodation
-                    .Equals(other.Accommodation) &&
-                RoomContractSets.SafeSequenceEqual(other.RoomContractSets) && AvailabilityId.Equals(other.AvailabilityId);
+            => RoomContractSets.SafeSequenceEqual(other.RoomContractSets) && AvailabilityId.Equals(other.AvailabilityId);
 
 
-        public override int GetHashCode() => (Accommodation, RoomContractSets, AvailabilityId).GetHashCode();
+        public override int GetHashCode() => (RoomContractSets, AvailabilityId).GetHashCode();
     }
 }

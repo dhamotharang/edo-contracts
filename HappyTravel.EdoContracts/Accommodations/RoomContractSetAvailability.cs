@@ -9,14 +9,14 @@ namespace HappyTravel.EdoContracts.Accommodations
     public readonly struct RoomContractSetAvailability
     {
         [JsonConstructor]
-        public RoomContractSetAvailability(string availabilityId, DateTime checkInDate,
-            DateTime checkOutDate, int numberOfNights, in SlimAccommodation accommodation, in RoomContractSet roomContractSet)
+        public RoomContractSetAvailability(string availabilityId, string accommodationId, DateTime checkInDate,
+            DateTime checkOutDate, int numberOfNights, RoomContractSet roomContractSet)
         {
             AvailabilityId = availabilityId;
+            AccommodationId = accommodationId;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
             NumberOfNights = numberOfNights;
-            Accommodation = accommodation;
             RoomContractSet = roomContractSet;
         }
 
@@ -25,6 +25,11 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The availability ID.
         /// </summary>
         public string AvailabilityId { get; }
+
+        /// <summary>
+        /// Supplier accommodation ID
+        /// </summary>
+        public string AccommodationId { get; }
 
         /// <summary>
         ///     The check-in date.
@@ -40,11 +45,6 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The number of nights to stay.
         /// </summary>
         public int NumberOfNights { get; }
-
-        /// <summary>
-        ///     Information about a selected accommodation.
-        /// </summary>
-        public SlimAccommodation Accommodation { get; }
 
         /// <summary>
         ///     Information about a selected room contract set.

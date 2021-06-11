@@ -82,7 +82,8 @@ namespace HappyTravel.EdoContracts.Accommodations
         public List<RoomOccupationRequest> Rooms { get; }
 
 
-        public override bool Equals(object? obj) => obj is AvailabilityRequest other && Equals(other);
+        public override bool Equals(object? obj) 
+            => obj is AvailabilityRequest other && Equals(other);
 
 
         public bool Equals(in AvailabilityRequest other)

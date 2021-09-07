@@ -30,7 +30,7 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public string Holder { get; }
         
         /// <summary>
-        /// Card sectr
+        /// Card secret code (CVC)
         /// </summary>
         public string Code { get; }
     }

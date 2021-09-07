@@ -11,11 +11,12 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public BookingRequest(string availabilityId, in Guid roomContractSetId, string referenceCode, List<SlimRoomOccupation> rooms, List<Feature> features,
-            bool rejectIfUnavailable = true)
+            CreditCard? creditCard = null, bool rejectIfUnavailable = true)
         {
             AvailabilityId = availabilityId;
             RoomContractSetId = roomContractSetId;
             ReferenceCode = referenceCode;
+            CreditCard = creditCard;
             RejectIfUnavailable = rejectIfUnavailable;
 
             Rooms = rooms ?? new List<SlimRoomOccupation>(0);
@@ -37,6 +38,11 @@ namespace HappyTravel.EdoContracts.Accommodations
         ///     The Happytravel.com reference code.
         /// </summary>
         public string ReferenceCode { get; }
+
+        /// <summary>
+        /// Credit card needed for booking
+        /// </summary>
+        public CreditCard? CreditCard { get; }
 
         /// <summary>
         ///     If the flag is set a booking will be rejected in case of unavailability. In the other case the booking will be

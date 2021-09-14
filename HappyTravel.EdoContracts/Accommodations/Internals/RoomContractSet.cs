@@ -11,12 +11,15 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
     public readonly struct RoomContractSet
     {
         [JsonConstructor]
-        public RoomContractSet(Guid id, in Rate rate, Deadline deadline, List<RoomContract> rooms, List<string> tags, bool isDirectContract, bool isAdvancePurchaseRate = false)
+        public RoomContractSet(Guid id, in Rate rate, Deadline deadline, List<RoomContract> rooms, List<string> tags, bool isDirectContract, 
+            bool isAdvancePurchaseRate, bool isPackageRate)
         {
             Id = id;
             Rate = rate;
             Deadline = deadline;
+            Rooms = rooms;
             IsAdvancePurchaseRate = isAdvancePurchaseRate;
+            IsPackageRate = isPackageRate;
             RoomContracts = rooms ?? new List<RoomContract>(0);
             Tags = tags ?? new List<string>(0);
             IsDirectContract = isDirectContract;
@@ -31,16 +34,34 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         ///     The total set price.
         /// </summary>
         public Rate Rate { get; }
+        
         public Deadline Deadline { get; }
+        
+        /// <summary>
+        /// Rooms in set
+        /// </summary>
+        public List<RoomContract> Rooms { get; }
+        
+        /// <summary>
+        /// Indicates that rate is advanced purchase or non-refundable
+        /// </summary>
         public bool IsAdvancePurchaseRate { get; }
+        
+        /// <summary>
+        /// Indicates that rates must be sold as a package
+        /// </summary>
+        public bool IsPackageRate { get; }
+
         /// <summary>
         ///     The list of room contracts within a set.
         /// </summary>
         public List<RoomContract> RoomContracts { get; }
+        
         /// <summary>
         ///     The list of system tags.
         /// </summary>
         public List<string> Tags { get; }
+        
         /// <summary>
         ///     Is direct contract mark
         /// </summary>

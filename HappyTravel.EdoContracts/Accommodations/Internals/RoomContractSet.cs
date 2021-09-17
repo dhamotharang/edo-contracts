@@ -17,7 +17,6 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
             Id = id;
             Rate = rate;
             Deadline = deadline;
-            Rooms = rooms;
             IsAdvancePurchaseRate = isAdvancePurchaseRate;
             IsPackageRate = isPackageRate;
             RoomContracts = rooms ?? new List<RoomContract>(0);
@@ -36,11 +35,6 @@ namespace HappyTravel.EdoContracts.Accommodations.Internals
         public Rate Rate { get; }
         
         public Deadline Deadline { get; }
-        
-        /// <summary>
-        /// Rooms in set
-        /// </summary>
-        public List<RoomContract> Rooms { get; }
         
         /// <summary>
         /// Indicates that rate is advanced purchase or non-refundable

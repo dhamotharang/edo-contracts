@@ -54,7 +54,8 @@ namespace HappyTravel.EdoContracts.Accommodations
         public List<SlimAccommodationAvailability> Results { get; }
 
 
-        public override bool Equals(object? obj) => obj is Availability other && Equals(other);
+        public override bool Equals(object? obj)
+            => obj is Availability other && Equals(other);
 
 
         public bool Equals(in Availability other)
@@ -62,6 +63,7 @@ namespace HappyTravel.EdoContracts.Accommodations
                 Results.SafeSequenceEqual(other.Results);
 
 
-        public override int GetHashCode() => (AvailabilityId, CheckInDate, NumberOfNights, Results).GetHashCode();
+        public override int GetHashCode()
+            => (AvailabilityId, CheckInDate, NumberOfNights, Results).GetHashCode();
     }
 }

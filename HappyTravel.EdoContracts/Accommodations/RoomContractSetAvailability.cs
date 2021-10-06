@@ -10,7 +10,7 @@ namespace HappyTravel.EdoContracts.Accommodations
     {
         [JsonConstructor]
         public RoomContractSetAvailability(string availabilityId, string accommodationId, DateTime checkInDate,
-            DateTime checkOutDate, int numberOfNights, RoomContractSet roomContractSet, bool isCreditCardNeeded)
+            DateTime checkOutDate, int numberOfNights, RoomContractSet roomContractSet, CreditCardRequirement? creditCardRequirement = null)
         {
             AvailabilityId = availabilityId;
             AccommodationId = accommodationId;
@@ -18,7 +18,7 @@ namespace HappyTravel.EdoContracts.Accommodations
             CheckOutDate = checkOutDate;
             NumberOfNights = numberOfNights;
             RoomContractSet = roomContractSet;
-            IsCreditCardNeeded = isCreditCardNeeded;
+            CreditCardRequirement = creditCardRequirement;
         }
 
 
@@ -53,8 +53,8 @@ namespace HappyTravel.EdoContracts.Accommodations
         public RoomContractSet RoomContractSet { get; }
 
         /// <summary>
-        /// True if credit card need to be passed in booking request
+        /// Requirement for credit card to add in booking request. Null if credit card is not required.
         /// </summary>
-        public bool IsCreditCardNeeded { get; }
+        public CreditCardRequirement? CreditCardRequirement { get; }
     }
 }

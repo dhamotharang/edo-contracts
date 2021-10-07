@@ -8,12 +8,12 @@
     <Company>HappyTravel</Company>
     <Authors>Hasmik Harutyunyan, Oleg Konovalov, Vadim Mingazhev, Kirill Taran</Authors>
     <Description>Inter-service contracts for accommodation data transfer etc.</Description>
-    <PackageReleaseNotes>Update Money package version</PackageReleaseNotes>
+    <PackageReleaseNotes>Added credit card requirement</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/happy-travel/edo-contracts</PackageProjectUrl>
     <RepositoryURL>https://github.com/happy-travel/edo-contracts</RepositoryURL>
-    <Version>2.2.2</Version>
+    <Version>2.2.3</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageVersion>2.2.2</PackageVersion>
+    <PackageVersion>2.2.3</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="HappyTravel.MultiLanguage" Version="1.0.2" />
